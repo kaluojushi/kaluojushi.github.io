@@ -1,0 +1,401 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="卡洛的核心舱"><title>Markdown基本语法与示例 | 卡洛的核心舱</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Markdown基本语法与示例</h1><a id="logo" href="/.">卡洛的核心舱</a><p class="description">Tomorrow will be fine.</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/links/"><i class="fa fa-link"> 友链</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Markdown基本语法与示例</h1><div class="post-meta">2021-08-04<span> | </span><span class="category"><a href="/categories/markdown/">Markdown</a></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 2k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i><span class="post-count"> 7</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0%E3%80%81%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-text">0、简单介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%A0%87%E9%A2%98"><span class="toc-text">1、标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%AD%97%E4%BD%93"><span class="toc-text">2、字体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B2%97%E4%BD%93"><span class="toc-text">粗体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%9C%E4%BD%93"><span class="toc-text">斜体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E4%BA%AE"><span class="toc-text">高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-text">删除线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%BC%95%E7%94%A8"><span class="toc-text">3、引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-text">4、分割线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81HTML"><span class="toc-text">5、HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-text">6、超链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E5%9B%BE%E7%89%87"><span class="toc-text">7、图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E5%88%97%E8%A1%A8"><span class="toc-text">8、列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97"><span class="toc-text">列表嵌套</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9%E3%80%81%E4%BB%A3%E7%A0%81"><span class="toc-text">9、代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="toc-text">行内代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-text">代码块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E3%80%81%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="toc-text">10、数学公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11%E3%80%81%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8%EF%BC%88Todo-List%EF%BC%89"><span class="toc-text">11、任务列表（Todo List）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12%E3%80%81%E8%A1%A8%E6%A0%BC"><span class="toc-text">12、表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13%E3%80%81%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-text">13、转义字符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-text">Markdown转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-text">HTML转义字符</span></a></li></ol></li></ol></div></div><div class="post-content"><p>Markdown是一种纯文本格式标记语言，它通过简单的标记语法实现了格式排版，且易学、易读、易写，因此非常流行。本文及本博客的文章均使用Markdown语法书写。</p>
+<span id="more"></span>
+
+<h2 id="0、简单介绍"><a href="#0、简单介绍" class="headerlink" title="0、简单介绍"></a>0、简单介绍</h2><p><strong>优点：</strong></p>
+<ol>
+<li>纯文本，编辑效果一致，可以无视排版，专心写作。</li>
+<li>操作简单，例如新增标题只需要在标题内容前加<code>#</code>即可。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>需要记一些语法，但非常简单。</li>
+<li>有些平台不支持Markdown编辑模式。</li>
+</ol>
+<p><strong>常用编辑器：</strong></p>
+<ul>
+<li>Typora（Windows，大力推荐，与其他编辑器不同的是编辑效果即排版效果，无需左右分栏对照）</li>
+<li>Simplenote（IOS，免费，支持中文、云端存储、iPad）</li>
+</ul>
+<h2 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h2><p>标题文字前面加<code>#</code>即可，注意<code>#</code>与文字之间要有空格。几级标题加几个<code>#</code>，共有六级标题。例如本段落标题的源码为：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 1、标题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2、字体"><a href="#2、字体" class="headerlink" title="2、字体"></a>2、字体</h2><h3 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h3><p>使用<code>**</code>或<code>__</code>包在文字两端。例如：<code>**粗体**</code>效果为<strong>粗体</strong>。</p>
+<h3 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h3><p>使用<code>*</code>或<code>_</code>包在文字两端。例如：<code>*斜体*</code>效果为<em>斜体</em>。（这里显示为粗体斜体，但是Typora显示为纯斜体）</p>
+<p>当然，粗体斜体可以嵌套使用，例如：<code>***粗体+斜体***</code>效果为<em><strong>粗体+斜体</strong></em>。</p>
+<h3 id="高亮"><a href="#高亮" class="headerlink" title="高亮"></a>高亮</h3><p><del>使用<code>==</code>包在文字两端。例如：<code>==高亮==</code>效果为==高亮==。</del></p>
+<p>Typora需要设置开启高亮。并且如你所见，核心舱不支持高亮。</p>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>使用<code>~~</code>包在文字两端。例如：<code>~~删除线~~</code>效果为<del>删除线</del>。</p>
+<h2 id="3、引用"><a href="#3、引用" class="headerlink" title="3、引用"></a>3、引用</h2><p>引用文字前面加<code>&gt;</code>即可。引用可以嵌套，使用<code>&gt;&gt;</code>、<code>&gt;&gt;&gt;</code>……以此类推。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 一级引用</span></span><br><span class="line">&gt;&gt; 二级引用</span><br><span class="line">&gt;&gt;&gt;&gt;&gt; 五级引用</span><br><span class="line"><span class="quote">&gt; &gt; &gt;</span></span><br><span class="line"><span class="quote">&gt; 回退到三级引用</span></span><br><span class="line"><span class="quote">&gt;</span></span><br><span class="line"><span class="quote">&gt; 回退到一级引用</span></span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<blockquote>
+<p>一级引用</p>
+<blockquote>
+<p>二级引用</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>五级引用</p>
+</blockquote>
+</blockquote>
+<p>回退到三级引用</p>
+</blockquote>
+</blockquote>
+<p>回退到一级引用</p>
+</blockquote>
+<p><del>怎么这么丑啊……</del>Typora里的效果是这样的：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/markdown-quote.png" alt="Typora的引用效果"></p>
+<h2 id="4、分割线"><a href="#4、分割线" class="headerlink" title="4、分割线"></a>4、分割线</h2><p>三个或三个以上的<code>-</code>或<code>*</code>（Typora还支持<code>+</code>）。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">---</span></span><br><span class="line">-----</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="strong">****</span>*</span></span></span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<hr>
+<hr>
+<hr>
+<hr>
+<p>（一毛一样）</p>
+<h2 id="5、HTML"><a href="#5、HTML" class="headerlink" title="5、HTML"></a>5、HTML</h2><p>直接输入就行，会自动渲染。例如：<code>&lt;b&gt;HTML加粗&lt;/b&gt;</code>效果为<b>HTML加粗</b>。再例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">face</span>=<span class="string">&quot;黑体&quot;</span> <span class="attr">size</span>=<span class="string">&quot;5&quot;</span> <span class="attr">color</span>=<span class="string">&quot;red&quot;</span>&gt;</span>HTML内容<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<p><font face="黑体" size="5" color="red">HTML内容</font></p>
+<p>甚至可以来段更复杂的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">用户名: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;user&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">密　码: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">性　别: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;男&quot;</span> <span class="attr">checked</span>&gt;</span>男<span class="symbol">&amp;nbsp;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;女&quot;</span>&gt;</span>女<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;Submit&quot;</span> <span class="attr">Onclick</span>=<span class="string">&quot;alert(&#x27;成功&#x27;)&quot;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">name</span>=<span class="string">&quot;Reset&quot;</span>&gt;</span>重置<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<form>
+用户名: <input type="text" name="user"><br>
+密　码: <input type="password" name="pwd"><br>
+性　别: <input type="radio" name="sex" value="男" checked>男&nbsp;
+    <input type="radio" name="sex" value="女">女<br>
+<button type="button" name="Submit" Onclick="alert('成功')">提交</button>
+<button type="reset" name="Reset">重置</button>
+</form>
+
+<p>（点一下试试）</p>
+<h2 id="6、超链接"><a href="#6、超链接" class="headerlink" title="6、超链接"></a>6、超链接</h2><p>使用<code>[name](link &quot;tooltip&quot;)</code>表示超链接，其中<code>name</code>是超链接文字，<code>link</code>是超链接地址，<code>tooltip</code>是悬浮文字提示（可选）。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">卡洛的核心舱</span>](<span class="link">https://corecabin.cn &quot;你好&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<p><a href="https://corecabin.cn/" title="你好">卡洛的核心舱</a></p>
+<p>还可以用html的a标签，例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://corecabin.cn&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>卡洛的核心舱<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<p><a href="https://corecabin.cn" target="_blank">卡洛的核心舱</a></p>
+<p>其中<code>target=&quot;_blank&quot;</code>表示在新标签打开。</p>
+<p>当遇到纯链接时，可以用<code>&lt;</code>和<code>&gt;</code>将其包起来，防止后面的文字被解析，例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">&lt;https://corecabin.cn/&gt;</span>这是包起来的效果</span><br><span class="line">https://corecabin.cn/这是不包起来的效果</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://corecabin.cn/">https://corecabin.cn/</a>这是包起来的效果<br><a href="https://corecabin.cn/%E8%BF%99%E6%98%AF%E4%B8%8D%E5%8C%85%E8%B5%B7%E6%9D%A5%E7%9A%84%E6%95%88%E6%9E%9C">https://corecabin.cn/这是不包起来的效果</a></p>
+<h2 id="7、图片"><a href="#7、图片" class="headerlink" title="7、图片"></a>7、图片</h2><p>使用<code>![text](link &quot;tooltip&quot;)</code>表示图片，其中<code>text</code>是显示在图片下方的说明，<code>link</code>是图片路径，可以用相对路径、绝对路径、互联网路径，<code>tooltip</code>是悬浮文字提示（可选）。</p>
+<p>例如（互联网路径）：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">中国空间站</span>](<span class="link">https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/kongjianzhan.jpg &quot;天和核心舱&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/kongjianzhan.jpg" alt="中国空间站" title="天和核心舱"></p>
+<p>以及套娃设置图片的超链接，例如（相对路径）：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">![卡洛的核心舱</span>](<span class="link">/img/corecabin.png</span>)](<span class="link">https://corecabin.cn</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果为：</p>
+<p><a href="https://corecabin.cn/"><img src="/img/corecabin.png" alt="卡洛的核心舱"></a></p>
+<h2 id="8、列表"><a href="#8、列表" class="headerlink" title="8、列表"></a>8、列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>文字前面加<code>-</code>或<code>*</code>或<code>+</code>即可，注意符号与文字之间要有空格。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 无序列表1</span><br><span class="line"><span class="bullet">*</span> 无序列表2</span><br><span class="line"><span class="bullet">+</span> 无序列表3</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<ul>
+<li>无序列表1</li>
+</ul>
+<ul>
+<li>无序列表2</li>
+</ul>
+<ul>
+<li>无序列表3</li>
+</ul>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>文字前面加数字与<code>.</code>即可，注意符号与文字之间要有空格。注意显示效果与实际输入数字无关，而与当前次序有关。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一点</span><br><span class="line"><span class="bullet">2.</span> 第二点</span><br><span class="line"><span class="bullet">4.</span> 大概是第四点？</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<ol>
+<li>第一点</li>
+<li>第二点</li>
+<li>大概是第四点？</li>
+</ol>
+<h3 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h3><p>不同级列表之间通过缩进即可嵌套，例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 一级无序</span><br><span class="line"><span class="bullet">	+</span> 二级无序1</span><br><span class="line"><span class="bullet">	+</span> 二级无序2</span><br><span class="line"><span class="bullet">1.</span> 一级有序</span><br><span class="line"><span class="bullet">	1.</span> 二级有序</span><br><span class="line"><span class="bullet">		+</span> 三级无序</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<ul>
+<li>一级无序<ul>
+<li>二级无序1</li>
+<li>二级无序2</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>一级有序<ol>
+<li>二级有序<ul>
+<li>三级无序</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="9、代码"><a href="#9、代码" class="headerlink" title="9、代码"></a>9、代码</h2><h3 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h3><p>使用“`”包在代码两端。例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`javascript`</span></span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<p><code>javascript</code></p>
+<p>本文也大量用到行内代码表示文字高亮。</p>
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>使用3个“`”包在代码两端，第一行可以加入代码语言，例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```javascript</span></span><br><span class="line"><span class="code">function fact(num) &#123;</span></span><br><span class="line"><span class="code">	if (num === 1) &#123;</span></span><br><span class="line"><span class="code">		return 1;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">	else &#123;</span></span><br><span class="line"><span class="code">		return num * fact(num - 1);</span></span><br><span class="line"><span class="code">	&#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (num === <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> num * fact(num - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本文也大量用到代码块表示Markdown示例。</p>
+<h2 id="10、数学公式"><a href="#10、数学公式" class="headerlink" title="10、数学公式"></a>10、数学公式</h2><p>Markdown支持Latex公式。行内公式用<code>$</code>包在公式两端（Typora需要设置开启），公式块用<code>$$</code>包在公式两端，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当 $a \ne 0$, 此方程式有两个解 $ax^2 + bx + c = 0$，他们是</span><br><span class="line">$$x = &#123;-b \pm \sqrt&#123;b^2-4ac&#125; \over 2a&#125;.$$</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<p>当 $a \ne 0$, 此方程式有两个解 $ax^2 + bx + c = 0$，他们是<br>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$​</p>
+<h2 id="11、任务列表（Todo-List）"><a href="#11、任务列表（Todo-List）" class="headerlink" title="11、任务列表（Todo List）"></a>11、任务列表（Todo List）</h2><p>文字前面加<code>- [ ] </code>或<code>- [x] </code>即可，空格表示未完成，<code>x</code>表示已完成。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] 甜甜圈</span><br><span class="line"><span class="bullet">-</span> [x] 珍珠奶茶</span><br><span class="line"><span class="bullet">-</span> [ ] 方便面</span><br><span class="line"><span class="bullet">-</span> [x] 火锅</span><br><span class="line"><span class="bullet">-</span> [ ] 米饭</span><br><span class="line"><span class="bullet">-</span> [ ] 大盘鸡</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 甜甜圈</li>
+<li><input checked="" disabled="" type="checkbox"> 珍珠奶茶</li>
+<li><input disabled="" type="checkbox"> 方便面</li>
+<li><input checked="" disabled="" type="checkbox"> 火锅</li>
+<li><input disabled="" type="checkbox"> 米饭</li>
+<li><input disabled="" type="checkbox"> 大盘鸡</li>
+</ul>
+<h2 id="12、表格"><a href="#12、表格" class="headerlink" title="12、表格"></a>12、表格</h2><p>语法为：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|---|---</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br></pre></td></tr></table></figure>
+
+<p>第二行用来分割表头与内容。<code>-</code>的个数有一个就行，此处多加了几个。</p>
+<p>文字默认居左。<code>-</code>的两边加<code>:</code>表示该列居中，<code>-</code>的右边加<code>:</code>表示该列居右。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">姓名（居左）|年级（居中）|年龄（居右）</span><br><span class="line">-----|:-----:|-----:</span><br><span class="line">张三|大三|21</span><br><span class="line">李四|大一|18</span><br><span class="line">王五|研二|24</span><br></pre></td></tr></table></figure>
+
+<p>效果为</p>
+<table>
+<thead>
+<tr>
+<th>姓名（居左）</th>
+<th align="center">年级（居中）</th>
+<th align="right">年龄（居右）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td align="center">大三</td>
+<td align="right">21</td>
+</tr>
+<tr>
+<td>李四</td>
+<td align="center">大一</td>
+<td align="right">18</td>
+</tr>
+<tr>
+<td>王五</td>
+<td align="center">研二</td>
+<td align="right">24</td>
+</tr>
+</tbody></table>
+<h2 id="13、转义字符"><a href="#13、转义字符" class="headerlink" title="13、转义字符"></a>13、转义字符</h2><p>在输入特殊符号，尤其是Markdown和HTML中的部分符号时，可以使用转义字符。</p>
+<h3 id="Markdown转义字符"><a href="#Markdown转义字符" class="headerlink" title="Markdown转义字符"></a>Markdown转义字符</h3><p>使用<code>\</code>置于符号前。</p>
+<p>例如输入<code>*你好*</code>会显示<em>你好</em>，输入<code>\*你好\*</code>效果为*你好*。</p>
+<p>具体如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">含义</th>
+<th align="center">转义字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\</td>
+<td align="center">反斜杠</td>
+<td align="center"><code>\\</code></td>
+</tr>
+<tr>
+<td align="center"><span>`</span></td>
+<td align="center">反引号</td>
+<td align="center"><span>\`</span></td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">星号</td>
+<td align="center"><code>\*</code></td>
+</tr>
+<tr>
+<td align="center">_</td>
+<td align="center">下划线</td>
+<td align="center"><code>\_</code></td>
+</tr>
+<tr>
+<td align="center">{}</td>
+<td align="center">花括号</td>
+<td align="center"><code>\&#123;\&#125;</code></td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">方括号</td>
+<td align="center"><code>\[\]</code></td>
+</tr>
+<tr>
+<td align="center">()</td>
+<td align="center">小括号</td>
+<td align="center"><code>\(\)</code></td>
+</tr>
+<tr>
+<td align="center">#</td>
+<td align="center">井号</td>
+<td align="center"><code>\#</code></td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">加号</td>
+<td align="center"><code>\+</code></td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">减号</td>
+<td align="center"><code>\-</code></td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">英文句点</td>
+<td align="center"><code>\.</code></td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center">英文感叹号</td>
+<td align="center"><code>\!</code></td>
+</tr>
+</tbody></table>
+<h3 id="HTML转义字符"><a href="#HTML转义字符" class="headerlink" title="HTML转义字符"></a>HTML转义字符</h3><p>直接输入HTML转义字符，具体如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">显示结果</th>
+<th align="center">描述</th>
+<th align="center">输入</th>
+<th align="center">实体编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">空格</td>
+<td align="center"><code>&amp;nbsp;</code></td>
+<td align="center"><code>&amp;#160;</code></td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于号</td>
+<td align="center"><code>&amp;lt;</code></td>
+<td align="center"><code>&amp;#60;</code></td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">大于号</td>
+<td align="center"><code>&amp;gt;</code></td>
+<td align="center"><code>&amp;#62;</code></td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center">和号</td>
+<td align="center"><code>&amp;amp;</code></td>
+<td align="center"><code>&amp;#38;</code></td>
+</tr>
+<tr>
+<td align="center">“</td>
+<td align="center">引号</td>
+<td align="center"><code>&amp;quot;</code></td>
+<td align="center"><code>&amp;#34;</code></td>
+</tr>
+<tr>
+<td align="center">‘</td>
+<td align="center">撇号</td>
+<td align="center"><code>&amp;apos; </code>(IE不支持)</td>
+<td align="center"><code>&amp;#39;</code></td>
+</tr>
+<tr>
+<td align="center">￠</td>
+<td align="center">分</td>
+<td align="center"><code>&amp;cent;</code></td>
+<td align="center"><code>&amp;#162;</code></td>
+</tr>
+<tr>
+<td align="center">£</td>
+<td align="center">镑</td>
+<td align="center"><code>&amp;pound;</code></td>
+<td align="center"><code>&amp;#163;</code></td>
+</tr>
+<tr>
+<td align="center">¥</td>
+<td align="center">日圆</td>
+<td align="center"><code>&amp;yen;</code></td>
+<td align="center"><code>&amp;#165;</code></td>
+</tr>
+<tr>
+<td align="center">§</td>
+<td align="center">节</td>
+<td align="center"><code>&amp;sect;</code></td>
+<td align="center"><code>&amp;#167;</code></td>
+</tr>
+<tr>
+<td align="center">©</td>
+<td align="center">版权</td>
+<td align="center"><code>&amp;copy;</code></td>
+<td align="center"><code>&amp;#169;</code></td>
+</tr>
+<tr>
+<td align="center">®</td>
+<td align="center">注册商标</td>
+<td align="center"><code>&amp;reg;</code></td>
+<td align="center"><code>&amp;#174;</code></td>
+</tr>
+<tr>
+<td align="center">×</td>
+<td align="center">乘号</td>
+<td align="center"><code>&amp;times;</code></td>
+<td align="center"><code>&amp;#215;</code></td>
+</tr>
+<tr>
+<td align="center">÷</td>
+<td align="center">除号</td>
+<td align="center"><code>&amp;divide;</code></td>
+<td align="center"><code>&amp;#247;</code></td>
+</tr>
+</tbody></table>
+</div><div class="tags"><a href="/tags/technique/"><i class="fa fa-tag"></i>技术</a><a href="/tags/Markdown/"><i class="fa fa-tag"></i>Markdown</a><a href="/tags/HTML/"><i class="fa fa-tag"></i>HTML</a></div><div class="post-nav"><a class="next" href="/2021/08/03/hexo-blog-writing/">Hexo博客写作</a></div><div id="container"></div><link rel="stylesheet" type="text/css" href="//unpkg.com/gitalk/dist/gitalk.css?v=1.0.0"><script type="text/javascript" src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js?v=1.0.0"></script><script type="text/javascript" src="//unpkg.com/gitalk/dist/gitalk.min.js?v=1.0.0"></script><script>var gitalk = new Gitalk({
+  clientID: '1407ab1c0b39227dc1cf',
+  clientSecret: '26ee955828427b835c315459ffa1b1eff180e9e8',
+  repo: 'Corecabin_Comments',
+  owner: 'kaluojushi',
+  admin: ['kaluojushi'],
+  id: md5(location.pathname),
+  distractionFreeMode: false
+})
+gitalk.render('container')
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/myself/">Myself</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/blog/" style="font-size: 15px;">博客</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/corecabin/" style="font-size: 15px;">核心舱</a> <a href="/tags/2021/" style="font-size: 15px;">2021</a> <a href="/tags/technique/" style="font-size: 15px;">技术</a> <a href="/tags/skill/" style="font-size: 15px;">技巧</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/08/04/markdown-basic-syntax-and-examples/">Markdown基本语法与示例</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/03/hexo-blog-writing/">Hexo博客写作</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/08/03/build-corecabin-in-one-week/">如何在一周内建造核心舱</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 个人链接</i></div><ul></ul><a href="https://github.com/kaluojushi" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://gitee.com/kaluojushi" title="Gitee" target="_blank">Gitee</a><ul></ul><a href="/img/xiamuandsansan.jpg" title="微信公众号" target="_blank">微信公众号</a><ul></ul><a href="mailto:ma.zijian@qq.com" title="E-mail" target="_blank">E-mail</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">卡洛的核心舱.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=1.0.0"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
