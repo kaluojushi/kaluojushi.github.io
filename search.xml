@@ -87,26 +87,32 @@
 <li>进一步熟悉了前端知识。</li>
 </ul>
 <p>一周时间过去，这一周我除了看看奥运比赛，从学校结束科研回家，也就在全身心投入这个事情了。但我丝毫没觉得时间被浪费，因为把时间投入自己喜欢做的事情，花再多精力也值得，尤其是我从中学习的知识、得到的收获、学会的<strong>开源精神</strong>和进一步的<strong>对代码的热爱</strong>，这些不通过自己鼓捣自然是学不到的。</p>
-<h2 id="2021-8-13更新"><a href="#2021-8-13更新" class="headerlink" title="2021.8.13更新"></a>2021.8.13更新</h2><p>回家后的这段时间里，我也没闲着，继续鼓捣自己的核心舱，并排除了很多bug。</p>
+<h2 id="2021-8-13更新"><a href="#2021-8-13更新" class="headerlink" title="2021.8.13更新"></a>2021.8.13更新</h2><p>回家后的这段时间里，我也没闲着，继续鼓捣自己的核心舱，这个过程中也发现了众多的bug，并想办法排除了它们。</p>
 <ul>
 <li>从主题<a href="https://github.com/tufu9441/maupassant-hexo">maupassant</a>换成了主题<a href="https://github.com/theme-next/hexo-theme-next">NexT</a>，作为一个发展时间很长、被全网使用最多的、最为成熟的主题，它集成了很多插件，使得我不需要修改源代码；</li>
 <li>修改了一下favicon及其路径，新增了custom-logo，显示在电脑端右上角；</li>
 <li>针对NexT主题侧边栏不显示分类与标签，新增了<a href="\categories">分类</a>与<a href="/tags">标签</a>页面，便于检索文章；</li>
 <li>部署了<a href="https://github.com/theme-next/hexo-symbols-count-time">hexo-symbols-count-time</a>插件显示文章字数与阅读时间，如本文开头所示；</li>
-<li>修改了Hexo渲染Markdown的引擎，由<a href="https://www.npmjs.com/package/hexo-renderer-marked">hexo-renderer-marked</a>改为<a href="https://www.npmjs.com/package/hexo-renderer-kramed">hexo-renderer-kramed</a>，以及修改了部分代码，以便对数学公式的渲染达到更好的支持；</li>
+<li>修改了Hexo渲染Markdown的引擎，由<a href="https://www.npmjs.com/package/hexo-renderer-marked">hexo-renderer-marked</a>改为<a href="https://www.npmjs.com/package/hexo-renderer-kramed">hexo-renderer-kramed</a>，以及修改了部分代码，以便对数学公式的渲染达到更好的支持，可以参考这两篇文章的评论区：《<a href="/2021/08/04/markdown-basic-syntax-and-examples/" title="Markdown基本语法与示例">Markdown基本语法与示例</a>》《<a href="/2021/08/11/latex-mathematical-formula-handbook/" title="LaTeX数学公式手册">LaTeX数学公式手册</a>》；</li>
 <li>部署了<a href="http://ibruce.info/2015/04/04/busuanzi">busuanzi</a>插件，用来显示文章阅读次数与网站浏览次数，如本文开头、本站底部所示；</li>
 <li>部署了<a href="https://github.com/theme-next/hexo-generator-searchdb">hexo-generator-searchdb</a>插件，可以实现文内搜索，如侧边栏所示；</li>
-<li>修改了中文目录不能跳转的bug。</li>
+<li>解决了中文目录不能跳转的bug；</li>
+<li>解决了hexo-renderer-kramed不能渲染Todo List的bug；</li>
+<li>……</li>
 </ul>
 <h2 id="参考文献教程"><a href="#参考文献教程" class="headerlink" title="参考文献教程"></a>参考<del>文献</del>教程</h2><ol>
 <li><a href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></li>
 <li><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa">使用hexo+github搭建免费个人博客详细教程-好记的博客</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程 - 知乎</a></li>
 <li><a href="https://blog.csdn.net/heimu24/article/details/81159099">Github个人博客：绑定域名_heimu24的博客-CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/zemprogram/article/details/104288872">个人博客搭建笔记——hexo根目录下的_config.yml配置解释_zem-CSDN博客__config.yml</a></li>
+<li><a href="https://blog.csdn.net/zemprogram/article/details/104288872">个人博客搭建笔记——hexo根目录下的_config.yml配置解释_zem-CSDN博客</a></li>
 <li><a href="https://www.haomwei.com/technology/maupassant-hexo.html">大道至简——Hexo简洁主题推荐 | 屠城</a></li>
 <li><a href="https://blog.csdn.net/a565102223/article/details/61926629">Hexo搭建博客以及多端同步更新_Kevin的专栏-CSDN博客</a></li>
-<li><a href="https://blog.csdn.net/qq_36759224/article/details/98058240">Github+jsDelivr+PicGo 打造稳定快速、高效免费图床_TRHX’S BLOG-CSDN博客_jsdelivr图床</a></li>
+<li><a href="https://blog.csdn.net/qq_36759224/article/details/98058240">Github+jsDelivr+PicGo 打造稳定快速、高效免费图床_TRHX’S BLOG-CSDN博客</a></li>
+<li><a href="http://theme-next.iissnan.com/">NexT主题使用文档</a></li>
+<li><a href="https://murphypei.github.io/blog/2019/03/hexo-render-mathjax.html">解决hexo-next主题和mathjax下划线冲突问题 | 拾荒志</a></li>
+<li><a href="https://github.com/theme-next/hexo-theme-next/pull/1540/commits/ec521c927dc10255977324284c1c667f2e220da7">hexo-theme-next的PR：fix: Chinese TOC cannot jump</a></li>
+<li><a href="https://github.com/hexojs/hexo-renderer-marked/pull/32">hexo-renderer-marked的PR：Add Markdown List Support</a></li>
 </ol>
 ]]></content>
       <categories>
@@ -254,8 +260,8 @@
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1425676569&auto=0&height=66"></iframe>
 
 <p><strong>嵌入bilibili视频播放器</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% iframe //player.bilibili.com/player.html?aid=932183866&amp;bvid=BV1gM4y1K7eU&amp;cid=386592063&amp;page=1 %&#125;</span><br></pre></td></tr></table></figure>
-<iframe src="//player.bilibili.com/player.html?aid=932183866&bvid=BV1gM4y1K7eU&cid=386592063&page=1" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% iframe //player.bilibili.com/player.html?aid=92523122&amp;bvid=BV1eE411H7XL&amp;cid=157973222&amp;page=1 %&#125;</span><br></pre></td></tr></table></figure>
+<iframe src="//player.bilibili.com/player.html?aid=92523122&bvid=BV1eE411H7XL&cid=157973222&page=1" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
 <h4 id="4-2-5-引用文章"><a href="#4-2-5-引用文章" class="headerlink" title="4.2.5 引用文章"></a>4.2.5 引用文章</h4><p>引用其他文章的链接，语法为：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% post_path filename %&#125;</span><br><span class="line">&#123;% post_link filename [title] [escape] %&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>链接使用文章标题</strong></p>
