@@ -1265,44 +1265,110 @@ M \mu & \verb|M \mu| & \Omega \omega & \verb|\Omega \omega| \\
 <p>$ \aleph, \beth, \gimel, \daleth $</p>
 <h3 id="8-3-特殊字体形式"><a href="#8-3-特殊字体形式" class="headerlink" title="8.3 特殊字体形式"></a>8.3 特殊字体形式</h3><h4 id="8-3-1-黑板报粗体"><a href="#8-3-1-黑板报粗体" class="headerlink" title="8.3.1 黑板报粗体"></a>8.3.1 黑板报粗体</h4><p>用<code>\mathbb&#123;text&#125;</code>或<code>\Bbb&#123;text&#125;</code>表示。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathbb&#125; &amp; \mathbb&#123;SAMPLE&#125; &amp; \mathbb&#123;sample&#125; &amp; \mathbb&#123;0123&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;Bbb&#125; &amp; \Bbb&#123;SAMPLE&#125; &amp; \Bbb&#123;sample&#125; &amp; \Bbb&#123;0123&#125;</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 \\<br>\hline<br>\text{mathbb} &amp; \mathbb{SAMPLE} &amp; \mathbb{sample} &amp; \mathbb{0123} \\<br>\hline<br>\text{Bbb} &amp; \Bbb{SAMPLE} &amp; \Bbb{sample} &amp; \Bbb{0123}<br>\end{array} $​​​​​​​</p>
-<h4 id="8-3-2-粗体"><a href="#8-3-2-粗体" class="headerlink" title="8.3.2 粗体"></a>8.3.2 粗体</h4><p>用<code>\mathbf&#123;text&#125;</code>或<code>&#123;\bf text&#125;</code>表示，注意控制范围，对特殊符号无效。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccc}
+\text{defalut} & SAMPLE & sample & 0123 \\
+\hline
+\text{mathbb} & \mathbb{SAMPLE} & \mathbb{sample} & \mathbb{0123} \\
+\hline
+\text{Bbb} & \Bbb{SAMPLE} & \Bbb{sample} & \Bbb{0123}
+\end{array}</script><h4 id="8-3-2-粗体"><a href="#8-3-2-粗体" class="headerlink" title="8.3.2 粗体"></a>8.3.2 粗体</h4><p>用<code>\mathbf&#123;text&#125;</code>或<code>&#123;\bf text&#125;</code>表示，注意控制范围，对特殊符号无效。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathbf&#125; &amp; \mathbf&#123;SAMPLE&#125; &amp; \mathbf&#123;sample&#125; &amp; \mathbf&#123;0123&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;bf&#125; &amp; &#123;\bf SAMPLE&#125; &amp; &#123;\bf sample&#125; &amp; &#123;\bf 0123&#125;</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 \\<br>\hline<br>\text{mathbf} &amp; \mathbf{SAMPLE} &amp; \mathbf{sample} &amp; \mathbf{0123} \\<br>\hline<br>\text{bf} &amp; {\bf SAMPLE} &amp; {\bf sample} &amp; {\bf 0123}<br>\end{array} $​​​​​​​​</p>
-<h4 id="8-3-3-粗体符号"><a href="#8-3-3-粗体符号" class="headerlink" title="8.3.3 粗体符号"></a>8.3.3 粗体符号</h4><p>用<code>\boldsymbol&#123;text&#125;</code>表示，对特殊符号有效。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccc}
+\text{defalut} & SAMPLE & sample & 0123 \\
+\hline
+\text{mathbf} & \mathbf{SAMPLE} & \mathbf{sample} & \mathbf{0123} \\
+\hline
+\text{bf} & {\bf SAMPLE} & {\bf sample} & {\bf 0123}
+\end{array}</script><h4 id="8-3-3-粗体符号"><a href="#8-3-3-粗体符号" class="headerlink" title="8.3.3 粗体符号"></a>8.3.3 粗体符号</h4><p>用<code>\boldsymbol&#123;text&#125;</code>表示，对特殊符号有效。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|cccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega &amp; \sin\in\to \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;blodsymbol&#125; &amp; \boldsymbol&#123;SAMPLE&#125; &amp; \boldsymbol&#123;sample&#125; &amp; \boldsymbol&#123;0123&#125; &amp; \boldsymbol&#123;\delta\theta\sigma\omega&#125; &amp; \boldsymbol&#123;\Delta\Theta\Sigma\Omega&#125; &amp; \boldsymbol&#123;\sin\in\to&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|cccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega &amp; \sin\in\to \\<br>\hline<br>\text{blodsymbol} &amp; \boldsymbol{SAMPLE} &amp; \boldsymbol{sample} &amp; \boldsymbol{0123} &amp; \boldsymbol{\delta\theta\sigma\omega} &amp; \boldsymbol{\Delta\Theta\Sigma\Omega} &amp; \boldsymbol{\sin\in\to} \\<br>\end{array} $​​​​​</p>
-<h4 id="8-3-4-斜体（意大利体）"><a href="#8-3-4-斜体（意大利体）" class="headerlink" title="8.3.4 斜体（意大利体）"></a>8.3.4 斜体（意大利体）</h4><p>用<code>\mathit&#123;text&#125;</code>或<code>&#123;\it text&#125;</code>或<code>&#123;\mit text&#125;</code>表示，注意控制范围。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|cccccc}
+\text{defalut} & SAMPLE & sample & 0123 & \delta\theta\sigma\omega & \Delta\Theta\Sigma\Omega & \sin\in\to \\
+\hline
+\text{blodsymbol} & \boldsymbol{SAMPLE} & \boldsymbol{sample} & \boldsymbol{0123} & \boldsymbol{\delta\theta\sigma\omega} & \boldsymbol{\Delta\Theta\Sigma\Omega} & \boldsymbol{\sin\in\to} \\
+\end{array}</script><h4 id="8-3-4-斜体（意大利体）"><a href="#8-3-4-斜体（意大利体）" class="headerlink" title="8.3.4 斜体（意大利体）"></a>8.3.4 斜体（意大利体）</h4><p>用<code>\mathit&#123;text&#125;</code>或<code>&#123;\it text&#125;</code>或<code>&#123;\mit text&#125;</code>表示，注意控制范围。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathit&#125; &amp; \mathit&#123;SAMPLE&#125; &amp; \mathit&#123;sample&#125; &amp; \mathit&#123;0123&#125; &amp; \mathit&#123;\delta\theta\sigma\omega&#125; &amp; \mathit&#123;\Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;it&#125; &amp; &#123;\it SAMPLE&#125; &amp; &#123;\it sample&#125; &amp; &#123;\it 0123&#125; &amp; &#123;\it \delta\theta\sigma\omega&#125; &amp; &#123;\it \Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mit&#125; &amp; &#123;\mit SAMPLE&#125; &amp; &#123;\mit sample&#125; &amp; &#123;\mit 0123&#125; &amp; &#123;\mit \delta\theta\sigma\omega&#125; &amp; &#123;\mit \Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\<br>\hline<br>\text{mathit} &amp; \mathit{SAMPLE} &amp; \mathit{sample} &amp; \mathit{0123} &amp; \mathit{\delta\theta\sigma\omega} &amp; \mathit{\Delta\Theta\Sigma\Omega} \\<br>\hline<br>\text{it} &amp; {\it SAMPLE} &amp; {\it sample} &amp; {\it 0123} &amp; {\it \delta\theta\sigma\omega} &amp; {\it \Delta\Theta\Sigma\Omega} \\<br>\hline<br>\text{mit} &amp; {\mit SAMPLE} &amp; {\mit sample} &amp; {\mit 0123} &amp; {\mit \delta\theta\sigma\omega} &amp; {\mit \Delta\Theta\Sigma\Omega} \\<br>\end{array} $</p>
-<p>可以看到<code>\mathit</code>与<code>\it</code>等效；对于<em>拉丁字母、小写希腊字母</em>，默认字体即为<code>\mit</code>。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 & \delta\theta\sigma\omega & \Delta\Theta\Sigma\Omega \\
+\hline
+\text{mathit} & \mathit{SAMPLE} & \mathit{sample} & \mathit{0123} & \mathit{\delta\theta\sigma\omega} & \mathit{\Delta\Theta\Sigma\Omega} \\
+\hline
+\text{it} & {\it SAMPLE} & {\it sample} & {\it 0123} & {\it \delta\theta\sigma\omega} & {\it \Delta\Theta\Sigma\Omega} \\
+\hline
+\text{mit} & {\mit SAMPLE} & {\mit sample} & {\mit 0123} & {\mit \delta\theta\sigma\omega} & {\mit \Delta\Theta\Sigma\Omega} \\
+\end{array}</script><p>可以看到<code>\mathit</code>与<code>\it</code>等效；对于<em>拉丁字母、小写希腊字母</em>，默认字体即为<code>\mit</code>。</p>
 <h4 id="8-3-5-罗马体"><a href="#8-3-5-罗马体" class="headerlink" title="8.3.5 罗马体"></a>8.3.5 罗马体</h4><p>用<code>\mathrm&#123;text&#125;</code>或<code>&#123;\rm text&#125;</code>表示，注意控制范围。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathrm&#125; &amp; \mathrm&#123;SAMPLE&#125; &amp; \mathrm&#123;sample&#125; &amp; \mathrm&#123;0123&#125; &amp; \mathrm&#123;\delta\theta\sigma\omega&#125; &amp; \mathrm&#123;\Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;rm&#125; &amp; &#123;\rm SAMPLE&#125; &amp; &#123;\rm sample&#125; &amp; &#123;\rm 0123&#125; &amp; &#123;\rm \delta\theta\sigma\omega&#125; &amp; &#123;\rm \Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\<br>\hline<br>\text{mathrm} &amp; \mathrm{SAMPLE} &amp; \mathrm{sample} &amp; \mathrm{0123} &amp; \mathrm{\delta\theta\sigma\omega} &amp; \mathrm{\Delta\Theta\Sigma\Omega} \\<br>\hline<br>\text{rm} &amp; {\rm SAMPLE} &amp; {\rm sample} &amp; {\rm 0123} &amp; {\rm \delta\theta\sigma\omega} &amp; {\rm \Delta\Theta\Sigma\Omega} \\<br>\end{array} $</p>
-<p>可以看到<em>小写希腊字母</em>不支持罗马体；对于<em>阿拉伯数字、大写希腊字母</em>，默认字体即为<code>\rm</code>。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 & \delta\theta\sigma\omega & \Delta\Theta\Sigma\Omega \\
+\hline
+\text{mathrm} & \mathrm{SAMPLE} & \mathrm{sample} & \mathrm{0123} & \mathrm{\delta\theta\sigma\omega} & \mathrm{\Delta\Theta\Sigma\Omega} \\
+\hline
+\text{rm} & {\rm SAMPLE} & {\rm sample} & {\rm 0123} & {\rm \delta\theta\sigma\omega} & {\rm \Delta\Theta\Sigma\Omega} \\
+\end{array}</script><p>可以看到<em>小写希腊字母</em>不支持罗马体；对于<em>阿拉伯数字、大写希腊字母</em>，默认字体即为<code>\rm</code>。</p>
 <h4 id="8-3-6-等线体-无衬线体"><a href="#8-3-6-等线体-无衬线体" class="headerlink" title="8.3.6 等线体/无衬线体"></a>8.3.6 等线体/无衬线体</h4><p>用<code>\mathsf&#123;text&#125;</code>或<code>&#123;\sf text&#125;</code>表示，注意控制范围。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathsf&#125; &amp; \mathsf&#123;SAMPLE&#125; &amp; \mathsf&#123;sample&#125; &amp; \mathsf&#123;0123&#125; &amp; \mathsf&#123;\delta\theta\sigma\omega&#125; &amp; \mathsf&#123;\Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;sf&#125; &amp; &#123;\sf SAMPLE&#125; &amp; &#123;\sf sample&#125; &amp; &#123;\sf 0123&#125; &amp; &#123;\sf \delta\theta\sigma\omega&#125; &amp; &#123;\sf \Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\<br>\hline<br>\text{mathsf} &amp; \mathsf{SAMPLE} &amp; \mathsf{sample} &amp; \mathsf{0123} &amp; \mathsf{\delta\theta\sigma\omega} &amp; \mathsf{\Delta\Theta\Sigma\Omega} \\<br>\hline<br>\text{sf} &amp; {\sf SAMPLE} &amp; {\sf sample} &amp; {\sf 0123} &amp; {\sf \delta\theta\sigma\omega} &amp; {\sf \Delta\Theta\Sigma\Omega} \\<br>\end{array} $</p>
-<p>可以看到<em>小写希腊字母</em>不支持无衬线体。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 & \delta\theta\sigma\omega & \Delta\Theta\Sigma\Omega \\
+\hline
+\text{mathsf} & \mathsf{SAMPLE} & \mathsf{sample} & \mathsf{0123} & \mathsf{\delta\theta\sigma\omega} & \mathsf{\Delta\Theta\Sigma\Omega} \\
+\hline
+\text{sf} & {\sf SAMPLE} & {\sf sample} & {\sf 0123} & {\sf \delta\theta\sigma\omega} & {\sf \Delta\Theta\Sigma\Omega} \\
+\end{array}</script><p>可以看到<em>小写希腊字母</em>不支持无衬线体。</p>
 <h4 id="8-3-7-手写体"><a href="#8-3-7-手写体" class="headerlink" title="8.3.7 手写体"></a>8.3.7 手写体</h4><p>用<code>\mathscr&#123;text&#125;</code>或<code>&#123;\scr text&#125;</code>表示，注意控制范围。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathscr&#125; &amp; \mathscr&#123;SAMPLE&#125; &amp; \mathscr&#123;sample&#125; &amp; \mathscr&#123;0123&#125; &amp; \mathscr&#123;\delta\theta\sigma\omega&#125; &amp; \mathscr&#123;\Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;scr&#125; &amp; &#123;\scr SAMPLE&#125; &amp; &#123;\scr sample&#125; &amp; &#123;\scr 0123&#125; &amp; &#123;\scr \delta\theta\sigma\omega&#125; &amp; &#123;\scr \Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\<br>\hline<br>\text{mathscr} &amp; \mathscr{SAMPLE} &amp; \mathscr{sample} &amp; \mathscr{0123} &amp; \mathscr{\delta\theta\sigma\omega} &amp; \mathscr{\Delta\Theta\Sigma\Omega} \\<br>\hline<br>\text{scr} &amp; {\scr SAMPLE} &amp; {\scr sample} &amp; {\scr 0123} &amp; {\scr \delta\theta\sigma\omega} &amp; {\scr \Delta\Theta\Sigma\Omega} \\<br>\end{array} $</p>
-<p>可以看到<em>阿拉伯数字、大写希腊字母</em>显示结果与斜体等效；<em>小写希腊字母</em>不改变。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 & \delta\theta\sigma\omega & \Delta\Theta\Sigma\Omega \\
+\hline
+\text{mathscr} & \mathscr{SAMPLE} & \mathscr{sample} & \mathscr{0123} & \mathscr{\delta\theta\sigma\omega} & \mathscr{\Delta\Theta\Sigma\Omega} \\
+\hline
+\text{scr} & {\scr SAMPLE} & {\scr sample} & {\scr 0123} & {\scr \delta\theta\sigma\omega} & {\scr \Delta\Theta\Sigma\Omega} \\
+\end{array}</script><p>可以看到<em>阿拉伯数字、大写希腊字母</em>显示结果与斜体等效；<em>小写希腊字母</em>不改变。</p>
 <h4 id="8-3-8-花体"><a href="#8-3-8-花体" class="headerlink" title="8.3.8 花体"></a>8.3.8 花体</h4><p>用<code>\mathcal&#123;text&#125;</code>或<code>&#123;\cal text&#125;</code>表示，注意控制范围。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathcal&#125; &amp; \mathcal&#123;SAMPLE&#125; &amp; \mathcal&#123;sample&#125; &amp; \mathcal&#123;0123&#125; &amp; \mathcal&#123;\delta\theta\sigma\omega&#125; &amp; \mathcal&#123;\Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;cal&#125; &amp; &#123;\cal SAMPLE&#125; &amp; &#123;\cal sample&#125; &amp; &#123;\cal 0123&#125; &amp; &#123;\cal \delta\theta\sigma\omega&#125; &amp; &#123;\cal \Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\<br>\hline<br>\text{mathcal} &amp; \mathcal{SAMPLE} &amp; \mathcal{sample} &amp; \mathcal{0123} &amp; \mathcal{\delta\theta\sigma\omega} &amp; \mathcal{\Delta\Theta\Sigma\Omega} \\<br>\hline<br>\text{cal} &amp; {\cal SAMPLE} &amp; {\cal sample} &amp; {\cal 0123} &amp; {\cal \delta\theta\sigma\omega} &amp; {\cal \Delta\Theta\Sigma\Omega} \\<br>\end{array} $</p>
-<p>可以看到<em>阿拉伯数字、大写希腊字母</em>显示结果与斜体等效；<em>小写拉丁字母、小写希腊字母</em>不改变。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 & \delta\theta\sigma\omega & \Delta\Theta\Sigma\Omega \\
+\hline
+\text{mathcal} & \mathcal{SAMPLE} & \mathcal{sample} & \mathcal{0123} & \mathcal{\delta\theta\sigma\omega} & \mathcal{\Delta\Theta\Sigma\Omega} \\
+\hline
+\text{cal} & {\cal SAMPLE} & {\cal sample} & {\cal 0123} & {\cal \delta\theta\sigma\omega} & {\cal \Delta\Theta\Sigma\Omega} \\
+\end{array}</script><p>可以看到<em>阿拉伯数字、大写希腊字母</em>显示结果与斜体等效；<em>小写拉丁字母、小写希腊字母</em>不改变。</p>
 <h4 id="8-3-9-打字机体"><a href="#8-3-9-打字机体" class="headerlink" title="8.3.9 打字机体"></a>8.3.9 打字机体</h4><p>用<code>\mathtt&#123;text&#125;</code>或<code>&#123;\tt text&#125;</code>表示，注意控制范围。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathtt&#125; &amp; \mathtt&#123;SAMPLE&#125; &amp; \mathtt&#123;sample&#125; &amp; \mathtt&#123;0123&#125; &amp; \mathtt&#123;\delta\theta\sigma\omega&#125; &amp; \mathtt&#123;\Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;tt&#125; &amp; &#123;\tt SAMPLE&#125; &amp; &#123;\tt sample&#125; &amp; &#123;\tt 0123&#125; &amp; &#123;\tt \delta\theta\sigma\omega&#125; &amp; &#123;\tt \Delta\Theta\Sigma\Omega&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 &amp; \delta\theta\sigma\omega &amp; \Delta\Theta\Sigma\Omega \\<br>\hline<br>\text{mathtt} &amp; \mathtt{SAMPLE} &amp; \mathtt{sample} &amp; \mathtt{0123} &amp; \mathtt{\delta\theta\sigma\omega} &amp; \mathtt{\Delta\Theta\Sigma\Omega} \\<br>\hline<br>\text{tt} &amp; {\tt SAMPLE} &amp; {\tt sample} &amp; {\tt 0123} &amp; {\tt \delta\theta\sigma\omega} &amp; {\tt \Delta\Theta\Sigma\Omega} \\<br>\end{array} $</p>
-<p>可以看到<em>小写希腊字母</em>不支持打字机体。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 & \delta\theta\sigma\omega & \Delta\Theta\Sigma\Omega \\
+\hline
+\text{mathtt} & \mathtt{SAMPLE} & \mathtt{sample} & \mathtt{0123} & \mathtt{\delta\theta\sigma\omega} & \mathtt{\Delta\Theta\Sigma\Omega} \\
+\hline
+\text{tt} & {\tt SAMPLE} & {\tt sample} & {\tt 0123} & {\tt \delta\theta\sigma\omega} & {\tt \Delta\Theta\Sigma\Omega} \\
+\end{array}</script><p>可以看到<em>小写希腊字母</em>不支持打字机体。</p>
 <h4 id="8-3-10-Fraktur体-德国哥特体"><a href="#8-3-10-Fraktur体-德国哥特体" class="headerlink" title="8.3.10 Fraktur体/德国哥特体"></a>8.3.10 Fraktur体/德国哥特体</h4><p>用<code>\mathfrak&#123;text&#125;</code>或<code>&#123;\frak text&#125;</code>表示，注意控制范围。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;mathfrak&#125; &amp; \mathfrak&#123;SAMPLE&#125; &amp; \mathfrak&#123;sample&#125; &amp; \mathfrak&#123;0123&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;frak&#125; &amp; &#123;\frak SAMPLE&#125; &amp; &#123;\frak sample&#125; &amp; &#123;\frak 0123&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 \\<br>\hline<br>\text{mathfrak} &amp; \mathfrak{SAMPLE} &amp; \mathfrak{sample} &amp; \mathfrak{0123} \\<br>\hline<br>\text{frak} &amp; {\frak SAMPLE} &amp; {\frak sample} &amp; {\frak 0123} \\<br>\end{array} $</p>
-<h4 id="8-3-11-小型手写体"><a href="#8-3-11-小型手写体" class="headerlink" title="8.3.11 小型手写体"></a>8.3.11 小型手写体</h4><p>用<code>&#123;\scriptstyle text&#125;</code>命令，同时可以嵌套其他字体。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 \\
+\hline
+\text{mathfrak} & \mathfrak{SAMPLE} & \mathfrak{sample} & \mathfrak{0123} \\
+\hline
+\text{frak} & {\frak SAMPLE} & {\frak sample} & {\frak 0123} \\
+\end{array}</script><h4 id="8-3-11-小型手写体"><a href="#8-3-11-小型手写体" class="headerlink" title="8.3.11 小型手写体"></a>8.3.11 小型手写体</h4><p>用<code>&#123;\scriptstyle text&#125;</code>命令，同时可以嵌套其他字体。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|ccccc&#125;</span><br><span class="line">\text&#123;defalut&#125; &amp; SAMPLE &amp; sample &amp; 0123 \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;scriptstyle&#125; &amp; &#123;\scriptstyle SAMPLE&#125; &amp; &#123;\scriptstyle sample&#125; &amp; &#123;\scriptstyle 0123&#125; \\</span><br><span class="line">\hline</span><br><span class="line">\text&#123;scriptstyle+text&#125; &amp; &#123;\scriptstyle \text&#123;SAMPLE&#125; &#125; &amp; &#123;\scriptstyle \text&#123;sample&#125; &#125; &amp; &#123;\scriptstyle \text&#123;0123&#125; &#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \begin{array}{c|ccccc}<br>\text{defalut} &amp; SAMPLE &amp; sample &amp; 0123 \\<br>\hline<br>\text{scriptstyle} &amp; {\scriptstyle SAMPLE} &amp; {\scriptstyle sample} &amp; {\scriptstyle 0123} \\<br>\hline<br>\text{scriptstyle+text} &amp; {\scriptstyle \text{SAMPLE} } &amp; {\scriptstyle \text{sample} } &amp; {\scriptstyle \text{0123} } \\<br>\end{array} $</p>
-<h3 id="8-4-混合字体"><a href="#8-4-混合字体" class="headerlink" title="8.4 混合字体"></a>8.4 混合字体</h3><p>正常情况下，拉丁字母会被当做变量斜体显示。若需要非斜体显示，可以用<code>\text</code>命令。</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|ccccc}
+\text{defalut} & SAMPLE & sample & 0123 \\
+\hline
+\text{scriptstyle} & {\scriptstyle SAMPLE} & {\scriptstyle sample} & {\scriptstyle 0123} \\
+\hline
+\text{scriptstyle+text} & {\scriptstyle \text{SAMPLE} } & {\scriptstyle \text{sample} } & {\scriptstyle \text{0123} } \\
+\end{array}</script><h3 id="8-4-混合字体"><a href="#8-4-混合字体" class="headerlink" title="8.4 混合字体"></a>8.4 混合字体</h3><p>正常情况下，拉丁字母会被当做变量斜体显示。若需要非斜体显示，可以用<code>\text</code>命令。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">abc \quad \text&#123;abc&#125;</span><br></pre></td></tr></table></figure>
 <p>$ abc \quad \text{abc} $​</p>
 <p><code>\text</code>中仍可以使用<code>$ 公式 $</code>插入公式。</p>
@@ -1448,10 +1514,21 @@ n/2, & \text{if $n$ is even} \\
 <p>$ \require{cancel} \dfrac{\cancel{15}3}{\cancel{25}5} = \dfrac{3}{5} $</p>
 <p>可以使用<code>\cancel</code>、<code>\bcancel</code>、<code>\xcancel</code>和<code>\cancelto</code>命令（需要<code>\require</code>导包）。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\require&#123;cancel&#125;</span><br><span class="line">\begin&#123;array&#125;&#123;rl&#125;</span><br><span class="line">\verb|y+\cancel&#123;x&#125;| &amp; y+\cancel&#123;x&#125; \\</span><br><span class="line">\verb|\cancel&#123;y+x&#125;| &amp; \cancel&#123;y+x&#125; \\</span><br><span class="line">\verb|y+\bcancel&#123;x&#125;| &amp; y+\bcancel&#123;x&#125; \\</span><br><span class="line">\verb|y+\xcancel&#123;x&#125;| &amp; y+\xcancel&#123;x&#125; \\</span><br><span class="line">\verb|y+\cancelto&#123;0&#125;&#123;x&#125;| &amp; y+\cancelto&#123;0&#125;&#123;x&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \require{cancel}<br>\begin{array}{rl}<br>\verb|y+\cancel{x}| &amp; y+\cancel{x} \\<br>\verb|\cancel{y+x}| &amp; \cancel{y+x} \\<br>\verb|y+\bcancel{x}| &amp; y+\bcancel{x} \\<br>\verb|y+\xcancel{x}| &amp; y+\xcancel{x} \\<br>\verb|y+\cancelto{0}{x}| &amp; y+\cancelto{0}{x} \\<br>\end{array} $​​​​</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\require&#123;cancel&#125;</span><br><span class="line">\begin&#123;array&#125;&#123;c&#125;</span><br><span class="line">\verb+\dfrac&#123;\cancel&#123;15&#125;3&#125;&#123;\cancel&#123;25&#125;5&#125; = \dfrac&#123;3&#125;&#123;5&#125;+ \\</span><br><span class="line">\dfrac&#123;\cancel&#123;15&#125;3&#125;&#123;\cancel&#123;25&#125;5&#125; = \dfrac&#123;3&#125;&#123;5&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p>$ \require{cancel}<br>\begin{array}{c}<br>\verb+\dfrac{\cancel{15}3}{\cancel{25}5} = \dfrac{3}{5}+ \\<br>\dfrac{\cancel{15}3}{\cancel{25}5} = \dfrac{3}{5} \\<br>\end{array} $</p>
-<p>上例还使用了<code>\verb</code>命令来显示原文照排效果。</p>
+<script type="math/tex; mode=display">
+\require{cancel}
+\begin{array}{rl}
+\verb|y+\cancel{x}| & y+\cancel{x} \\
+\verb|\cancel{y+x}| & \cancel{y+x} \\
+\verb|y+\bcancel{x}| & y+\bcancel{x} \\
+\verb|y+\xcancel{x}| & y+\xcancel{x} \\
+\verb|y+\cancelto{0}{x}| & y+\cancelto{0}{x} \\
+\end{array}</script><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\require&#123;cancel&#125;</span><br><span class="line">\begin&#123;array&#125;&#123;c&#125;</span><br><span class="line">\verb+\dfrac&#123;\cancel&#123;15&#125;3&#125;&#123;\cancel&#123;25&#125;5&#125; = \dfrac&#123;3&#125;&#123;5&#125;+ \\</span><br><span class="line">\dfrac&#123;\cancel&#123;15&#125;3&#125;&#123;\cancel&#123;25&#125;5&#125; = \dfrac&#123;3&#125;&#123;5&#125; \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\require{cancel}
+\begin{array}{c}
+\verb+\dfrac{\cancel{15}3}{\cancel{25}5} = \dfrac{3}{5}+ \\
+\dfrac{\cancel{15}3}{\cancel{25}5} = \dfrac{3}{5} \\
+\end{array}</script><p>上例还使用了<code>\verb</code>命令来显示原文照排效果。</p>
 </li>
 </ol>
 <h2 id="13-示例"><a href="#13-示例" class="headerlink" title="13 示例"></a>13 示例</h2><p>以下公式来源于：Tsung-Chyan Lai,Yuri N. Sotskov,Alexandre Dolgui. The stability radius of an optimal line balance with maximum efficiency for a simple assembly line[J]. European Journal of Operational Research,2018,274(2):</p>
