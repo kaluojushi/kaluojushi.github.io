@@ -93,12 +93,12 @@
 <li>修改了一下favicon及其路径，新增了custom-logo，显示在电脑端右上角；</li>
 <li>针对NexT主题侧边栏不显示分类与标签，新增了<a href="\categories">分类</a>与<a href="/tags">标签</a>页面，便于检索文章；</li>
 <li>部署了<a href="https://github.com/theme-next/hexo-symbols-count-time">hexo-symbols-count-time</a>插件显示文章字数与阅读时间，如本文开头所示；</li>
-<li>修改了Hexo渲染Markdown的引擎，由<a href="https://www.npmjs.com/package/hexo-renderer-marked">hexo-renderer-marked</a>改为<a href="https://www.npmjs.com/package/hexo-renderer-kramed">hexo-renderer-kramed</a>，以及修改了部分代码，以便对数学公式的渲染达到更好的支持，可以参考这篇文章的评论区：《<a href="/2021/08/11/latex-mathematical-formula-handbook/" title="LaTeX数学公式手册">LaTeX数学公式手册</a>》；</li>
+<li>修改了Hexo渲染Markdown的引擎，由<a href="https://www.npmjs.com/package/hexo-renderer-marked">hexo-renderer-marked</a>改为<a href="https://www.npmjs.com/package/hexo-renderer-kramed">hexo-renderer-kramed</a>，以及修改了部分代码，以便对数学公式的渲染达到更好的支持，可以参考这篇文章：《<a href="/2021/08/14/solve-some-problems-of-hexo-renderer-kramed-rendering-conflicts/" title="解决hexo-renderer-kramed渲染冲突的部分问题">解决hexo-renderer-kramed渲染冲突的部分问题</a>》；</li>
 <li>部署了<a href="http://ibruce.info/2015/04/04/busuanzi">busuanzi</a>插件，用来显示文章阅读次数与网站浏览次数，如本文开头、本站底部所示；</li>
 <li>部署了<a href="https://github.com/theme-next/hexo-generator-searchdb">hexo-generator-searchdb</a>插件，可以实现文内搜索，如侧边栏所示；</li>
 <li>解决了中文目录不能跳转的bug；</li>
-<li>解决了hexo-renderer-kramed不能渲染Todo List的bug，可以参考这篇文章的评论区：《<a href="/2021/08/04/markdown-basic-syntax-and-examples/" title="Markdown基本语法与示例">Markdown基本语法与示例</a>》；</li>
-<li>解决了手机端总是不能访问核心舱的bug，可以参考这篇文章：《<a href="/2021/08/14/problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed/" title="解决Hexo博客手机端无法访问的问题">解决Hexo博客手机端无法访问的问题</a>》；</li>
+<li>解决了hexo-renderer-kramed不能渲染Todo List的bug，同样可以参考这篇文章：《<a href="/2021/08/14/solve-some-problems-of-hexo-renderer-kramed-rendering-conflicts/" title="解决hexo-renderer-kramed渲染冲突的部分问题">解决hexo-renderer-kramed渲染冲突的部分问题</a>》；</li>
+<li>解决了手机端总是不能访问核心舱的bug，可以参考这篇文章：《<a href="/2021/08/14/solve-the-problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed/" title="解决Hexo博客手机端无法访问的问题">解决Hexo博客手机端无法访问的问题</a>》；</li>
 <li>……</li>
 </ul>
 <p>以后也可以把更新bug的过程写在这篇文章里。</p>
@@ -1567,8 +1567,76 @@ t' \left( V_k^{b_r} \right) := \sum_{i \in V_k^{b_r} } t_i' = \sum_{i \in V_k^{b
       </tags>
   </entry>
   <entry>
+    <title>解决hexo-renderer-kramed渲染冲突的部分问题</title>
+    <url>/2021/08/14/solve-some-problems-of-hexo-renderer-kramed-rendering-conflicts/</url>
+    <content><![CDATA[<p>因<a href="https://www.npmjs.com/package/hexo-renderer-marked">hexo-renderer-marked</a>不支持数学公式的渲染，其他渲染器又有一些问题，如<a href="https://www.npmjs.com/package/hexo-renderer-pandoc">hexo-renderer-pandoc</a>过于沉重，<a href="https://www.npmjs.com/package/hexo-renderer-markdown-it">hexo-renderer-markdown-it</a>对NexT主题支持不佳，因此选用<a href="https://www.npmjs.com/package/hexo-renderer-kramed">hexo-renderer-kramed</a>渲染器。本文解决了该渲染器在渲染Markdown及数学公式时遇到的部分问题。</p>
+<span id="more"></span>
+<h2 id="1-hexo-renderer-kramed不能渲染Todo-List"><a href="#1-hexo-renderer-kramed不能渲染Todo-List" class="headerlink" title="1 hexo-renderer-kramed不能渲染Todo List"></a>1 hexo-renderer-kramed不能渲染Todo List</h2><p>原来的渲染器hexo-renderer-marked是支持的，那就翻一下<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked的GitHub仓库</a>的Pull Request。</p>
+<p>发现在这个<a href="https://github.com/hexojs/hexo-renderer-marked/pull/32">PR</a>里，hexo-renderer-marked加入了对Todo List的支持，那就拷贝这个PR中<code>lib/renderer.js</code>里新增的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Support To-Do List</span></span><br><span class="line">Renderer.prototype.listitem = <span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="regexp">/^\s*\[[x ]\]\s*/</span>.test(text)) &#123;</span><br><span class="line">    text = text.replace(<span class="regexp">/^\s*\[ \]\s*/</span>, <span class="string">&#x27;&lt;input type=&quot;checkbox&quot;&gt;&lt;/input&gt; &#x27;</span>).replace(<span class="regexp">/^\s*\[x\]\s*/</span>, <span class="string">&#x27;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;/input&gt; &#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&lt;li style=&quot;list-style: none&quot;&gt;&#x27;</span> + text + <span class="string">&#x27;&lt;/li&gt;\n&#x27;</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&lt;li&gt;&#x27;</span> + text + <span class="string">&#x27;&lt;/li&gt;\n&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>加入到本地的<code>hexo</code>文件夹的<code>/node_modules/hexo-renderer-kramed/lib/renderer.js</code>的第19行中。</p>
+<p>保存后重新<code>hexo clean</code>、<code>hexo g</code>，就渲染成功了。</p>
+<p>其实这个解决方案不是我翻PR找到的，而是我在GitHub乱搜索时<a href="https://github.com/wafer-li/wafer-li.github.io/blob/source/src/blog-corners/tech/tinkering/hexo/Hexo%20Experience.md">在这里</a>找到的。本来并不指望解决这个问题的，又学到一招。</p>
+<h2 id="2-hexo-renderer-kramed渲染MathJax时与Markdown语法冲突"><a href="#2-hexo-renderer-kramed渲染MathJax时与Markdown语法冲突" class="headerlink" title="2 hexo-renderer-kramed渲染MathJax时与Markdown语法冲突"></a>2 hexo-renderer-kramed渲染MathJax时与Markdown语法冲突</h2><p>关于如何修改语义冲突，网上的教程讲得很详细了，比如：</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/d95a4795f3a8">hexo下LaTeX无法显示的解决方案 - zealscott - 简书</a></li>
+<li><a href="https://murphypei.github.io/blog/2019/03/hexo-render-mathjax.html">解决hexo-next主题和mathjax下划线冲突问题 | 拾荒志</a></li>
+</ul>
+<p>但网上找到的教程通常只讲述了如何修改<code>_</code>和<code>\\</code>的冲突。我将我遇到的所有问题一一整理如下。</p>
+<p>下文的问题通常是行内公式的问题，目前看来公式块受到的影响比较小。</p>
+<h3 id="2-1-行内公式与行内代码冲突"><a href="#2-1-行内公式与行内代码冲突" class="headerlink" title="2.1 行内公式与行内代码冲突"></a>2.1 行内公式与行内代码冲突</h3><p><strong>问题描述</strong>：把行内公式作为行内代码输入时（如下），会显示异常，即<code>$$</code>被转义成`$$了。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">`$ a+b $`</span></span><br></pre></td></tr></table></figure>
+<p>翻一下<a href="https://github.com/sun11/hexo-renderer-kramed">hexo-renderer-kramed的文档</a>，发现作者写在这里了：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-06.png" alt=""></p>
+<p>所以要想输入行内代码中的公式，在<code>$</code>前后加上空格就行了：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">` $ a+b $ `</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-2-下划线-被转义为斜体而非LaTeX下标"><a href="#2-2-下划线-被转义为斜体而非LaTeX下标" class="headerlink" title="2.2 下划线_被转义为斜体而非LaTeX下标"></a>2.2 下划线<code>_</code>被转义为斜体而非LaTeX下标</h3><p><strong>问题描述</strong>：当公式中出现多个下划线时，会被kramed渲染为Markdown斜体，导致公式显示异常。</p>
+<p>Markdown本身的语法是支持<code>*</code>和<code>_</code>都被转义为<em>斜体</em>的，所以我们可以取消掉kramed对<code>_</code>的转义。</p>
+<p>打开本地<code>hexo</code>文件夹下的<code>/node_modules/kramed/lib/rules/inline.js</code>，找到第20行如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">em: <span class="regexp">/^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+<p>就取消了对下划线<code>_</code>的转义。</p>
+<p>以后使用斜体的话只用<code>*</code>符号就够了。如果LaTeX要使用大量<code>*</code>符号，可用<code>\ast</code>代替。</p>
+<h3 id="2-3-反斜杠-被转义为-而非LaTeX换行"><a href="#2-3-反斜杠-被转义为-而非LaTeX换行" class="headerlink" title="2.3 反斜杠\\被转义为\而非LaTeX换行"></a>2.3 反斜杠<code>\\</code>被转义为<code>\</code>而非LaTeX换行</h3><p><strong>问题描述</strong>：当公式中出现<code>\\</code>表示换行时，会被kramed渲染为<code>\</code>，导致公式显示异常。</p>
+<p>取消掉对<code>\\</code>的转义就行了。</p>
+<p>同上，找到<code>inline.js</code>中第11行如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([\\`*\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br></pre></td></tr></table></figure>
+<p>就取消了对反斜杠<code>\\</code>的转义。</p>
+<h3 id="2-4-LaTeX紧贴符-不被转义"><a href="#2-4-LaTeX紧贴符-不被转义" class="headerlink" title="2.4 LaTeX紧贴符\!不被转义"></a>2.4 LaTeX紧贴符<code>\!</code>不被转义</h3><p><strong>问题描述</strong>：当公式中出现<code>\!</code>表示紧贴符号时，会被kramed渲染为<code>!</code>，导致公式显示异常。</p>
+<p>同上，把<code>escape:</code>后的正则表达式中的<code>!</code>去掉即可，取消掉对<code>\!</code>的转义。</p>
+<h3 id="2-5-反斜杠加竖线-被转义为-而非LaTeX双竖线"><a href="#2-5-反斜杠加竖线-被转义为-而非LaTeX双竖线" class="headerlink" title="2.5 反斜杠加竖线\|被转义为|而非LaTeX双竖线"></a>2.5 反斜杠加竖线<code>\|</code>被转义为<code>|</code>而非LaTeX双竖线</h3><p><strong>问题描述</strong>：当公式中出现<code>\|</code>表示紧贴符号时，会被kramed渲染为<code>|</code>，导致公式显示异常。</p>
+<p>真是个困扰了半天的bug，上面的<code>escape:</code>后面也没有<code>|</code>啊。</p>
+<p>找了我n个小时，原来还是<code>inline.js</code>代码的问题。</p>
+<p>找到第64行如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">escape</span>: replace(inline.escape)(<span class="string">&#x27;])&#x27;</span>, <span class="string">&#x27;~|])&#x27;</span>)(),</span><br></pre></td></tr></table></figure>
+<p>修改为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">escape</span>: replace(inline.escape)(<span class="string">&#x27;])&#x27;</span>, <span class="string">&#x27;~])&#x27;</span>)(),</span><br></pre></td></tr></table></figure>
+<p>就取消了对<code>\|</code>的转义。</p>
+<p>执行完以上步骤后，记得<code>hexo clean</code>、<code>hexo g</code>走一波。</p>
+<p><strong>总结：哪里被kramed转义就检查<code>escape</code>对应的部分。</strong></p>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h2><ul>
+<li>多上GitHub看看原仓库的文档、issues、PR，会有收获的，实在不行直接搜，比百度好使。</li>
+<li>熟悉流程，<strong>Hexo的原理是根据渲染器，把Markdown语法转为HTML语法。</strong>所以一些显示bug不一定是主题的问题，而很有可能是渲染器的问题。所以看看渲染器的源码总是有收获的。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>技术</tag>
+        <tag>技巧</tag>
+        <tag>bug</tag>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决Hexo博客手机端无法访问的问题</title>
-    <url>/2021/08/14/problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed/</url>
+    <url>/2021/08/14/solve-the-problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed/</url>
     <content><![CDATA[<p><strong>问题描述</strong>：已经部署到GitHub Pages的Hexo博客，电脑端可以根据域名访问，手机端无法访问。</p>
 <span id="more"></span>
 <h3 id="1-原因"><a href="#1-原因" class="headerlink" title="1 原因"></a>1 原因</h3><p>通常是GitHub Pages的ip地址解析出现的bug。电脑端可以正常访问大概率是因为科学上网的缘故，手机端无法访问是因为拒绝了域名解析所用的ip。</p>
