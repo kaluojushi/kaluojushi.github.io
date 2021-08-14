@@ -93,13 +93,15 @@
 <li>修改了一下favicon及其路径，新增了custom-logo，显示在电脑端右上角；</li>
 <li>针对NexT主题侧边栏不显示分类与标签，新增了<a href="\categories">分类</a>与<a href="/tags">标签</a>页面，便于检索文章；</li>
 <li>部署了<a href="https://github.com/theme-next/hexo-symbols-count-time">hexo-symbols-count-time</a>插件显示文章字数与阅读时间，如本文开头所示；</li>
-<li>修改了Hexo渲染Markdown的引擎，由<a href="https://www.npmjs.com/package/hexo-renderer-marked">hexo-renderer-marked</a>改为<a href="https://www.npmjs.com/package/hexo-renderer-kramed">hexo-renderer-kramed</a>，以及修改了部分代码，以便对数学公式的渲染达到更好的支持，可以参考这两篇文章的评论区：《<a href="/2021/08/04/markdown-basic-syntax-and-examples/" title="Markdown基本语法与示例">Markdown基本语法与示例</a>》《<a href="/2021/08/11/latex-mathematical-formula-handbook/" title="LaTeX数学公式手册">LaTeX数学公式手册</a>》；</li>
+<li>修改了Hexo渲染Markdown的引擎，由<a href="https://www.npmjs.com/package/hexo-renderer-marked">hexo-renderer-marked</a>改为<a href="https://www.npmjs.com/package/hexo-renderer-kramed">hexo-renderer-kramed</a>，以及修改了部分代码，以便对数学公式的渲染达到更好的支持，可以参考这篇文章的评论区：《<a href="/2021/08/11/latex-mathematical-formula-handbook/" title="LaTeX数学公式手册">LaTeX数学公式手册</a>》；</li>
 <li>部署了<a href="http://ibruce.info/2015/04/04/busuanzi">busuanzi</a>插件，用来显示文章阅读次数与网站浏览次数，如本文开头、本站底部所示；</li>
 <li>部署了<a href="https://github.com/theme-next/hexo-generator-searchdb">hexo-generator-searchdb</a>插件，可以实现文内搜索，如侧边栏所示；</li>
 <li>解决了中文目录不能跳转的bug；</li>
-<li>解决了hexo-renderer-kramed不能渲染Todo List的bug；</li>
+<li>解决了hexo-renderer-kramed不能渲染Todo List的bug，可以参考这篇文章的评论区：《<a href="/2021/08/04/markdown-basic-syntax-and-examples/" title="Markdown基本语法与示例">Markdown基本语法与示例</a>》；</li>
+<li>解决了手机端总是不能访问核心舱的bug，可以参考这篇文章：《<a href="/2021/08/14/problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed/" title="解决Hexo博客手机端无法访问的问题">解决Hexo博客手机端无法访问的问题</a>》；</li>
 <li>……</li>
 </ul>
+<p>以后也可以把更新bug的过程写在这篇文章里。</p>
 <h2 id="参考文献教程"><a href="#参考文献教程" class="headerlink" title="参考文献教程"></a>参考<del>文献</del>教程</h2><ol>
 <li><a href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></li>
 <li><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa">使用hexo+github搭建免费个人博客详细教程-好记的博客</a></li>
@@ -419,9 +421,9 @@
 <p>效果为</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/kongjianzhan.jpg" alt="中国空间站" title="天和核心舱"></p>
 <p>以及套娃设置图片的超链接，例如（相对路径）：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![卡洛的核心舱</span>](<span class="link">/img/corecabin.png</span>)](<span class="link">https://corecabin.cn</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">![卡洛的核心舱</span>](<span class="link">/img/corecabin-textlogo-bgcolor.jpg</span>)](<span class="link">https://corecabin.cn</span>)</span><br></pre></td></tr></table></figure>
 <p>效果为：</p>
-<p><a href="https://corecabin.cn"><img src="/img/corecabin.png" alt="卡洛的核心舱"></a></p>
+<p><a href="https://corecabin.cn"><img src="/img/corecabin-textlogo-bgcolor.jpg" alt="卡洛的核心舱"></a></p>
 <p>注意以上情况在当前主题下可能会遇到图片文字说明的显示bug。</p>
 <h2 id="8-列表"><a href="#8-列表" class="headerlink" title="8 列表"></a>8 列表</h2><h3 id="8-1-无序列表"><a href="#8-1-无序列表" class="headerlink" title="8.1 无序列表"></a>8.1 无序列表</h3><p>文字前面加<code>-</code>或<code>*</code>或<code>+</code>即可，注意符号与文字之间要有空格。</p>
 <p>例如：</p>
@@ -1485,6 +1487,40 @@ t' \left( V_k^{b_r} \right) := \sum_{i \in V_k^{b_r} } t_i' = \sum_{i \in V_k^{b
         <tag>Markdown</tag>
         <tag>LaTeX</tag>
         <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Hexo博客手机端无法访问的问题</title>
+    <url>/2021/08/14/problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed/</url>
+    <content><![CDATA[<p><strong>问题描述</strong>：已经部署到GitHub Pages的Hexo博客，电脑端可以根据域名访问，手机端无法访问。</p>
+<span id="more"></span>
+<h3 id="1-原因"><a href="#1-原因" class="headerlink" title="1 原因"></a>1 原因</h3><p>通常是GitHub Pages的ip地址解析出现的bug。电脑端可以正常访问大概率是因为科学上网的缘故，手机端无法访问是因为拒绝了域名解析所用的ip。</p>
+<h3 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2 解决方法"></a>2 解决方法</h3><h4 id="2-1-重新ping一下github-io的ip"><a href="#2-1-重新ping一下github-io的ip" class="headerlink" title="2.1 重新ping一下github.io的ip"></a>2.1 重新ping一下github.io的ip</h4><p>打开cmd，输入以下指令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ping kaluojushi.github.io</span><br></pre></td></tr></table></figure>
+<p><code>ping</code>后面跟GitHub Pages的地址，如<code>username.github.io</code>。</p>
+<p>可以看到当前的ip是185.199.109.153。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-01.png" alt=""></p>
+<h4 id="2-2-修改域名解析"><a href="#2-2-修改域名解析" class="headerlink" title="2.2 修改域名解析"></a>2.2 修改域名解析</h4><p>打开域名DNS解析商（我的是腾讯云），修改A记录的记录值为上面ping到的ip。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-02.png" alt=""></p>
+<h4 id="2-3-验证"><a href="#2-3-验证" class="headerlink" title="2.3 验证"></a>2.3 验证</h4><p>打开<a href="http://tool.chinaz.com/dns/">站长工具DNS查询</a>，选择A类型，输入域名，查看解析结果，如果为刚才修改的结果就表示成功（如果未成功需要等待一段时间）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-03.png" alt=""></p>
+<p>至此电脑端和手机端应该都可以访问了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-04.png" alt="电脑端"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-05.png" alt="手机端"></p>
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h3><p>此问题其实与Hexo无关，还是国内访问GitHub及其所提供的服务不稳定的bug。再有问题就再换A记录！</p>
+<p>不知道一条域名是否可以添加多条A记录，没有深入探究，在此暂时不表。</p>
+<p>用<a href="https://gitee.com/help/articles/4136">Gitee Pages</a>代替GitHub Pages其实也是备选项之一，对国内服务的支持更好。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Hexo</tag>
+        <tag>技术</tag>
+        <tag>技巧</tag>
+        <tag>bug</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
 </search>
