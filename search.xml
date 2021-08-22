@@ -57,7 +57,7 @@
 <h2 id="3-域名"><a href="#3-域名" class="headerlink" title="3 域名"></a>3 域名</h2><p>我之前就注册过域名，所以也非常容易地打破了这个我小时候认为的技术壁垒。</p>
 <p>为了注册一个合适的域名，我想要先起好博客的名字。很快啊，我想到一个非常极客的名字——<strong>“核心舱”</strong>，并且在7月28日注册了<a href="https://corecabin.cn/">corecabin.cn</a>。</p>
 <blockquote>
-<p>对于空间站而言，<a href="https://baike.baidu.com/item/天和核心舱">核心舱</a>（Core Cabin）是<strong>整个空间站的中枢和管理控制中心</strong>。与此类似，我的核心舱主要存储的是与”程序“”技术“”研究“或是”音乐“等一些很酷的东西。</p>
+<p>对于空间站而言，<a href="https://baike.baidu.com/item/天和核心舱">核心舱</a>（Core Cabin）是<strong>整个空间站的中枢和管理控制中心</strong>。与此类似，我的核心舱主要存储的是与“程序”“技术”“研究”或是“音乐”等一些很酷的东西。</p>
 </blockquote>
 <p>绑定域名非常简单，也不需要域名备案，网上有现成的教程。于是在完成<code>CNAME</code>的上传后，过了10分钟，我就可以通过<a href="https://corecabin.cn/">corecabin.cn</a>而不是<a href="https://kaluojushi.github.io/">kaluojushi.github.io</a>去访问这个仓库的pages了。</p>
 <h2 id="4-Hexo"><a href="#4-Hexo" class="headerlink" title="4 Hexo"></a>4 Hexo</h2><p>7月29日这天有6场乒乓球赛。这一天，我不仅看完了每一场球赛，还基本完成了“核心舱”的搭建。</p>
@@ -83,7 +83,7 @@
 <li>进一步熟悉了<code>git</code>；</li>
 <li>进一步熟悉了<code>npm</code>；</li>
 <li>进一步熟悉了环境变量<code>PATH</code>；</li>
-<li>进一步熟悉了<code>Markdown</code>；</li>
+<li>进一步熟悉了Markdown；</li>
 <li>进一步熟悉了前端知识。</li>
 </ul>
 <p>一周时间过去，这一周我除了看看奥运比赛，从学校结束科研回家，也就在全身心投入这个事情了。但我丝毫没觉得时间被浪费，因为把时间投入自己喜欢做的事情，花再多精力也值得，尤其是我从中学习的知识、得到的收获、学会的<strong>开源精神</strong>和进一步的<strong>对代码的热爱</strong>，这些不通过自己鼓捣自然是学不到的。</p>
@@ -155,7 +155,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo publish [post/page] &lt;fileName&gt;</span><br></pre></td></tr></table></figure>
 <p>新建草稿一般不用，因为可以先写好Markdown然后再<code>new post</code>就好。</p>
 <h2 id="3-编辑Front-matter"><a href="#3-编辑Front-matter" class="headerlink" title="3 编辑Front-matter"></a>3 编辑Front-matter</h2><p>Front-matter是文件最上方以<code>---</code>分隔的区域，一般来说完整应如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: postTitle #标题，默认为文件名，一般会自行更改为中文的</span><br><span class="line">date: 2021/08/01 11:45:14 #建立日期</span><br><span class="line">updated: #更新日期</span><br><span class="line">categories: #分类（page不适用）</span><br><span class="line">tags: #标签（page不适用）</span><br><span class="line">type: #页面类型（仅page）</span><br><span class="line">description: #摘要，详细见第4节</span><br><span class="line">comments: true #评论，默认为true</span><br><span class="line">layout: post #布局，默认为post</span><br><span class="line"><span class="section">mathjax: false #Latex公式，默认为false</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: postTitle #标题，默认为文件名，一般会自行更改为中文的</span><br><span class="line">date: 2021/08/01 11:45:14 #建立日期</span><br><span class="line">updated: #更新日期</span><br><span class="line">categories: #分类（page不适用）</span><br><span class="line">tags: #标签（page不适用）</span><br><span class="line">type: #页面类型（仅page）</span><br><span class="line">description: #摘要，详细见第4节</span><br><span class="line">comments: true #评论，默认为true</span><br><span class="line">layout: post #布局，默认为post</span><br><span class="line"><span class="section">mathjax: false #LaTeX公式，默认为false</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-1-标题"><a href="#3-1-标题" class="headerlink" title="3.1 标题"></a>3.1 标题</h3><p>hexo会把Markdown文档转化为html静态网页，因此要想实现文章标题与域名不同，可以通过以下方法</p>
 <ul>
 <li>文件名为<code>英文标题.md</code>的形式。<em>根据谷歌文档，建议使用<code>-</code>分隔单词，而不是<code>_</code>或驼峰式。</em></li>
