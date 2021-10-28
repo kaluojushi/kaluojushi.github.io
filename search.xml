@@ -2085,7 +2085,7 @@ t' \left( V_k^{b_r} \right) := \sum_{i \in V_k^{b_r} } t_i' = \sum_{i \in V_k^{b
 <p>JavaScript的<code>typeof</code>函数可以返回变量的类型（字符串表示），如果是<code>number</code>类型，说明这是<code>row.id</code>，长度为1；如果是<code>object</code>类型（数组即对象），说明这是<code>this.ids</code>，长度为数组的<code>length</code>。再判断ids的长度是否大于1，输出对应的结果。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-10.png" alt="删除企业"></p>
 <h4 id="2-1-4-解决手机端消息框显示不全的问题"><a href="#2-1-4-解决手机端消息框显示不全的问题" class="headerlink" title="2.1.4 解决手机端消息框显示不全的问题"></a>2.1.4 解决手机端消息框显示不全的问题</h4><p>在做响应式布局时遇到的bug，像上面删除时弹出的警告框，如果屏幕宽度过窄，可能显示不全，连确定按钮都点不到：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-19.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-19.png" alt="在屏幕宽度过窄时，消息框显示不全"></p>
 <p>所以我在代码的最后都加了一个样式：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">750px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.el-message-box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span> <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <p>使消息框在屏幕尺寸小于750px时，宽度调整为相对尺寸（80%），避免显示不全。</p>
@@ -2196,6 +2196,9 @@ t' \left( V_k^{b_r} \right) := \sum_{i \in V_k^{b_r} } t_i' = \sum_{i \in V_k^{b
 <p>以上【企业中心】和【设备中心】两个模块，如果不算后期不断地调整美化，只算页面和功能的大体成型，我大概做了<strong>3个星期</strong>左右。这3个星期也是边学边做的一个过程，巩固了很多Vue和JavaScript的知识，对于我的代码和debug能力有很大的提升。昆山团队退出后，我们开始忙于【工作台】与【统计报表】的制作，这花了我<strong>整整2个月</strong>。这两个模块的技术难度也不亚于这篇文章所提到的，下次有空再补充！</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-26.png" alt="企业中心和设备中心的commit过程"></p>
 ]]></content>
+      <categories>
+        <category>Development</category>
+      </categories>
       <tags>
         <tag>工业互联网平台</tag>
         <tag>技术</tag>
