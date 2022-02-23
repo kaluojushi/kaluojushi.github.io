@@ -1290,7 +1290,7 @@ x = {-b \pm \sqrt{b^2-4ac} \over 2a}.</script><p>更多公式相关见《<a href
 <p>这个平台由3个团队共同参与开发，分别是杭州团队（浙大）、苏州团队（苏州研究院）和昆山团队（昆山某公司），后来昆山团队退出了，项目就完全由杭州和苏州负责了。</p>
 <p>这个项目里我们杭州团队负责了【企业中心】、【设备中心】的开发，在昆山团队退出后，我们还额外负责了原来昆山做的【工作台】、【统计报表】部分。杭州团队是包括我在内的3个研究生，我负责前端，另外2个同学负责后端，其中1个还负责数据库管理。</p>
 <p>4月初，我们经过了多次讨论，研究了若干技术选型，如人人开源、JeecgBoot等，最终决定以<a href="http://ruoyi.vip/">若依管理系统</a>为基础，搭建我们的平台。从以下我们做好的首页中，也可以见到一丝端倪。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-01 - 副本.png" alt="首页"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-01 - 副本2.png" alt="首页"></p>
 <p>（首页除了下面的<strong>合作伙伴</strong>是我设计的外，其他全部是苏州团队设计的）</p>
 <p>从4月开始，我着手学习前端三件套、<a href="https://v3.cn.vuejs.org/">Vue</a>与<a href="https://element.eleme.cn/#/zh-CN">ElementUI</a>，并到后期边做边学，积累了很多技术经验。并且由于前端需要后端支持，因此我也在自己的电脑上搭配了完整的后端环境。</p>
 <h2 id="2-企业中心"><a href="#2-企业中心" class="headerlink" title="2 企业中心"></a>2 企业中心</h2><p>【企业中心】用于管理该公司对接的所有企业，也就是它的销售方。</p>
@@ -2509,7 +2509,7 @@ t' \left( V_k^{b_r} \right) := \sum_{i \in V_k^{b_r} } t_i' = \sum_{i \in V_k^{b
       </tags>
   </entry>
   <entry>
-    <title>JavaScript中布尔值为`false`的几种情况</title>
+    <title>JavaScript中布尔值为false的几种情况</title>
     <url>/2021/12/13/several-cases-of-boolean-value-being-false-in-javascript/</url>
     <content><![CDATA[<p>前端开发经常需要用到<code>if</code>判断，下文归纳JavaScript中布尔值为<code>false</code>的几种情况，便于今后开发使用。</p>
 <span id="more"></span>
