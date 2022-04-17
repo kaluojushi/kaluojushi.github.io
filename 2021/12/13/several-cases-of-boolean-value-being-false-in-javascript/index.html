@@ -28,11 +28,12 @@
 <meta property="og:description" content="前端开发经常需要用到if判断，下文归纳JavaScript中布尔值为false的几种情况，便于今后开发使用。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-13T01:47:52.000Z">
-<meta property="article:modified_time" content="2022-02-23T13:59:29.744Z">
+<meta property="article:modified_time" content="2022-04-17T11:35:43.138Z">
 <meta property="article:author" content="卡洛">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="基础">
+<meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://corecabin.cn/2021/12/13/several-cases-of-boolean-value-being-false-in-javascript/">
@@ -235,7 +236,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-23 21:59:29" itemprop="dateModified" datetime="2022-02-23T21:59:29+08:00">2022-02-23</time>
+                <time title="修改时间：2022-04-17 19:35:43" itemprop="dateModified" datetime="2022-04-17T19:35:43+08:00">2022-04-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,14 +261,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -287,7 +288,7 @@
 <li><code>false</code>：布尔值<code>false</code>，注意字符串<code>&#39;false&#39;</code>为<code>true</code></li>
 <li>0：数字0，注意字符串<code>&#39;0&#39;</code>为<code>true</code></li>
 <li><code>NaN</code>：非数值，例如<code>Math.log(-1)</code>，注意<code>typeof NaN</code>为<code>number</code></li>
-<li><code>&quot;&quot;</code>或<code>&#39;&#39;</code>：空字符串，注意中间有空格时为<code>true</code></li>
+<li><code>&quot;&quot;</code>或<code>&#39;&#39;</code>：空字符串，注意空格字符串<code>&#39; &#39;</code>为<code>true</code></li>
 </ol>
 <h2 id="2-不同数据类型转换为false的情况"><a href="#2-不同数据类型转换为false的情况" class="headerlink" title="2 不同数据类型转换为false的情况"></a>2 不同数据类型转换为<code>false</code>的情况</h2><div class="table-container">
 <table>
@@ -341,8 +342,8 @@
 <li><p>使用<code>length</code>属性，适用于数组，如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array1 = [];</span><br><span class="line"><span class="keyword">let</span> array2 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">if</span> (array1.length) <span class="built_in">console</span>.log(<span class="string">&#x27;array1 not empty&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (array2.length) <span class="built_in">console</span>.log(<span class="string">&#x27;array2 not empty&#x27;</span>);	<span class="comment">// array2 not empty</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用<code>for-in</code>或<code>for-of</code>遍历，并把遍历结果写成函数，适用于数组和对象，如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array1 = [];</span><br><span class="line"><span class="keyword">let</span> array2 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (isEmpty(array1)) <span class="built_in">console</span>.log(<span class="string">&#x27;array1 is empty&#x27;</span>);	<span class="comment">// array1 is empty</span></span><br><span class="line"><span class="keyword">if</span> (isEmpty(array2)) <span class="built_in">console</span>.log(<span class="string">&#x27;array2 is empty&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (isEmpty(obj1)) <span class="built_in">console</span>.log(<span class="string">&#x27;obj1 is empty&#x27;</span>);	<span class="comment">// obj1 is empty</span></span><br><span class="line"><span class="keyword">if</span> (isEmpty(obj2)) <span class="built_in">console</span>.log(<span class="string">&#x27;obj2 is empty&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<li><p>使用<code>for-in</code>遍历和<code>hasOwnProperty</code>判断，并把遍历结果写成函数，适用于数组和对象，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array1 = [];</span><br><span class="line"><span class="keyword">let</span> array2 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">let</span> obj1 = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmpty</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (isEmpty(array1)) <span class="built_in">console</span>.log(<span class="string">&#x27;array1 is empty&#x27;</span>);	<span class="comment">// array1 is empty</span></span><br><span class="line"><span class="keyword">if</span> (isEmpty(array2)) <span class="built_in">console</span>.log(<span class="string">&#x27;array2 is empty&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (isEmpty(obj1)) <span class="built_in">console</span>.log(<span class="string">&#x27;obj1 is empty&#x27;</span>);	<span class="comment">// obj1 is empty</span></span><br><span class="line"><span class="keyword">if</span> (isEmpty(obj2)) <span class="built_in">console</span>.log(<span class="string">&#x27;obj2 is empty&#x27;</span>);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="4-出现undefined的几种情况"><a href="#4-出现undefined的几种情况" class="headerlink" title="4 出现undefined的几种情况"></a>4 出现<code>undefined</code>的几种情况</h2><ol>
@@ -375,8 +376,11 @@
 <li><p>获取DOM元素时未获取到指定元素对象</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> element = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;x&#x27;</span>);</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(element);	<span class="comment">// null</span></span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>正则表达式的<code>match</code>方法未匹配</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> string = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> re1 = <span class="regexp">/hello/g</span>;</span><br><span class="line"><span class="keyword">let</span> re2 = <span class="regexp">/javascript/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(string.match(re1));	<span class="comment">// [ &#x27;hello&#x27; ]</span></span><br><span class="line"><span class="built_in">console</span>.log(string.match(re2));	<span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<li><p>原型链的顶点，即<code>Object.prototype.__proto__</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__);	<span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正则捕获时未捕获到结果，包括：正则对象的<code>exec</code>方法未匹配、字符串的<code>match</code>方法未匹配。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> string = <span class="string">&quot;xyz123ABC2&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> re1 = <span class="regexp">/[a-zA-Z]+(\d)/g</span>;</span><br><span class="line"><span class="keyword">const</span> re2 = <span class="regexp">/[a-c]+/g</span>;</span><br><span class="line"><span class="built_in">console</span>.log(re1.exec(string));	<span class="comment">// [ &#x27;xyz1&#x27;, &#x27;1&#x27;, index: 0, input: &#x27;xyz123ABC2&#x27;, groups: undefined ]</span></span><br><span class="line"><span class="built_in">console</span>.log(re2.exec(string));	<span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log(string.match(re1));	<span class="comment">// [ &#x27;xyz1&#x27;, &#x27;ABC2&#x27; ]</span></span><br><span class="line"><span class="built_in">console</span>.log(string.match(re2));	<span class="comment">// null</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -392,6 +396,7 @@
               <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
               <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
               <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> 基础</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
           </div>
 
         
@@ -482,7 +487,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -495,7 +500,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
