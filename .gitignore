@@ -1,0 +1,11 @@
+/.deploy_git
+/public
+
+# Editor directories and files
+.vscode
+.vs
+.idea
+
+# node_modules
+node_modules
+*/node_modules/
