@@ -1,5 +1,7 @@
+# about hexo
 /.deploy_git
 /public
+db.json
 
 # Editor directories and files
 .vscode
