@@ -210,10 +210,10 @@ links:
 
 # 友情链接
 mylinks:
-  - nickname: 毛利老弟的博客 | LW Blog
-    avatar: https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/avatar/毛利老弟.jpg
-    site: https://leiwei.xyz/
-    info: 大学好朋友，参考他的博客搭建的（貌似死链了
+  - nickname: 胖虎的Blog
+    avatar: https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/avatar/panghu256.ico
+    site: https://leiwei.space/
+    info: Keep writing and Keep loving.
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
