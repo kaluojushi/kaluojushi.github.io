@@ -16,7 +16,7 @@ comments: true
 
 ## 0 同步远程仓库（多端）
 
-在当前电脑的`hexo`文件夹（已`git init`和`remote`）下，打开`git bash`，依次执行：
+在当前电脑的`kaluojushi.github.io`文件夹（已`git init`和`remote`）下的`hexo`分支，打开`git bash`，依次执行：
 
 ```bash
 $ git fetch --all
@@ -25,15 +25,17 @@ $ git push origin hexo
 
 以同步远程仓库代码。
 
+这个操作也可以通过IDE或[GitHub Desktop](https://desktop.github.com/)进行，而且更推荐！
+
 ## 1 清除缓存
 
-`hexo`下执行：
+根目录下执行：
 
 ```bash
 $ hexo clean
 ```
 
-清除`hexo/public`等缓存。可做可不做，但当页面改动较大时，或拉了代码时，建议做一下。
+清除`/public`、`/db.json`等缓存。可做可不做，但当页面改动较大时，或拉了代码时，建议做一下。
 
 ## 2 新建md文档
 
@@ -41,41 +43,41 @@ $ hexo clean
 
 ### 2.1 新建文章
 
-`hexo`下执行：
+根目录下执行：
 
 ```bash
 $ hexo new [post] "postName"
 ```
 
-`hexo`会在`/source/_posts`下新建文件`postName.md`，通常采用英文命名`postName`。
+根目录会在`/source/_posts`下新建文件`postName.md`，通常采用英文命名`postName`。
 
 ### 2.2 新建页面
 
-`hexo`下执行：
+根目录下执行：
 
 ```bash
 $ hexo new page "pageName"
 ```
 
-`hexo`会在`/source/pageName`下新建文件`index.md`。
+根目录会在`/source/pageName`下新建文件`index.md`。
 
-若要生成二级页面，则`hexo`下执行：
+若要生成二级页面，则根目录下执行：
 
 ```bash
 $ hexo new page --path about/me "pageTitle" #--path可缩写为-p
 ```
 
-`hexo`会在`/source/about`下新建文件`me.md`，并将`title`命名为`pageTitle`，**注意`title`必须指定**。
+根目录会在`/source/about`下新建文件`me.md`，并将`title`命名为`pageTitle`，**注意`title`必须指定**。
 
 ### 2.3 新建草稿
 
-`hexo`下执行：
+根目录下执行：
 
 ```bash
 $ hexo new draft "draftName"
 ```
 
-`hexo`会在`/source/_drafts`下新建文件`draftName.md`。
+根目录会在`/source/_drafts`下新建文件`draftName.md`。
 
 发表草稿时，用`publish`命令：
 
@@ -170,7 +172,7 @@ tags:
 
 **注意：设置分类、标签列表**
 
-打开`hexo`的`_config.yml`，对下面代码进行更改：
+打开根目录的`_config.yml`，对下面代码进行更改：
 
 ```yaml
 # Category & Tag
@@ -188,8 +190,9 @@ tag_map:
 
 对于page，可以设置`type`为有关类型：
 
-- `type: categories`：类型页面。
+- `type: categories`：分类页面。
 - `type: tags`：标签页面。
+- `type: links`：友链页面，为自己添加，参考[此文](https://www.liaofuzhan.com/posts/1123041323.html)。
 
 ### 3.6 评论
 
@@ -476,12 +479,12 @@ console.log(time);
 
 ## 5 发布
 
-`hexo`下依次执行：
+根目录下依次执行hexo三连：
 
 ```bash
 $ hexo generate #生成静态html到public
 $ hexo server #生成预览窗口（localhost:4000，ctrl+C停止）
-$ hexo deploy #部署到Github（上传public代码）
+$ hexo deploy #部署到Github（上传public代码到main分支）
 ```
 
 也可以缩写成
@@ -496,7 +499,7 @@ $ hexo d
 
 ## 6 备份代码（多端）
 
-`hexo`下依次执行：
+根目录下依次执行：
 
 ```bash
 $ git add .
@@ -506,19 +509,24 @@ $ git push origin hexo
 
 以更新远程仓库代码。
 
+这个操作也可以通过IDE或[GitHub Desktop](https://desktop.github.com/)进行，而且更推荐！
+
 ## 7 多端管理说明
 
-考虑到适用GitHub托管hexo源码存在或多或少的问题，尤其是`git pull`和`git push`与GitHub连接的加载速度太慢~~（因为办公室非Chrome时科学上网比较困难）~~，所以可以使用如下方法：
+~~考虑到适用GitHub托管hexo源码存在或多或少的问题，尤其是`git pull`和`git push`与GitHub连接的加载速度太慢（因为办公室非Chrome时科学上网比较困难），所以可以使用如下方法：~~
 
-- 当临时出差时：
+- ~~当临时出差时：~~
 
-  用Markdown写作，回来再`new post`。
+  ~~用Markdown写作，回来再`new post`。~~
 
-- 当长期不在时：
+- ~~当长期不在时：~~
 
-  将整个`hexo`用U盘或其他方式拷贝到笔记本上~~（反正也才几十Mb）~~，然后在笔记本已安装hexo、设置好GitHub SSH密钥的情况下，执行`npm install`即可。此时可以通过`hexo s`查看是否成功。
+  ~~将整个`hexo`用U盘或其他方式拷贝到笔记本上（反正也才几十Mb），然后在笔记本已安装hexo、设置好GitHub SSH密钥的情况下，执行`npm install`即可。此时可以通过`hexo s`查看是否成功。~~
 
-- 移动端时：
+- ~~移动端时：~~
 
-  用Simplenote写Markdown，回来再`new post`。好像也有其他方法，但暂时不用。
+  ~~用Simplenote写Markdown，回来再`new post`。好像也有其他方法，但暂时不用。~~
 
+目前核心舱的资源和代码已经分别进行远程管理，资源通过坚果云同步，代码通过GitHub同步，这是目前在多台电脑管理hexo比较合适的方式。
+
+因此多端管理hexo时，仅需同步GitHub仓库的hexo分支即可，资源通过坚果云自动同步，静态页面通过`hexo d`部署。移动端通过坚果云或语雀临时存储文稿就行。
