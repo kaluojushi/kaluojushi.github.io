@@ -109,6 +109,7 @@ comments: true
 - 解决了中文目录不能跳转的bug；
 - 解决了hexo-renderer-kramed不能渲染Todo List的bug，同样可以参考这篇文章：《{% post_link solve-some-problems-of-hexo-renderer-kramed-rendering-conflicts %}》；
 - 解决了手机端总是不能访问核心舱的bug，可以参考这篇文章：《{% post_link solve-the-problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed %}》；
+- 通过配置swig文件的方式更新了友情链接的展现形式；
 - ……
 
 以后也可以把更新bug的过程写在这篇文章里。
@@ -127,4 +128,5 @@ comments: true
 10. [解决hexo-next主题和mathjax下划线冲突问题 | 拾荒志](https://murphypei.github.io/blog/2019/03/hexo-render-mathjax.html)
 11. [hexo-theme-next的PR：fix: Chinese TOC cannot jump](https://github.com/theme-next/hexo-theme-next/pull/1540/commits/ec521c927dc10255977324284c1c667f2e220da7)
 12. [hexo-renderer-marked的PR：Add Markdown List Support](https://github.com/hexojs/hexo-renderer-marked/pull/32)
+13. [Hexo NexT主题自定义友链页面 | Leaface](https://www.liaofuzhan.com/posts/1123041323.html)
 
