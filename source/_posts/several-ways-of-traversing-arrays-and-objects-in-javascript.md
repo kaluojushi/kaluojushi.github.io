@@ -1,7 +1,7 @@
 ---
 title: JavaScript中遍历数组、对象的几种方式
 date: 2021-12-14 09:33:05
-categories: JavaScirpt
+categories: JavaScript
 tags:
   - 编程
   - JavaScript

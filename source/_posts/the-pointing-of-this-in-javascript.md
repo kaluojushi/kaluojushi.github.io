@@ -1,7 +1,7 @@
 ---
 title: JavaScript中this的指向问题
 date: 2022-04-17 18:57:49
-categories: JavaScirpt
+categories: JavaScript
 tags:
   - 编程
   - JavaScript

@@ -2,6 +2,7 @@
 /.deploy_git
 /public
 db.json
+package-lock.json
 
 # Editor directories and files
 .vscode

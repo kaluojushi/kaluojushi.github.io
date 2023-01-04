@@ -1,7 +1,7 @@
 ---
 title: JavaScript中布尔值为false的几种情况
 date: 2021-12-13 09:47:52
-categories: JavaScirpt
+categories: JavaScript
 tags:
   - 编程
   - JavaScript
