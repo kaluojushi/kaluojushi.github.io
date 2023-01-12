@@ -200,13 +200,15 @@ social_icons:
 # Blog rolls
 links_settings:
   icon: link
-  title: 更多链接
+  title: 一些个人项目
   # Available values: block | inline
   layout: block
 
 links:
-#   微信公众号: /img/xiamuandsansan.jpg
-#   E-Mail: mailto:ma.zijian@qq.com
+   JS Guide: https://jsguide.cn/
+   Carlo Tools: https://corecabin.cn/carlo-tools/
+   zju-health-report: https://github.com/kaluojushi/zju-health-report
+   ……更多: /about/projects
 
 # 友情链接
 mylinks:
