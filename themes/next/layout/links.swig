@@ -21,7 +21,7 @@
             }
 
             .card {
-                width: 400px;
+                width: 350px;
                 font-size: 1rem;
                 padding: 10px 20px;
                 border-radius: 4px;

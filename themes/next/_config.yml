@@ -182,7 +182,7 @@ social:
   GitHub: https://github.com/kaluojushi || github
   Gitee: https://gitee.com/kaluojushi || git
   微信公众号: /about/weixin_platform || wechat
-  E-Mail: mailto:ma.zijian@qq.com || envelope
+  E-Mail: mailto:carlo0901@163.com || envelope
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -205,9 +205,9 @@ links_settings:
   layout: block
 
 links:
+   苏打盖 Sodaguide: https://sodaguide.cn/
    JS Guide: https://jsguide.cn/
    Carlo Tools: https://corecabin.cn/carlo-tools/
-   zju-health-report: https://github.com/kaluojushi/zju-health-report
    ……更多: /about/projects
 
 # 友情链接
@@ -216,6 +216,10 @@ mylinks:
     avatar: https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/avatar/panghu256.ico
     site: https://leiwei.space/
     info: Keep writing and Keep loving.
+  - nickname: 苏打盖 Sodaguide
+    avatar: https://sodaguide.cn/images/logo.jpg
+    site: https://sodaguide.cn/
+    info: 苏打绿的追星百科（我做的
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
