@@ -12,7 +12,7 @@ layout: page
 
 ## 1 我是
 
-华为云员工，25 岁，岗位是 SA（Solution Architect）解决方案架构师），目前在做昇腾云服务相关工作，常用 ID 卡洛/Carlo，代码爱好者。
+华为云员工，25 岁，岗位是 SA（Solution Architect，解决方案架构师），目前在做昇腾云服务相关工作，常用 ID 卡洛/Carlo，代码爱好者。
 
 > 为啥叫卡洛？因为我不喜欢吃胡萝卜。~~胡萝卜=carrot=卡洛=Carlo~~
 

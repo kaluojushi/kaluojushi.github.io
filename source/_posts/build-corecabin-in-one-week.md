@@ -110,6 +110,7 @@ comments: true
 - 解决了hexo-renderer-kramed不能渲染Todo List的bug，同样可以参考这篇文章：《{% post_link solve-some-problems-of-hexo-renderer-kramed-rendering-conflicts %}》；
 - 解决了手机端总是不能访问核心舱的bug，可以参考这篇文章：《{% post_link solve-the-problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed %}》；
 - 通过配置swig文件的方式更新了友情链接的展现形式；
+- 修正了因 Github RSA SSH 策略调整导致的无法部署的问题；
 - ……
 
 以后也可以把更新bug的过程写在这篇文章里。
@@ -129,4 +130,6 @@ comments: true
 11. [hexo-theme-next的PR：fix: Chinese TOC cannot jump](https://github.com/theme-next/hexo-theme-next/pull/1540/commits/ec521c927dc10255977324284c1c667f2e220da7)
 12. [hexo-renderer-marked的PR：Add Markdown List Support](https://github.com/hexojs/hexo-renderer-marked/pull/32)
 13. [Hexo NexT主题自定义友链页面 | Leaface](https://www.liaofuzhan.com/posts/1123041323.html)
+14. [HEXO部署博客内容到github报错_部署hexo时someone could be eavesdropping on you right-CSDN博客](https://blog.csdn.net/qq_42692386/article/details/129973669)
+15. [git@github.com:Permission denied(publickey).fatal: Could not read form remote repository错误_git@github.com: permission denied (publickey). fat-CSDN博客](https://blog.csdn.net/zhan13253807836/article/details/122896326)
 
