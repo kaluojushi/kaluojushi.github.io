@@ -54,6 +54,7 @@
                 font-style: italic;
                 overflow: hidden;
                 width: 380px;
+                margin-left: 10px;
             }
             .card .card-header a {
                 font-style: normal;
