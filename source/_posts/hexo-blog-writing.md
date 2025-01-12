@@ -1,5 +1,5 @@
 ---
-title: Hexo博客写作
+title: Hexo 博客写作
 date: 2021-08-03 04:04:20
 categories: Hexo
 tags:
@@ -14,18 +14,33 @@ comments: true
 
 <!--more-->
 
+## -1 环境配置（新环境）
+
+首先从 [代码仓](https://github.com/kaluojushi/kaluojushi.github.io) 克隆代码到本地。
+
+然后参考 [hexo 官方文档](https://hexo.io/zh-cn/docs/) 完成环境配置。
+
+最后执行 `npm install` 安装局部依赖。
+
+{% note warning %}
+**相关注意事项：**
+
+1. 注意 [Node.js 版本限制](https://hexo.io/zh-cn/docs/#Node-js-%E7%89%88%E6%9C%AC%E9%99%90%E5%88%B6)，选择与 Node.js 版本匹配的 Hexo 版本。
+2. 注意 `package.json` 内相关插件版本，应与 latest 版本尽量保持一致，否则可能因相关插件 EOL 而报错。
+3. 如果是 Mac 环境且选择使用 `hexo-cli` 配置全局环境，需要获取系统权限后安装：`sudo npm install -g hexo-cli`。
+{% endnote %}
+
 ## 0 同步远程仓库（多端）
 
-在当前电脑的`kaluojushi.github.io`文件夹（已`git init`和`remote`）下的`hexo`分支，打开`git bash`，依次执行：
+在当前电脑的 `kaluojushi.github.io` 文件夹（已 `git init` 和 `remote`，否则参考第 -1 节）下的 `hexo` 分支，依次执行：
 
 ```bash
-$ git fetch --all
-$ git push origin hexo
+$ git pull origin hexo
 ```
 
-以同步远程仓库代码。
+以拉取远程仓库代码。
 
-这个操作也可以通过IDE或[GitHub Desktop](https://desktop.github.com/)进行，而且更推荐！
+这个操作也可以通过 IDE 或 [GitHub Desktop](https://desktop.github.com/) 进行，而且更推荐！
 
 ## 1 清除缓存
 
@@ -35,11 +50,13 @@ $ git push origin hexo
 $ hexo clean
 ```
 
-清除`/public`、`/db.json`等缓存。可做可不做，但当页面改动较大时，或拉了代码时，建议做一下。
+清除 `/public`、`/db.json` 等缓存。
 
-## 2 新建md文档
+可做可不做，但当页面改动较大时，或拉了代码时，建议做一下。
 
-下述`hexo new`均可缩写为`hexo n`。
+## 2 新建 md 文档
+
+下述 `hexo new` 均可缩写为 `hexo n`。
 
 ### 2.1 新建文章
 
@@ -49,7 +66,7 @@ $ hexo clean
 $ hexo new [post] "postName"
 ```
 
-根目录会在`/source/_posts`下新建文件`postName.md`，通常采用英文命名`postName`。
+根目录会在 `/source/_posts` 下新建文件 `postName.md`，通常采用英文命名`postName`。
 
 ### 2.2 新建页面
 
@@ -59,15 +76,15 @@ $ hexo new [post] "postName"
 $ hexo new page "pageName"
 ```
 
-根目录会在`/source/pageName`下新建文件`index.md`。
+根目录会在 `/source/pageName` 下新建文件 `index.md`。
 
 若要生成二级页面，则根目录下执行：
 
 ```bash
-$ hexo new page --path about/me "pageTitle" #--path可缩写为-p
+$ hexo new page --path about/me "pageTitle" # --path可缩写为-p
 ```
 
-根目录会在`/source/about`下新建文件`me.md`，并将`title`命名为`pageTitle`，**注意`title`必须指定**。
+根目录会在 `/source/about` 下新建文件 `me.md`，并将 `title` 命名为 `pageTitle`，**注意 `title` 必须指定**。
 
 ### 2.3 新建草稿
 
@@ -77,48 +94,49 @@ $ hexo new page --path about/me "pageTitle" #--path可缩写为-p
 $ hexo new draft "draftName"
 ```
 
-根目录会在`/source/_drafts`下新建文件`draftName.md`。
+根目录会在 `/source/_drafts` 下新建文件 `draftName.md`。
 
-发表草稿时，用`publish`命令：
+发表草稿时，用 `publish` 命令：
 
 ```bash
 $ hexo publish [post/page] <fileName>
 ```
 
-新建草稿一般不用，因为可以先写好Markdown然后再`new post`就好。
+一般不用新建草稿这个操作，因为可以先写好 Markdown 然后再 `new post` 就好。
 
-## 3 编辑Front-matter
+## 3 编辑 Front-matter
 
-Front-matter是文件最上方以`---`分隔的区域，一般来说完整应如下：
+Front-matter 是文件最上方以 `---` 分隔的区域，一般来说完整应如下：
 
 ```markdown
 ---
-title: postTitle #标题，默认为文件名，一般会自行更改为中文的
-date: 2021/08/01 11:45:14 #建立日期
-updated: #更新日期
-categories: #分类（page不适用）
-tags: #标签（page不适用）
-type: #页面类型（仅page）
-description: #摘要，详细见第4节
-comments: true #评论，默认为true
-layout: post #布局，默认为post
-mathjax: false #LaTeX公式，默认为false
+title: postTitle # 标题，默认为文件名，一般会自行更改为中文的
+date: 2021/08/01 11:45:14 # 建立日期
+updated: # 更新日期
+categories: # 分类（page 不适用）
+tags: # 标签（page 不适用）
+type: # 页面类型（仅 page）
+description: # 摘要，详细见第 4 节
+comments: true # 评论，默认为 true
+layout: post # 布局，默认为 post
+mathjax: false # LaTeX 公式，默认为 false
 ---
 ```
 
 ### 3.1 标题
 
-hexo会把Markdown文档转化为html静态网页，因此要想实现文章标题与域名不同，可以通过以下方法
+Hexo 会把 Markdown 文档转化为 HTML 静态网页，因此要想实现文章标题与域名不同，可以通过以下方法：
 
-- 文件名为`英文标题.md`的形式。*根据谷歌文档，建议使用`-`分隔单词，而不是`_`或驼峰式。*
-- Front-matter的`title`为实际的中文标题。
+- 文件名为 `英文标题.md` 的形式。
+  - *根据谷歌文档，建议使用 `-` 分隔单词，而不是 `_` 或驼峰式。*
+- Front-matter 的 `title` 为实际的中文标题。
 
-这样文章域名就为`英文.html`，而标题为中文。
+这样文章域名就为 `英文.html`，而标题为中文。
 
 ### 3.2 日期
 
-- `date`：建立日期，自动生成，默认为Markdown文档建立日期。
-- `updated`：更新日期，不自动生成，但NexT主题会自动读取文档修改日期；可以自行添加或修改。
+- `date`：建立日期，自动生成，默认为 Markdown 文档建立日期。
+- `updated`：更新日期，不自动生成，但 NexT 主题会自动读取文档修改日期；可以自行添加或修改。
 
 ### 3.3 分类
 
@@ -128,7 +146,7 @@ hexo会把Markdown文档转化为html静态网页，因此要想实现文章标�
 categories: Diary
 ```
 
-表示分类为Diary。
+表示分类为 Diary。
 
 子分类用逗号表示，例如：
 
@@ -136,7 +154,7 @@ categories: Diary
 categories: [Diary, Life]
 ```
 
-表示分类为Diary的子分类Life。*别忘了方括号，否则会被理解为一个分类，名为“Diary, Life”。*
+表示分类为 Diary 的子分类 Life。*别忘了方括号，否则会被理解为一个分类，名为「Diary, Life」。*
 
 并列分类则使用列表形式，例如：
 
@@ -147,7 +165,7 @@ categories:
 	- [Music, Piano]
 ```
 
-表示分类分别为“Diary”、“Life”和“Music的子分类Piano”这三个分类。
+表示分类分别为「Diary」、「Life」和「Music 的子分类 Piano」这三个分类。
 
 ~~好麻烦，所以应当提前有一个大体的分类思路。~~
 
@@ -172,7 +190,7 @@ tags:
 
 **注意：设置分类、标签列表**
 
-打开根目录的`_config.yml`，对下面代码进行更改：
+打开根目录的 `_config.yml`，对下面代码进行更改：
 
 ```yaml
 # Category & Tag
@@ -186,9 +204,9 @@ tag_map:
 
 则可以更改对应分类、标签的访问路径。
 
-### 3.5 页面类型（NexT主题）
+### 3.5 页面类型（NexT 主题）
 
-对于page，可以设置`type`为有关类型：
+对于 page，可以设置 `type` 为有关类型：
 
 - `type: categories`：分类页面。
 - `type: tags`：标签页面。
@@ -196,9 +214,11 @@ tag_map:
 
 ### 3.6 评论
 
-将`comments`设置为`true`即可，默认即为`true`，所以可以不加这一条。如果要关闭评论，则设置`false`即可。
+将 `comments` 设置为 `true` 即可，默认即为 `true`，所以可以不加这一条。
 
-page的`comments`也是默认开启的，包括categories页面和tags页面！！！
+如果要关闭评论，则设置 `false` 即可。
+
+page 的 `comments` 也是默认开启的，包括categories页面和tags页面！！！
 
 ```markdown
 comments: true
@@ -206,25 +226,25 @@ comments: true
 
 ### 3.7 `layout`
 
-对于post，`layout`默认为`post`，因此一般不加。
+对于 post，`layout` 默认为 `post`，因此一般不加。
 
-对于page，建议是在new完后，在`index.md`的Front-matter加上~~（好像不加也行）~~：
+对于 page，建议是在 new 完后，在 `index.md` 的 Front-matter 加上 ~~（好像不加也行）~~：
 
 ```markdown
 layout: page
 ```
 
-以下设置不适用NexT主题，因此划掉。
+以下设置不适用 NexT 主题，因此划掉。
 
-~~如果设置为`layout: tagcloud`则为标签云页面。~~
+~~如果设置为 `layout: tagcloud` 则为标签云页面。~~
 
-~~如果设置为`layout: timeline`则为时间线页面，具体在`theme`的`_config.yml`设置。~~
+~~如果设置为 `layout: timeline` 则为时间线页面，具体在 `theme` 的 `_config.yml` 设置。~~
 
-~~如果设置为`layout: single-column`则为单栏页面。~~
+~~如果设置为 `layout: single-column` 则为单栏页面。~~
 
 ### 3.8 数学公式
 
-将`mathjax`设置为`true`即可。
+将 `mathjax` 设置为 `true` 即可。
 
 ```markdown
 mathjax: true
@@ -232,7 +252,7 @@ mathjax: true
 
 ## 4 正文书写
 
-使用Markdown正常书写即可，参见《{% post_link markdown-basic-syntax-and-examples %}》。
+使用 Markdown 正常书写即可，参见《{% post_link markdown-basic-syntax-and-examples %}》。
 
 **注意文中不要出现两个大括号，或大括号与井号相连等与渲染语法冲突的情况。**
 
@@ -247,9 +267,9 @@ mathjax: true
 
 文章摘要有三种提取方法，优先级从高到低：
 
-- 提取Front-matter的`description`内容。*文字不多时用这种。*
+- 提取Front-matter的 `description` 内容。*文字不多时用这种。*
 
-- 在文章合适部分加上`<!--more-->`，文章会被自动截断。*一般情况下或文字较多时用这种。*
+- 在文章合适部分加上 `<!--more-->`，文章会被自动截断。*一般情况下或文字较多时用这种。*
 
 - 根据主题配置文件中的如下代码自动生成摘要。*不要用这种，观感会很差。*
 
@@ -261,7 +281,7 @@ mathjax: true
 
 ### 4.2 标签插件
 
-标签插件用于在正文中以`{}`加`%`的格式，输入特定内容。
+标签插件用于在正文中以 `{}` 加 `%` 的格式，输入特定内容。
 
 #### 4.2.1 引用块
 
@@ -309,7 +329,7 @@ content
 8月11日0-24时，湖北省新增新冠肺炎确诊病例10例。
 {% endblockquote %}
 
-**NexT还支持居中引用**
+**NexT 还支持居中引用**
 
 ```
 {% centerquote %}
@@ -401,7 +421,7 @@ console.log(time);
 
 {% iframe //music.163.com/outchain/player?type=2&id=1425676569&auto=0&height=66 330 86 %}
 
-其实直接放HTML的`<iframe>`代码也可以：
+其实直接放 HTML 的 `<iframe>` 代码也可以：
 
 ```html
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1425676569&auto=0&height=66"></iframe>
@@ -409,13 +429,13 @@ console.log(time);
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1425676569&auto=0&height=66"></iframe>
 
-**嵌入bilibili视频播放器**
+**嵌入 Bilibili 视频播放器**
 
 ```
-{% iframe //player.bilibili.com/player.html?aid=92523122&bvid=BV1eE411H7XL&cid=157973222&page=1 %}
+{% iframe //player.bilibili.com/player.html?isOutside=true&aid=92523122&bvid=BV1eE411H7XL&cid=157973222&p=1 %}
 ```
 
-{% iframe //player.bilibili.com/player.html?aid=92523122&bvid=BV1eE411H7XL&cid=157973222&page=1 %}
+{% iframe //player.bilibili.com/player.html?isOutside=true&aid=92523122&bvid=BV1eE411H7XL&cid=157973222&p=1 %}
 
 #### 4.2.5 引用文章
 
@@ -451,7 +471,7 @@ console.log(time);
 
 示例略
 
-#### 4.2.6 Bootstrap Callout（NexT主题）
+#### 4.2.6 Bootstrap Callout（NexT 主题）
 
 语法如下：
 
@@ -459,7 +479,7 @@ console.log(time);
 {% note class_name %} Content (md partial supported) {% endnote %}
 ```
 
-`class_name`可以设置为`default`、`primary`、`success`、`info`、`warning`或`danger`。
+`class_name` 可以设置为 `default`、`primary`、`success`、`info`、`warning` 或 `danger`。
 
 ```
 {% note defalut %} **defalut** {% endnote %}
@@ -479,15 +499,15 @@ console.log(time);
 
 ## 5 发布
 
-根目录下依次执行hexo三连：
+根目录下依次执行 hexo 三连：
 
 ```bash
-$ hexo generate #生成静态html到public
-$ hexo server #生成预览窗口（localhost:4000，ctrl+C停止）
-$ hexo deploy #部署到Github（上传public代码到main分支）
+$ hexo generate # 生成静态 HTML 到 public 文件夹
+$ hexo server # 生成预览窗口（localhost:4000，Ctrl+C 停止）
+$ hexo deploy # 部署到 Github（自动上传 public 代码到 main 分支）
 ```
 
-也可以缩写成
+也可以缩写成：
 
 ```bash
 $ hexo g
@@ -509,24 +529,26 @@ $ git push origin hexo
 
 以更新远程仓库代码。
 
-这个操作也可以通过IDE或[GitHub Desktop](https://desktop.github.com/)进行，而且更推荐！
+这个操作也可以通过 IDE 或 [GitHub Desktop](https://desktop.github.com/) 进行，而且更推荐！
 
 ## 7 多端管理说明
 
-~~考虑到适用GitHub托管hexo源码存在或多或少的问题，尤其是`git pull`和`git push`与GitHub连接的加载速度太慢（因为办公室非Chrome时科学上网比较困难），所以可以使用如下方法：~~
+~~考虑到适用 GitHub 托管 Hexo 源码存在或多或少的问题，尤其是 `git pull` 和 `git push` 与GitHub连接的加载速度太慢（因为办公室非 Chrome 时科学上网比较困难），所以可以使用如下方法：~~
 
 - ~~当临时出差时：~~
 
-  ~~用Markdown写作，回来再`new post`。~~
+  ~~用 Markdown 写作，回来再 `new post`。~~
 
 - ~~当长期不在时：~~
 
-  ~~将整个`hexo`用U盘或其他方式拷贝到笔记本上（反正也才几十Mb），然后在笔记本已安装hexo、设置好GitHub SSH密钥的情况下，执行`npm install`即可。此时可以通过`hexo s`查看是否成功。~~
+  ~~将整个 `hexo` 用 U 盘或其他方式拷贝到笔记本上（反正也才几十 Mb），然后在笔记本已安装 hexo、设置好 GitHub SSH 密钥的情况下，执行 `npm install` 即可。此时可以通过 `hexo s` 查看是否成功。~~
 
 - ~~移动端时：~~
 
-  ~~用Simplenote写Markdown，回来再`new post`。好像也有其他方法，但暂时不用。~~
+  ~~用 Simplenote 写 Markdown，回来再 `new post`。好像也有其他方法，但暂时不用。~~
 
-目前核心舱的资源和代码已经分别进行远程管理，资源通过坚果云同步，代码通过GitHub同步，这是目前在多台电脑管理hexo比较合适的方式。
+**以上内容现已不适用。**
 
-因此多端管理hexo时，仅需同步GitHub仓库的hexo分支即可，资源通过坚果云自动同步，静态页面通过`hexo d`部署。移动端通过坚果云或语雀临时存储文稿就行。
+目前核心舱的资源和代码已经分别进行远程管理，资源通过坚果云同步，代码通过 GitHub 同步，这是目前在多台电脑管理 Hexo 比较合适的方式。
+
+因此多端管理 Hexo 时，仅需同步 GitHub 仓库的 `hexo` 分支即可，资源通过坚果云自动同步，静态页面通过 `hexo d` 部署。移动端通过坚果云或语雀临时存储文稿就行。
