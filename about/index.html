@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"corecabin.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="你好！欢迎来到卡洛的核心舱（corecabin.cn）。 对于空间站而言，核心舱（Core Cabin）是 整个空间站的中枢和管理控制中心。与此类似，我的核心舱主要存储的是与“程序”“技术”“研究”或是“音乐”等一些很酷的东西。 在这篇文章里，你可以看到核心舱的建造过程：《如何在一周内建造核心舱》。 1 我是华为云员工，26 岁，岗位是通用软件开发工程师，目前在做 OpenHarmony ArkU">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://corecabin.cn/about/index.html">
+<meta property="og:site_name" content="卡洛的核心舱">
+<meta property="og:description" content="你好！欢迎来到卡洛的核心舱（corecabin.cn）。 对于空间站而言，核心舱（Core Cabin）是 整个空间站的中枢和管理控制中心。与此类似，我的核心舱主要存储的是与“程序”“技术”“研究”或是“音乐”等一些很酷的东西。 在这篇文章里，你可以看到核心舱的建造过程：《如何在一周内建造核心舱》。 1 我是华为云员工，26 岁，岗位是通用软件开发工程师，目前在做 OpenHarmony ArkU">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-30T11:53:25.000Z">
+<meta property="article:modified_time" content="2025-01-12T17:09:34.219Z">
+<meta property="article:author" content="卡洛">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://corecabin.cn/about/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>关于我 | 卡洛的核心舱
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">卡洛的核心舱</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Tomorrow will be fine.</p>
+      <a>
+        <img class="custom-logo-image" src="/img/custom-logo.png" alt="卡洛的核心舱">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">关于我
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>你好！欢迎来到卡洛的核心舱（<a href="https://corecabin.cn">corecabin.cn</a>）。</p>
+<p>对于空间站而言，<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A4%A9%E5%92%8C%E6%A0%B8%E5%BF%83%E8%88%B1">核心舱</a>（Core Cabin）是 <strong>整个空间站的中枢和管理控制中心</strong>。与此类似，我的核心舱主要存储的是与“程序”“技术”“研究”或是“音乐”等一些很酷的东西。</p>
+<p>在这篇文章里，你可以看到核心舱的建造过程：《<a href="/2021/08/03/build-corecabin-in-one-week/" title="如何在一周内建造核心舱">如何在一周内建造核心舱</a>》。</p>
+<h2 id="1-我是"><a href="#1-我是" class="headerlink" title="1 我是"></a>1 我是</h2><p>华为云员工，26 岁，岗位是通用软件开发工程师，目前在做 OpenHarmony ArkUI 基础框架开发工作，常用 ID 卡洛/Carlo，代码爱好者。</p>
+<blockquote>
+<p>为啥叫卡洛？因为我不喜欢吃胡萝卜。<del>胡萝卜=carrot=卡洛=Carlo</del></p>
+</blockquote>
+<p>2021 年登陆核心舱。其实在此之前也有过很多技术探索，例如 <del>用 Java 写贪吃蛇什么的</del> 用 WordPress 搭建博客等。</p>
+<h2 id="2-工作经历"><a href="#2-工作经历" class="headerlink" title="2 工作经历"></a>2 工作经历</h2><ul>
+<li>2024.9-now <strong>华为终端 - OpenHarmony 二部</strong><ul>
+<li>岗位：通用软件开发工程师 - TS、cpp 开发</li>
+<li>工作内容：ArkUI 基础框架开发</li>
+</ul>
+</li>
+<li>2023.8-2024.9 <strong>华为云计算 BU - 华为公有云解决方案部</strong><ul>
+<li>岗位：通用软件开发工程师 - SA（解决方案架构师）</li>
+<li>工作内容：昇腾云服务相关、通用计算云服务相关</li>
+</ul>
+</li>
+<li>2022.6-2022.9（实习） <strong>华为云计算 BU - 中间件 SRE 团队</strong><ul>
+<li>岗位：通用软件开发工程师 - 前端开发</li>
+<li>完成需求：<ol>
+<li>前端架构解耦：基于 qiankun 微前端、single-spa 完成 CDAS 平台【服务韧性】、【灾备管理】两个模块的分解、改造、部署</li>
+<li>用户引导组件前端开发：基于 Angular、Tiny3 为 CDAS 平台开发用户引导组件</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-教育经历"><a href="#3-教育经历" class="headerlink" title="3 教育经历"></a>3 教育经历</h2><ul>
+<li>2004-2010 <strong>[小学]</strong> 湖北省阳新县第二实验小学</li>
+<li>2010-2013 <strong>[初中]</strong> 湖北省阳新县实验中学</li>
+<li>2013-2016 <strong>[高中]</strong> 湖北省黄石市第二中学</li>
+<li>2016-2020 <strong>[本科]</strong> 武汉理工大学机电工程学院 工业工程专业</li>
+<li>2020-2023 <strong>[硕士研究生]</strong> 浙江大学机械工程学院 机械制造及其自动化专业</li>
+</ul>
+<h2 id="4-研究生相关经历"><a href="#4-研究生相关经历" class="headerlink" title="4 研究生相关经历"></a>4 研究生相关经历</h2><h3 id="4-1-研究方向"><a href="#4-1-研究方向" class="headerlink" title="4.1 研究方向"></a>4.1 研究方向</h3><ul>
+<li>工业互联网</li>
+<li>远程运维平台</li>
+<li>智能制造与智能装备</li>
+</ul>
+<h3 id="4-2-做过的项目"><a href="#4-2-做过的项目" class="headerlink" title="4.2 做过的项目"></a>4.2 做过的项目</h3><ul>
+<li><strong>【已结题】</strong> 某机床厂的远程运维平台：基于 Spring Boot、Spring Security、MyBatis、Jwt、Vue 开发；我主要负责 <strong>前端开发</strong></li>
+<li><strong>【已结题】</strong> 某市企业智能化诊断服务：走访该市60余家企业，对企业智能化水平做出全面诊断并提出改造实施方案；我目前随队走访了其中 <strong>16 家企业</strong>，涵盖电梯、电机、智能家居、化妆品、工贸等生产行业</li>
+<li><strong>【已转交】</strong> 某液压厂的远程运维平台：开发针对液压产线的远程运维网关、前后端模块；我主要负责 <strong>前端开发</strong>，目前工作已转交给后辈</li>
+<li><strong>【已结题】</strong> 数控滚齿加工工艺智能优化技术研究：毕业课题，包含 <strong>数控滚齿加工工艺参数多目标优化方法</strong>、<strong>基于知识图谱的数控滚齿加工工艺方案决策</strong> 和 <strong>数控滚齿加工参数化自动编程算法与应用验证</strong> 三大研究内容，并开发一套 <strong>数控滚齿加工工艺智能优化系统</strong>；我负责项目全部工作，包括 <strong>算法研究</strong>、<strong>系统开发</strong>、<strong>论文撰写</strong> 等</li>
+</ul>
+<h2 id="5-语言"><a href="#5-语言" class="headerlink" title="5 语言"></a>5 语言</h2><ul>
+<li>精通：JavaScript，TypeScript，C++，等</li>
+<li>熟悉：Java，Python，Vue，等</li>
+<li>了解：C，MATLAB，Angular，git，等</li>
+<li>接触过：MySQL，正则表达式，等</li>
+</ul>
+<h2 id="6-继续尝试"><a href="#6-继续尝试" class="headerlink" title="6 继续尝试"></a>6 继续尝试</h2><ul>
+<li>前端开发</li>
+<li>后端开发</li>
+<li>架构开发</li>
+<li>人工智能</li>
+</ul>
+<h2 id="7-进一步尝试"><a href="#7-进一步尝试" class="headerlink" title="7 进一步尝试"></a>7 进一步尝试</h2><ul>
+<li>程序或作品</li>
+<li>商单项目</li>
+</ul>
+<h2 id="8-一些个人项目"><a href="#8-一些个人项目" class="headerlink" title="8 一些个人项目"></a>8 一些个人项目</h2><p><a href="/about/projects">点击这里查看我的个人项目</a></p>
+<h2 id="9-更多"><a href="#9-更多" class="headerlink" title="9 更多"></a>9 更多</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/kaluojushi">GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/kaluojushi">Gitee</a></li>
+<li><a href="/about/weixin_platform">微信公众号</a></li>
+<li>E-mail：<a href="mailto:carlo0901@163.com">carlo0901@163.com</a></li>
+<li>留言：可以在下方评论区留言</li>
+</ul>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%88%91%E6%98%AF"><span class="nav-text">1 我是</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B7%A5%E4%BD%9C%E7%BB%8F%E5%8E%86"><span class="nav-text">2 工作经历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%95%99%E8%82%B2%E7%BB%8F%E5%8E%86"><span class="nav-text">3 教育经历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%A0%94%E7%A9%B6%E7%94%9F%E7%9B%B8%E5%85%B3%E7%BB%8F%E5%8E%86"><span class="nav-text">4 研究生相关经历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91"><span class="nav-text">4.1 研究方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%81%9A%E8%BF%87%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-text">4.2 做过的项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%AF%AD%E8%A8%80"><span class="nav-text">5 语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%BB%A7%E7%BB%AD%E5%B0%9D%E8%AF%95"><span class="nav-text">6 继续尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%B0%9D%E8%AF%95"><span class="nav-text">7 进一步尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE"><span class="nav-text">8 一些个人项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%9B%B4%E5%A4%9A"><span class="nav-text">9 更多</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="卡洛"
+      src="/img/avatar.jpg">
+  <p class="site-author-name" itemprop="name">卡洛</p>
+  <div class="site-description" itemprop="description">华为终端 | ArkUI 开发 | 代码爱好者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kaluojushi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/kaluojushi" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-git"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/weixin_platform" title="微信公众号 → &#x2F;about&#x2F;weixin_platform"><i class="fa fa-fw fa-wechat"></i>微信公众号</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:carlo0901@163.com" title="E-Mail → mailto:carlo0901@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      一些个人项目
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://sodaguide.cn/" title="https:&#x2F;&#x2F;sodaguide.cn&#x2F;" rel="noopener" target="_blank">苏打盖 Sodaguide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jsguide.cn/" title="https:&#x2F;&#x2F;jsguide.cn&#x2F;" rel="noopener" target="_blank">JS Guide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://corecabin.cn/carlo-tools/" title="https:&#x2F;&#x2F;corecabin.cn&#x2F;carlo-tools&#x2F;">Carlo Tools</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/about/projects" title="&#x2F;about&#x2F;projects">……更多</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-space-shuttle"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carlo's Core Cabin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '1407ab1c0b39227dc1cf',
+      clientSecret: '26ee955828427b835c315459ffa1b1eff180e9e8',
+      repo        : 'Corecabin_Comments',
+      owner       : 'kaluojushi',
+      admin       : ['kaluojushi'],
+      id          : '3be7aa98d992907175cbd79c194399f2',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

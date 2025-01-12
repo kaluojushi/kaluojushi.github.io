@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"corecabin.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="这是当时面阿里云遇到的一个手撕代码题，而且是三道里面最简单的一道……现在看来仍然很有难度。现在一步一步解决它。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现一个模板字符串替换，数据源为对象">
+<meta property="og:url" content="https://corecabin.cn/2022/10/06/implement-a-template-string-replacement-and-the-data-source-is-an-object/index.html">
+<meta property="og:site_name" content="卡洛的核心舱">
+<meta property="og:description" content="这是当时面阿里云遇到的一个手撕代码题，而且是三道里面最简单的一道……现在看来仍然很有难度。现在一步一步解决它。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-05T16:01:04.000Z">
+<meta property="article:modified_time" content="2025-01-11T18:16:43.886Z">
+<meta property="article:author" content="卡洛">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="正则表达式">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://corecabin.cn/2022/10/06/implement-a-template-string-replacement-and-the-data-source-is-an-object/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>实现一个模板字符串替换，数据源为对象 | 卡洛的核心舱</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">卡洛的核心舱</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Tomorrow will be fine.</p>
+      <a>
+        <img class="custom-logo-image" src="/img/custom-logo.png" alt="卡洛的核心舱">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://corecabin.cn/2022/10/06/implement-a-template-string-replacement-and-the-data-source-is-an-object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.jpg">
+      <meta itemprop="name" content="卡洛">
+      <meta itemprop="description" content="华为终端 | ArkUI 开发 | 代码爱好者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡洛的核心舱">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          实现一个模板字符串替换，数据源为对象
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-10-06 00:01:04" itemprop="dateCreated datePublished" datetime="2022-10-06T00:01:04+08:00">2022-10-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-12 02:16:43" itemprop="dateModified" datetime="2025-01-12T02:16:43+08:00">2025-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这是当时面阿里云遇到的一个手撕代码题，而且是三道里面最简单的一道……现在看来仍然很有难度。现在一步一步解决它。</p>
+<span id="more"></span>
+<h2 id="1-题目"><a href="#1-题目" class="headerlink" title="1 题目"></a>1 题目</h2><p>实现一个<code>render</code>函数，函数传入一个字符串和一个对象，将字符串里用<code>&#123;&#123; &#125;&#125;</code>标记的占位符用对象里的属性值替换，并返回新字符串。</p>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> template = <span class="string">&quot;你好，我们是&#123;&#123;company&#125;&#125;，我们来自&#123;&#123;group&#125;&#125;，我们有&#123;&#123;business[0]&#125;&#125;、&#123;&#123;business[1]&#125;&#125;等。&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">company</span>: <span class="string">&quot;阿里&quot;</span>,</span><br><span class="line">  <span class="attr">group</span>: <span class="string">&quot;蚂蚁&quot;</span>,</span><br><span class="line">  <span class="attr">business</span>: [<span class="string">&quot;支付宝&quot;</span>, <span class="string">&quot;蚂蚁金服&quot;</span>, <span class="string">&quot;相互宝&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>返回：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;你好，我们是阿里，我们来自蚂蚁，我们有支付宝、蚂蚁金服等。&quot;</span><br></pre></td></tr></table></figure>
+<p>题目保证占位符一定是对象里的属性名。</p>
+<h2 id="2-暴力解法"><a href="#2-暴力解法" class="headerlink" title="2 暴力解法"></a>2 暴力解法</h2><p>最简单的方法就是直接使用<code>split</code>将字符串分割开，然后使用<code>switch</code>循环挨个替换。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> arr = template.<span class="title function_">split</span>(<span class="regexp">/&#123;&#123;|&#125;&#125;/</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">switch</span> (arr[i]) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;company&quot;</span>: arr[i] = obj.<span class="property">company</span>; <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;group&quot;</span>: arr[i] = obj.<span class="property">group</span>; <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;business[0]&quot;</span>: arr[i] = obj.<span class="property">business</span>[<span class="number">0</span>]; <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;business[1]&quot;</span>: arr[i] = obj.<span class="property">business</span>[<span class="number">1</span>]; <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr.<span class="title function_">join</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样做很不优雅，而且只能解决示例，无法解决其他判例。</p>
+<h2 id="3-从简单例子开始"><a href="#3-从简单例子开始" class="headerlink" title="3 从简单例子开始"></a>3 从简单例子开始</h2><p>既然上面的<code>split</code>为了同时分割<code>&#123;&#123; &#125;&#125;</code>使用了正则，那么我们为什么不用正则来做呢！</p>
+<p>我们暂时不考虑数组的形式，从一个简单的例子开始：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> template = <span class="string">&quot;我叫&#123;&#123;name&#125;&#125;，我今年&#123;&#123;age&#125;&#125;岁了。&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;小明&quot;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// output: 我叫小明，我今年18岁了。</span></span><br></pre></td></tr></table></figure>
+<p>然后来看看几个使用正则的方法：</p>
+<h3 id="3-1-方法1"><a href="#3-1-方法1" class="headerlink" title="3.1 方法1"></a>3.1 方法1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  template = template.<span class="title function_">replace</span>(<span class="regexp">/&#123;&#123;(\w+)&#125;&#125;/g</span>, <span class="string">&quot;$1&quot;</span>);</span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj).<span class="title function_">forEach</span>(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    template = template.<span class="title function_">replace</span>(<span class="keyword">new</span> <span class="title class_">RegExp</span>(key, <span class="string">&#x27;g&#x27;</span>), obj[key]);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> template;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法的思路是，先把所有<code>&#123;&#123;*&#125;&#125;</code>格式的占位符全部去掉大括号（使用圆括号捕获的<code>$1</code>），然后尝试与<code>obj</code>的属性名匹配。</p>
+<p>这个方法的问题在于：</p>
+<ul>
+<li><p>属性名不一定是<code>\w</code>（即字母、数字或下划线）。</p>
+</li>
+<li><p>如果出现了不必要替换的字符串，就会出现错误替换，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> template = <span class="string">&quot;我的name是&#123;&#123;name&#125;&#125;，我今年&#123;&#123;age&#125;&#125;岁了。&quot;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>因此我们最好把占位符做个整体替换，而非去掉大括号后再替换。</p>
+<h3 id="3-2-方法2"><a href="#3-2-方法2" class="headerlink" title="3.2 方法2"></a>3.2 方法2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> arr = template.<span class="title function_">match</span>(<span class="regexp">/&#123;&#123;[a-zA-Z\d]+&#125;&#125;/g</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    arr[i] = arr[i].<span class="title function_">replace</span>(<span class="regexp">/&#123;&#123;|&#125;&#125;/g</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">    template = template.<span class="title function_">replace</span>(<span class="string">&quot;&#123;&#123;&quot;</span> + arr[i] + <span class="string">&quot;&#125;&#125;&quot;</span>, obj[arr[i]]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> template;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法是整体替换的思路，先拿出所有<code>&#123;&#123;*&#125;&#125;</code>格式的占位符，放到一个数组里，然后通过<code>replace</code>去掉大括号，并替换原数组中的占位符。</p>
+<p>但是我们发现要多次匹配<code>&#123;&#123;*&#125;&#125;</code>，并且属性名也不一定是<code>[a-zA-Z\d]+</code>。</p>
+<h3 id="3-3-方法3"><a href="#3-3-方法3" class="headerlink" title="3.3 方法3"></a>3.3 方法3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  <span class="title class_">Object</span>.<span class="title function_">keys</span>(obj).<span class="title function_">forEach</span>(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    template = template.<span class="title function_">replace</span>(<span class="string">`&#123;&#123;<span class="subst">$&#123;key&#125;</span>&#125;&#125;`</span>, obj[key]);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> template;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于<code>replace</code>本身就做了一步正则匹配，遍历所有的键，再匹配替换一步走就行了。</p>
+<p>这个方法还是不够精炼，我们希望直接拿到<code>template</code>里的占位符<code>&#123;&#123;*&#125;&#125;</code>，而不要通过<code>obj</code>的<code>key</code>。</p>
+<h3 id="3-4-方法4"><a href="#3-4-方法4" class="headerlink" title="3.4 方法4"></a>3.4 方法4</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> template.<span class="title function_">replace</span>(<span class="regexp">/&#123;&#123;(.*?)&#125;&#125;/g</span>, <span class="function">(<span class="params">match, key</span>) =&gt;</span> obj[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里补充几个知识：</p>
+<ol>
+<li><code>.*?</code>是正则固定用法，表示非贪婪匹配，防止从第一个<code>&#123;&#123;`到最后一个`&#125;&#125;</code>都被匹配</li>
+<li><code>replace</code>第二个参数支持一个回调函数，回调函数第一个参数是匹配结果，第二个参数是正则中的子表达式匹配结果（可以有0个或多个该参数），接下来的参数是匹配位置，最后的参数是原串本身</li>
+</ol>
+<p>我们用<code>.*?</code>匹配了任何<code>&#123;&#123;*&#125;&#125;</code>格式的占位符并用圆括号捕获了内部的属性值，然后使用函数接收捕获结果并替换。</p>
+<h2 id="4-更复杂一点"><a href="#4-更复杂一点" class="headerlink" title="4 更复杂一点"></a>4 更复杂一点</h2><p>我们现在打算替换<code>&#123;&#123;business[0]&#125;&#125;</code>这样的占位符。这给我们带来了两个问题：</p>
+<ul>
+<li>如何匹配？可以试试改一下正则表达式</li>
+<li>如何替换？如果还使用<code>obj[key]</code>就不行了，我们必须分开字母与后面的索引</li>
+</ul>
+<h3 id="4-1-改写方法2"><a href="#4-1-改写方法2" class="headerlink" title="4.1 改写方法2"></a>4.1 改写方法2</h3><p>我们改写方法2的正则表达式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> arr = template.<span class="title function_">match</span>(<span class="regexp">/&#123;&#123;[a-zA-Z\d]+(\[\d+\])?&#125;&#125;/g</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    arr[i] = arr[i].<span class="title function_">replace</span>(<span class="regexp">/&#123;&#123;|&#125;&#125;/g</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">    template = template.<span class="title function_">replace</span>(<span class="string">&quot;&#123;&#123;&quot;</span> + arr[i] + <span class="string">&quot;&#125;&#125;&quot;</span>, <span class="built_in">eval</span>(<span class="string">&quot;obj.&quot;</span> + arr[i]));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> template;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里使用<code>?</code>判断<code>[*]</code>表达式存在与否，使用<code>\[\d+\]</code>匹配<code>[*]</code>表达式。</p>
+<p>注意这里使用了<code>eval</code>函数，它将传入它的JS字符串作为JS语句执行。这是一个非常危险的方法，我们一般不使用它。</p>
+<p>在例子中，<code>eval</code>得到的JS语句<code>obj.business[0]</code>等同于<code>obj[&quot;business&quot;][0]</code>，因此得到<code>&quot;支付宝&quot;</code>。</p>
+<h3 id="4-2-改写方法4"><a href="#4-2-改写方法4" class="headerlink" title="4.2 改写方法4"></a>4.2 改写方法4</h3><p>方法4的正则表达式无需修改，只要把<code>eval</code>加上就行了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> template.<span class="title function_">replace</span>(<span class="regexp">/&#123;&#123;(.*?)&#125;&#125;/g</span>, <span class="function">(<span class="params">match, key</span>) =&gt;</span> <span class="built_in">eval</span>(<span class="string">&quot;obj.&quot;</span> + key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们还是不要用<code>eval</code>好了，那就在匹配时分别拿到前后两部分。</p>
+<h2 id="5-不要eval"><a href="#5-不要eval" class="headerlink" title="5 不要eval"></a>5 不要<code>eval</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">template, obj</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> template.<span class="title function_">replace</span>(<span class="regexp">/&#123;&#123;(.*?)(\[(\d)*\])?&#125;&#125;/g</span>, <span class="function">(<span class="params">match, key, index, num</span>) =&gt;</span> index ? obj[key][num] : obj[key]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这个正则表达式，我们在三个圆括号表达式里分别捕获了属性值、索引和索引内的数字，那就拿到函数里操作就行了。</p>
+<p>完美！</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/15486d3f5c0e7cd184254b35eefdc8d376ee14d0.html">thymeleaf的遍历拼接字符串_一行代码实现一个简单的模板字符串替换 - 百度文库</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+              <a href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> 基础</a>
+              <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
+              <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 正则表达式</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/29/my-2023-annual-summary/" rel="prev" title="我的 2023 年度总结">
+      <i class="fa fa-chevron-left"></i> 我的 2023 年度总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/17/the-pointing-of-this-in-javascript/" rel="next" title="JavaScript中this的指向问题">
+      JavaScript中this的指向问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%A2%98%E7%9B%AE"><span class="nav-text">1 题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9A%B4%E5%8A%9B%E8%A7%A3%E6%B3%95"><span class="nav-text">2 暴力解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BB%8E%E7%AE%80%E5%8D%95%E4%BE%8B%E5%AD%90%E5%BC%80%E5%A7%8B"><span class="nav-text">3 从简单例子开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%96%B9%E6%B3%951"><span class="nav-text">3.1 方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E6%96%B9%E6%B3%952"><span class="nav-text">3.2 方法2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%96%B9%E6%B3%953"><span class="nav-text">3.3 方法3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E6%96%B9%E6%B3%954"><span class="nav-text">3.4 方法4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%9B%B4%E5%A4%8D%E6%9D%82%E4%B8%80%E7%82%B9"><span class="nav-text">4 更复杂一点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E6%94%B9%E5%86%99%E6%96%B9%E6%B3%952"><span class="nav-text">4.1 改写方法2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%94%B9%E5%86%99%E6%96%B9%E6%B3%954"><span class="nav-text">4.2 改写方法4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E4%B8%8D%E8%A6%81eval"><span class="nav-text">5 不要eval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="卡洛"
+      src="/img/avatar.jpg">
+  <p class="site-author-name" itemprop="name">卡洛</p>
+  <div class="site-description" itemprop="description">华为终端 | ArkUI 开发 | 代码爱好者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kaluojushi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/kaluojushi" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-git"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/weixin_platform" title="微信公众号 → &#x2F;about&#x2F;weixin_platform"><i class="fa fa-fw fa-wechat"></i>微信公众号</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:carlo0901@163.com" title="E-Mail → mailto:carlo0901@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      一些个人项目
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://sodaguide.cn/" title="https:&#x2F;&#x2F;sodaguide.cn&#x2F;" rel="noopener" target="_blank">苏打盖 Sodaguide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jsguide.cn/" title="https:&#x2F;&#x2F;jsguide.cn&#x2F;" rel="noopener" target="_blank">JS Guide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://corecabin.cn/carlo-tools/" title="https:&#x2F;&#x2F;corecabin.cn&#x2F;carlo-tools&#x2F;">Carlo Tools</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/about/projects" title="&#x2F;about&#x2F;projects">……更多</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-space-shuttle"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carlo's Core Cabin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '1407ab1c0b39227dc1cf',
+      clientSecret: '26ee955828427b835c315459ffa1b1eff180e9e8',
+      repo        : 'Corecabin_Comments',
+      owner       : 'kaluojushi',
+      admin       : ['kaluojushi'],
+      id          : '2a91df10a798428d4939950c5e52fc35',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

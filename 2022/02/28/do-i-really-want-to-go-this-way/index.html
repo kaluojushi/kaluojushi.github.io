@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"corecabin.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="新的学期来临了，压力也在日益增加，不知道什么时候才能收获努力的结果。 刚好今天是2月的最后一天，不如总结一下，研究生以来我的学习工作顺不顺利。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我真的要走这条路吗？">
+<meta property="og:url" content="https://corecabin.cn/2022/02/28/do-i-really-want-to-go-this-way/index.html">
+<meta property="og:site_name" content="卡洛的核心舱">
+<meta property="og:description" content="新的学期来临了，压力也在日益增加，不知道什么时候才能收获努力的结果。 刚好今天是2月的最后一天，不如总结一下，研究生以来我的学习工作顺不顺利。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20220228-01.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20220228-02.png">
+<meta property="article:published_time" content="2022-02-28T11:54:31.000Z">
+<meta property="article:modified_time" content="2025-01-11T18:16:43.885Z">
+<meta property="article:author" content="卡洛">
+<meta property="article:tag" content="研究">
+<meta property="article:tag" content="2021">
+<meta property="article:tag" content="2022">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20220228-01.png">
+
+<link rel="canonical" href="https://corecabin.cn/2022/02/28/do-i-really-want-to-go-this-way/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>我真的要走这条路吗？ | 卡洛的核心舱</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">卡洛的核心舱</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Tomorrow will be fine.</p>
+      <a>
+        <img class="custom-logo-image" src="/img/custom-logo.png" alt="卡洛的核心舱">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://corecabin.cn/2022/02/28/do-i-really-want-to-go-this-way/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.jpg">
+      <meta itemprop="name" content="卡洛">
+      <meta itemprop="description" content="华为终端 | ArkUI 开发 | 代码爱好者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡洛的核心舱">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          我真的要走这条路吗？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-28 19:54:31" itemprop="dateCreated datePublished" datetime="2022-02-28T19:54:31+08:00">2022-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-01-12 02:16:43" itemprop="dateModified" datetime="2025-01-12T02:16:43+08:00">2025-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Myself/" itemprop="url" rel="index"><span itemprop="name">Myself</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>新的学期来临了，压力也在日益增加，不知道什么时候才能收获努力的结果。</p>
+<p>刚好今天是2月的最后一天，不如总结一下，研究生以来我的学习工作顺不顺利。</p>
+<span id="more"></span>
+<h2 id="1-code学习"><a href="#1-code学习" class="headerlink" title="1 code学习"></a>1 code学习</h2><p>在研究生入学之前，我也有过一段迷茫期，当时完全不清楚互联网有哪些岗位，需要做些什么。我对编程语言的认知还只停留在题目与实验上，没有任何建设性的了解。当时我也许觉得PTA或者计算机二级算是NB的成就，但与他人的差距其实非常明显。</p>
+<p>2021年的3月，我正式进入课题组，给到了<strong>“工业互联网”</strong>的研究方向。这时在课题组的大背景（开发常选Java而非C#）下，我开始尝试学习Java。</p>
+<p>后来，2021年4月，导师给了我们一个项目“某机床厂的远程运维平台”，并让我负责<strong>前端开发</strong>。这时我开始跟着MOOC学习HTML、CSS和JavaScript最基础的部分，以及跟着b站学Vue。后来的时间实在是不够我学习了，我只能参考若依的源码，边学边查边做。遇到一些超纲的bug，例如经常出现变量找不到属性的问题，就直接百度解决了。</p>
+<p>当时也是速成，所以我觉得学习效果并不好，很多基础的东西我说不出所以然来。于是从2021年8月，在项目告一段落、有了相对充足的时间后，我开始从头整理Java、HTML、CSS等等的学习笔记。这个进度其实非常慢，再加上在Java耽误了时间，以及研二本身的科研工作，直到现在我也才整理到CSS。</p>
+<p>学习的选择很多，使得我一直犹豫不敢深入。即使是在项目里负责前端开发后，我也没有想清楚以后到底要深入学习什么、朝什么方向努力。</p>
+<p>大概到11、12月，我才真正下定决心确定了<strong>前端开发岗</strong>的目标。但现在要问我自己真正做好准备了吗，我估计还没有。</p>
+<h2 id="2-刷题"><a href="#2-刷题" class="headerlink" title="2 刷题"></a>2 刷题</h2><p>由于我一直没有目标，导致我刷题很晚，我甚至不知道用什么语言刷题。</p>
+<p>直到2012年12月，我才开始用JavaScript刷每日一题。而且直到上周，我才开始做力扣周赛。</p>
+<p>由于JavaScript本身是脚本语言，并没有其他语言的数据结构，所以对于一些特定的题目，用它写没有那么方便，甚至官方题解都不给JavaScript的解法。</p>
+<p>相比其他人，我估计自己的水平还很低，一些硬磕算法的题目（如二分法、dfs、dp等），我也几乎是不看题解就做不出来。<strong>这种最需要时间来熬的东西，却发现时间已经不够了，这是十分可怕的一件事情。</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20220228-01.png" alt="力扣的提交记录"></p>
+<p>（1月还拿了个全勤徽章，2月寒假期间摸了几天，CV都懒得CV，拿不到徽章了555</p>
+<p>好在我现在已经开始着手整理我的题解，并打算抽出一定的时间来对算法做整理。</p>
+<h2 id="3-实习"><a href="#3-实习" class="headerlink" title="3 实习"></a>3 实习</h2><p>最近学习了一个词，叫peer pressure，意思是<strong>同辈压力</strong>，当身边的人都显得比自己优秀时，自己的压力就会陡增，以至于与其他人的差距越来越大。</p>
+<p>现在就是如此，当身边的人都开始疯狂发内推、面试、实习时，自己却还没有一点进展，这是让人最慌的。</p>
+<p>这几天，我仔细看了看我之前做的那个项目的前端部分（得益于我10月份写的两篇<strong>前端技术总结</strong>），也在完善我的简历，希望到时候问到项目的时候能对答如流。这也是相比其他人的一丁点优势，起码自己是真的弄了点东西出来。</p>
+<p>当然，从我看的一点面经来说，光有<strong>Experience</strong>也不够，<strong>Skill</strong>也就是最基础的东西他还是会问的，即使是与前端关系不大的数据结构与算法、操作系统、计网等等。这些对于非科班的我来说着实是几座大山，只希望自己在接下来的半年里好好准备吧。</p>
+<p>那在此立下一个flag：<strong>3月10日之前</strong>不仅要完成完善自己的实习简历，更要把理想的都投出去。</p>
+<h2 id="4-科研"><a href="#4-科研" class="headerlink" title="4 科研"></a>4 科研</h2><p>终于说到了研究生生活最重要的一环了。</p>
+<p>我所在的课题组不是科研导向的课题组，不太需要做实验，所以导师给的研究方向是比较模糊的。2021年3月的时候，只给了“工业互联网”的大方向。后来就被拉去做了几个横向项目，这些项目基本都是半年做完的小项目，课题组和企业合作一下，我们几个学生打打工，干干活，基本上就结束了。</p>
+<p>2021年10月底，由于研究生生活过半，要准备开题报告的撰写，且研二下学期要准备毕业课题的研究，这时导师给我们分了比较细致的方向。我的方向是“<strong>数控滚齿加工</strong>的智能化发展及工业互联网、人工智能等信息化技术在数控滚齿加工中的应用”。</p>
+<p>几个月来，我看了很多论文，也在2022年1月写完了八千字的<strong>开题报告</strong>，但我还是困惑很多事情，当时打算开题报告之前找导师仔细聊一聊也没去。之前组会汇报过这个方向，但大家说这个研究很难突出创新性，导致我不知道把研究的重点放在哪里。我们不是其他课题组那种做实验、调数据、发论文的类型，之前做的项目也太应用化了在学术研究上没有什么技术突破，每个人单打独斗的风格也让自己匮乏的知识面得以尽显。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20220228-02.png" alt="Zotero中看的论文"></p>
+<p>现在快3月了，6月之前还需要进行中期进展答辩，自己还在科研上想破了头，更可怕的是现在还没有什么时间和动力，没法一心多用。</p>
+<p>或许我真的不适合搞科研，但现在的自己也只能努力吧。</p>
+<p>再立flag：在实习找到之后，<strong>在4月底之前</strong>，取得一点决定性的突破，并且搞定专利或软著！</p>
+<h2 id="5-最后说点什么"><a href="#5-最后说点什么" class="headerlink" title="5 最后说点什么"></a>5 最后说点什么</h2><p>可以看出来，去年到今年的研究生生活碰了很多壁，很大多数是我的性格特点/缺点造成的。</p>
+<ol>
+<li>拖延，不用说了，失去了很多时间和机会</li>
+<li>焦虑，这个焦虑来源于自己本身的不作为和外界的压力</li>
+<li>逃避，和拖延一样的起因，遇到不太想做的，就去逃避它</li>
+</ol>
+<p>之后还是要继续努力，也不指望自己一定能改掉这些或是非要与他人比肩，毕竟比以前的自己厉害一点就是了不得的成绩了。</p>
+<p>俗话说得好，<strong>芝麻开花节节高</strong>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E7%A0%94%E7%A9%B6/" rel="tag"><i class="fa fa-tag"></i> 研究</a>
+              <a href="/tags/2021/" rel="tag"><i class="fa fa-tag"></i> 2021</a>
+              <a href="/tags/2022/" rel="tag"><i class="fa fa-tag"></i> 2022</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/02/realize-eight-sorting-methods-using-javascript/" rel="prev" title="用JavaScript实现八大排序">
+      <i class="fa fa-chevron-left"></i> 用JavaScript实现八大排序
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/14/several-ways-of-traversing-arrays-and-objects-in-javascript/" rel="next" title="JavaScript中遍历数组、对象的几种方式">
+      JavaScript中遍历数组、对象的几种方式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-code%E5%AD%A6%E4%B9%A0"><span class="nav-text">1 code学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%B7%E9%A2%98"><span class="nav-text">2 刷题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AE%9E%E4%B9%A0"><span class="nav-text">3 实习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%A7%91%E7%A0%94"><span class="nav-text">4 科研</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9C%80%E5%90%8E%E8%AF%B4%E7%82%B9%E4%BB%80%E4%B9%88"><span class="nav-text">5 最后说点什么</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="卡洛"
+      src="/img/avatar.jpg">
+  <p class="site-author-name" itemprop="name">卡洛</p>
+  <div class="site-description" itemprop="description">华为终端 | ArkUI 开发 | 代码爱好者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kaluojushi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/kaluojushi" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-git"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/weixin_platform" title="微信公众号 → &#x2F;about&#x2F;weixin_platform"><i class="fa fa-fw fa-wechat"></i>微信公众号</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:carlo0901@163.com" title="E-Mail → mailto:carlo0901@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      一些个人项目
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://sodaguide.cn/" title="https:&#x2F;&#x2F;sodaguide.cn&#x2F;" rel="noopener" target="_blank">苏打盖 Sodaguide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jsguide.cn/" title="https:&#x2F;&#x2F;jsguide.cn&#x2F;" rel="noopener" target="_blank">JS Guide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://corecabin.cn/carlo-tools/" title="https:&#x2F;&#x2F;corecabin.cn&#x2F;carlo-tools&#x2F;">Carlo Tools</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/about/projects" title="&#x2F;about&#x2F;projects">……更多</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-space-shuttle"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carlo's Core Cabin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '1407ab1c0b39227dc1cf',
+      clientSecret: '26ee955828427b835c315459ffa1b1eff180e9e8',
+      repo        : 'Corecabin_Comments',
+      owner       : 'kaluojushi',
+      admin       : ['kaluojushi'],
+      id          : 'c897326d8116e3868bf6e63e425128f3',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
