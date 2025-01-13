@@ -1,5 +1,5 @@
 ---
-title: Java网络通信编程的笔记和实例
+title: Java 网络通信编程的笔记和实例
 date: 2021-09-13 14:35:00
 categories: Java
 tags:
@@ -14,7 +14,7 @@ tags:
 comments: true
 ---
 
-本文整理了学习Java网络通信编程的笔记，并分析了若干程序实例，以巩固学习成果。
+本文整理了学习 Java 网络通信编程的笔记，并分析了若干程序实例，以巩固学习成果。
 
 <!--more-->
 
@@ -25,78 +25,78 @@ comments: true
 #### 1.1.1 基本概念
 
 - 局域网（LAN）、广域网（WAN）
-- IP协议，IP地址（IPv4，4个字节表示）
-- TCP协议（传输控制协议）：类似拨打电话，固接连线，可靠性高，有顺序
-- UDP协议（数据用户报协议）：类似发送信件，无连接通信，可靠性低，不保证顺序
+- IP 协议，IP 地址（IPv4，4 个字节表示）
+- TCP 协议（传输控制协议）：类似拨打电话，固接连线，可靠性高，有顺序
+- UDP 协议（数据用户报协议）：类似发送信件，无连接通信，可靠性低，不保证顺序
 - 端口（port）：假想的连接装置，计算机与网络的物理连接，为整数
 - 套接字（Socket）：假想的连接装置，连接程序与端口
 
 #### 1.1.2 网络通信的要素
 
-- **通信双方地址：**IP、端口号
-- **网络通信协议：**TCP/IP协议
+- **通信双方地址：** IP、端口号
+- **网络通信协议：** TCP/IP 协议
 
-### 1.2 TCP程序设计基础
+### 1.2 TCP 程序设计基础
 
-#### 1.2.1 `InetAddress`类
+#### 1.2.1 `InetAddress` 类
 
-与IP地址相关的类，注意该类会抛`UnknownHostException`异常
+与 IP 地址相关的类，注意该类会抛 `UnknownHostException` 异常
 
-- IP地址：
-  - 本机`localhost`（127.0.0.1）
-  - IPv4（4个字节组成，42亿），IPv6（128位，8个无符16进制整数）
-  - 公网（互联网），私网（局域网），ABCD类地址
-- 无构造器，不可被`new`，只可被自己的方法返回
+- IP 地址：
+  - 本机 `localhost`（127.0.0.1）
+  - IPv4（4 个字节组成，42 亿），IPv6（128 位，8 个无符 16 进制整数）
+  - 公网（互联网），私网（局域网），ABCD 类地址
+- 无构造器，不可被 `new`，只可被自己的方法返回
 - 常用方法：
-  - `getByName(String host)` 获取与Host对应的`InetAddress`对象
-  - `getHostAddress()` 获取对象所包含的IP地址，返回String
-  - `getHostName()` 获取IP主机名，返回String
-  - `getLocalHost()` 获取本地主机的`InetAddress`对象
+  - `getByName(String host)` 获取与 Host 对应的 `InetAddress` 对象
+  - `getHostAddress()` 获取对象所包含的 IP 地址，返回 String
+  - `getHostName()` 获取 IP 主机名，返回 String
+  - `getLocalHost()` 获取本地主机的 `InetAddress` 对象
 
-#### 1.2.2 `ServerSocket`类
+#### 1.2.2 `ServerSocket` 类
 
-服务器套接字，等待网络请求，注意该类会抛`IOException`异常
+服务器套接字，等待网络请求，注意该类会抛 `IOException` 异常
 
 - 端口：
   - 0~65535
   - 不同的进程用不同的端口号，类似于门牌
   - 端口分类：
-    - 公有端口0~1023（`HTTP`80、`HTTPS`443、`FTP`21、`Telent`23）
-    - 程序注册端口1024~49151（`Tomcat`8080、`MySQL`3306、`Oracle`1521）
-    - 动态（私有）端口49152~65535
-- `InetSocketAddress`类：与`InetAddress`类似，加入了端口，可以`new`，传入String地址和int端口，有`getPort()`等方法
-- `ServerSocket`用于等待网络请求，构造方法：
+    - 公有端口 0~1023（`HTTP` 80、`HTTPS` 443、`FTP` 21、`Telent` 23）
+    - 程序注册端口 1024~49151（`Tomcat` 8080、`MySQL` 3306、`Oracle` 1521）
+    - 动态（私有）端口 49152~65535
+- `InetSocketAddress` 类：与 `InetAddress` 类似，加入了端口，可以 `new`，传入 String 地址和 int 端口，有 `getPort()` 等方法
+- `ServerSocket` 用于等待网络请求，构造方法：
   - `ServerSocket()` 非绑定服务器套接字
   - `ServerSocket(int port)` 绑定特定端口
-  - `ServerSocket(int port, int backlog)` 指定本机端口、指定的`backlog`
-  - `ServerSocket(int port, int backlog, InetAddress bindAddress)` 指定端口、侦听`backlog`和绑定到的本地IP地址
-- `ServerSocket`的常用方法：
-  - `accept()` 等待客户机连接，若连接返回一个Socket套接字
+  - `ServerSocket(int port, int backlog)` 指定本机端口、指定的 `backlog`
+  - `ServerSocket(int port, int backlog, InetAddress bindAddress)` 指定端口、侦听 `backlog` 和绑定到的本地 IP 地址
+- `ServerSocket` 的常用方法：
+  - `accept()` 等待客户机连接，若连接返回一个 Socket 套接字
   - `isBound()` 判断绑定状态
-  - `getInetAddress()` 返回本地地址的`InetAddress`
+  - `getInetAddress()` 返回本地地址的 `InetAddress`
   - `isClosed()` 返回关闭状态
   - `close()` 关闭服务器套接字
-  - `bind(SocketAddress endpoint)` 绑定到特定地址（IP和端口）
+  - `bind(SocketAddress endpoint)` 绑定到特定地址（IP 和端口）
   - `getLocalPort()` 获取等待端口
 
-#### 1.2.3 TCP网络程序
+#### 1.2.3 TCP 网络程序
 
 - 通信协议：速率、传输码率、代码结构、传输控制等
 
-  - TCP/IP协议：协议簇，最出名的是TCP协议和IP协议
+  - TCP/IP 协议：协议簇，最出名的是 TCP 协议和 IP 协议
   - TCP：连接、稳定，三次握手四次挥手，客户端服务端架构，传输完成释放连接，效率低
   - UDP：不连接、不稳定，客户端服务端无明确界限，效率高
 
-- 参见第2章的实例
+- 参见第 2 章的实例
 
-#### 1.2.4 Tomcat基础
+#### 1.2.4 Tomcat 基础
 
-- Tomcat是一个服务端，客户端通过浏览器进入
-- 一般使用8080端口
+- Tomcat 是一个服务端，客户端通过浏览器进入
+- 一般使用 8080 端口
 
-### 1.4 UDP程序设计基础
+### 1.4 UDP 程序设计基础
 
-#### 1.4.1 UDP通信
+#### 1.4.1 UDP 通信
 
 - 基本模式：
   - 数据打包（数据包），发往目的地
@@ -108,16 +108,16 @@ comments: true
 - 接收数据包步骤：
   - 创建数据报套接字并绑定到端口（`DatagramSocket(int port)`）
   - 创建字节数组接收数据包（`DatagramPacket(byte[] buf, int length)`）
-  - 接收UDP包（`DatagramSocket().receive()`）
+  - 接收 UDP 包（`DatagramSocket().receive()`）
 
-#### 1.4.2 `DatagramPacket`类
+#### 1.4.2 `DatagramPacket` 类
 
 - 表示数据包
 - 构造方法：
   - `DatagramPacket(byte[] buf, int length)` 指定数据包的内存空间和大小
   - `DatagramPacket(byte[] buf, int length, InetAddress ip, int port)` 指定数据包的目标地址和端口
 
-#### 1.4.3 `DatagramSocket`类
+#### 1.4.3 `DatagramSocket` 类
 
 - 表示发送和接收数据包的数据报套接字
 - 构造方法：
@@ -125,34 +125,34 @@ comments: true
   - `DatagramSocket(int port)` 绑定到本地主机指定端口
   - `DatagramSocket(int port, InetAddress ip)` 绑定到指定的本地地址
 
-#### 1.4.4 UDP网络程序
+#### 1.4.4 UDP 网络程序
 
 - 服务端、客户端没有明确的界限
 
-- 参见第3章的实例
+- 参见第 3 章的实例
 
 
-### 1.5 URL类
+### 1.5 URL 类
 
 统一资源定位器，通过地址定位互联网上的资源
 
-- URL的形式：`协议 : // ip地址 : 端口 / 项目名 / 资源`
+- URL 的形式：`协议 : // ip 地址 : 端口 / 项目名 / 资源`
 
 - 构造方法：传入字符串，`URL(String url)`
 
 - 常用方法：
 
   - `getProtocol()` 获取协议名
-  - `getHost()` 获取主机IP
+  - `getHost()` 获取主机 IP
   - `getPort()` 获取端口
   - `getPath()` 获取路径
   - `getFile()` 获取完整路径
   - `getQuery()` 获取查询名
 
-- 参见第4章的实例
+- 参见第 4 章的实例
 
 
-## 2 TCP网络程序示例
+## 2 TCP 网络程序示例
 
 ### 2.1 简单的接收器（服务端）、发送器（客户端）程序
 
@@ -261,10 +261,10 @@ public class MyTransmitter {
 
 说明：
 
-1. 服务端和客户端都需要有套接字，分别是`ServerSocket`和`Socket`，并且绑定到统一端口。服务端还有一个`Socket`，是连接端口的返回结果。
-2. 注意输入流和输出流的使用，客户端使用**输出流**，通过套接字输出；服务端使用**输入流**，通过套接字输入，而这股输入流需要输出的话，还需要一个输出流。
+1. 服务端和客户端都需要有套接字，分别是 `ServerSocket` 和 `Socket`，并且绑定到统一端口。服务端还有一个 `Socket`，是连接端口的返回结果。
+2. 注意输入流和输出流的使用，客户端使用 **输出流**，通过套接字输出；服务端使用 **输入流**，通过套接字输入，而这股输入流需要输出的话，还需要一个输出流。
 
-先启动`MyReceiver.java`，再启动`MyTransmitter.java`，观察到`MyReceiver.java`输出：
+先启动 `MyReceiver.java`，再启动 `MyTransmitter.java`，观察到 `MyReceiver.java` 输出：
 
 ```out
 你好！
@@ -399,7 +399,7 @@ public class MyTCPClient extends JFrame {
 1. 服务端将获取客户端的方法放在无限循环中，以便无限接收客户端的信息。
 2. 根据屏幕提示的信息，确定客户端是何时连接上服务端的。
 
-先启动`MyTCPServer.java`，再启动`MyTCPClient.java`，在窗体输入文字，观察到窗体变化与`MyTCPServer.java`输出：
+先启动 `MyTCPServer.java`，再启动 `MyTCPClient.java`，在窗体输入文字，观察到窗体变化与 `MyTCPServer.java` 输出：
 
 ![](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/java/007.png)
 
@@ -444,7 +444,7 @@ public class FileReceiver {
 }
 ```
 
-客户端（`FileSender.png`）
+客户端（`FileSender.java`）
 
 ```java
 import java.io.*;
@@ -477,15 +477,15 @@ public class FileSender {
 说明：
 
 1. 示例中涉及到的输入输出流分别有（以输入流为例）：`InputStream`（接收套接字流）、`FileInputStream`（用于文件与系统间的传输流）、`InputStreamReader`（管道）、`BufferedReader`（用于处理服务端的回传字符）。
-2. 注意客户端第15行的`socket.shutdownOutput();`，若不写这一行，即使客户端已写入完毕（并开始进行输入流的等待），服务端仍在继续读取（因为服务端第13行的`is.read(buffer)`，读取的字节数已为0，因此循环无法退出，处于读取0字节写入0字节的状态），因此要单向关闭客户端的套接字输出流，保证服务端结束读取。
+2. 注意客户端第 15 行的`socket.shutdownOutput();`，若不写这一行，即使客户端已写入完毕（并开始进行输入流的等待），服务端仍在继续读取（因为服务端第 13 行的 `is.read(buffer)`，读取的字节数已为 0，因此循环无法退出，处于读取 0 字节写入 0 字节的状态），因此要单向关闭客户端的套接字输出流，保证服务端结束读取。
 
-先启动`FileReceiver.java`，再启动`FileSender.java`，观察到文件`receive.png`生成，以及`FileSender.java`输出：
+先启动 `FileReceiver.java`，再启动 `FileSender.java`，观察到文件 `receive.png` 生成，以及 `FileSender.java` 输出：
 
 ```java
 接收完毕
 ```
 
-## 3 UDP网络程序示例
+## 3 UDP 网络程序示例
 
 ### 3.1 简单的发送器、接收器程序
 
@@ -528,12 +528,12 @@ public class MyUDPReceiver {
 
 说明：
 
-1. 发送器和接收器都有数据报套接字`DatagramSocket`和数据包`DatagramPacket`，但使用方式不同。
-   - 发送器的`DatagramSocket`不用绑定端口，因为它只用`send()`方法，无需绑定发送者的端口；接收器的`DatagramSocket`需要绑定端口，因为它用`receive()`方法需要明确自己的地址。
-   - 发送器的`DatagramPacket`需要绑定发送地址，因为它已有内容并打包好，需要向特定地址传递；接收器的`DatagramPacket`不用绑定地址，因为它是一个空的容器，只起接收载体作用。
-2. 接收器第10行，`packet.getLength()`不能用`packet.getData().length`代替，数据包大小与数据字节数组的大小是不同的。
+1. 发送器和接收器都有数据报套接字 `DatagramSocket` 和数据包 `DatagramPacket`，但使用方式不同。
+   - 发送器的 `DatagramSocket` 不用绑定端口，因为它只用 `send()` 方法，无需绑定发送者的端口；接收器的 `DatagramSocket` 需要绑定端口，因为它用 `receive()` 方法需要明确自己的地址。
+   - 发送器的 `DatagramPacket` 需要绑定发送地址，因为它已有内容并打包好，需要向特定地址传递；接收器的 `DatagramPacket` 不用绑定地址，因为它是一个空的容器，只起接收载体作用。
+2. 接收器第 10 行，`packet.getLength()` 不能用 `packet.getData().length` 代替，数据包大小与数据字节数组的大小是不同的。
 
-先启动`MyUDPReceiver.java`，观察到程序开始等待，再启动`MyUDPSender.java`，观察到`MyUDPReceiver.java`输出：
+先启动 `MyUDPReceiver.java`，观察到程序开始等待，再启动 `MyUDPSender.java`，观察到 `MyUDPReceiver.java` 输出：
 
 ```out
 127.0.0.1
@@ -632,7 +632,7 @@ public class MyChatReceiver implements Runnable {
 }
 ```
 
-聊天者A（`ChatterA.java`）
+聊天者 A（`ChatterA.java`）
 
 ```java
 public class ChatterA {
@@ -643,7 +643,7 @@ public class ChatterA {
 }
 ```
 
-聊天者B（`ChatterB.java`）
+聊天者 B（`ChatterB.java`）
 
 ```java
 public class ChatterB {
@@ -654,9 +654,9 @@ public class ChatterB {
 }
 ```
 
-说明：每个聊天者有两个线程，以及两个所需端口。A向`localhost`的9999端口发信息，同时接收发送到8888端口名为B发来的信息；B向`localhost`的8888端口发信息，同时接收发送到9999端口名为A发来的信息。
+说明：每个聊天者有两个线程，以及两个所需端口。A 向 `localhost` 的 9999 端口发信息，同时接收发送到 8888 端口名为 B 发来的信息；B 向 `localhost` 的 8888 端口发信息，同时接收发送到 9999 端口名为 A 发来的信息。
 
-分别启动`ChatterA.java`和`ChatterB.java`，并输入文字，观察到两个程序分别输出：
+分别启动 `ChatterA.java` 和 `ChatterB.java`，并输入文字，观察到两个程序分别输出：
 
 ```out
 你好！
@@ -809,10 +809,10 @@ public class MyRadio extends JFrame implements Runnable, ActionListener {
 
 说明：
 
-1. 发出广播和接收广播的地址必须位于同一个组内，地址范围是224.0.0.0~224.255.255.255，该地址不代表某个特定主机的位置。
+1. 发出广播和接收广播的地址必须位于同一个组内，地址范围是 224.0.0.0~224.255.255.255，该地址不代表某个特定主机的位置。
 2. 加入同一个组的主机可以在某个端口广播信息，也可以在某个端口接收信息。
 
-启动`MyBroadcast.java`，观察到其开始输出；启动`MyRadio.java`并点击开始接收按钮，观察到其开始接收广播信息：
+启动 `MyBroadcast.java`，观察到其开始输出；启动 `MyRadio.java` 并点击开始接收按钮，观察到其开始接收广播信息：
 
 ```java
 欢迎收听广播节目。
@@ -822,7 +822,7 @@ public class MyRadio extends JFrame implements Runnable, ActionListener {
 
 ![](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/java/008.png)
 
-## 4 利用URL下载网络资源示例
+## 4 利用 URL 下载网络资源示例
 
 ```java
 import javax.net.ssl.HttpsURLConnection;
@@ -848,9 +848,9 @@ public class Main {
 }
 ```
 
-观察到文件`logo.png`的生成。
+观察到文件 `logo.png` 的生成。
 
-## 5 I/O补充
+## 5 I/O 补充
 
 **使用输入流、输出流时以下这段代码的原理：**
 
@@ -864,11 +864,11 @@ while ((len = fis.read(buffer)) != -1) {
 }
 ```
 
-- `buffer`是一个字节数组，长度为1024，类似于一个缓冲区。
-- `fis.read(buffer)`，这一步从输入流读取`buffer`大小的字节（即1024），把这些字节赋给`buffer`，并返回读取的字节数。
-- 把读取的字节数赋值给`len`，然后对`len`进行判断。
-- 把`buffer`数组的0到`len`位置的字节写入输出流。
-- 每次循环，`buffer`就被重新赋值一次，因此文件大小与`buffer`的长度1024是没有关系的。
-- 读取到输入流末尾时，`read()`方法返回-1，循环结束。
+- `buffer` 是一个字节数组，长度为 1024，类似于一个缓冲区。
+- `fis.read(buffer)`，这一步从输入流读取 `buffer` 大小的字节（即 1024），把这些字节赋给 `buffer`，并返回读取的字节数。
+- 把读取的字节数赋值给 `len`，然后对 `len` 进行判断。
+- 把 `buffer` 数组的 0 到 `len` 位置的字节写入输出流。
+- 每次循环，`buffer` 就被重新赋值一次，因此文件大小与 `buffer` 的长度 1024 是没有关系的。
+- 读取到输入流末尾时，`read()` 方法返回 -1，循环结束。
 - 注意：缓冲区的大小不应太小，否则会涉及到编码问题，部分字节被强行拆分到两个缓冲区时可能会出现乱码。
 

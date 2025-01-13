@@ -1,5 +1,5 @@
 ---
-title: Java华容道小游戏源码分析
+title: Java 华容道小游戏源码分析
 date: 2021-09-08 17:08:00
 categories: Java
 tags:
@@ -11,7 +11,7 @@ tags:
 comments: true
 ---
 
-利用Java的Swing编程、事件监听等知识写一个华容道小游戏。这个游戏的作者不是我，但是我根据所学的知识，分析一下游戏的源码，以巩固学习成果。
+利用 Java 的 Swing 编程、事件监听等知识写一个华容道小游戏。这个游戏的作者不是我，但是我根据所学的知识，分析一下游戏的源码，以巩固学习成果。
 
 <!--more-->
 
@@ -21,19 +21,19 @@ comments: true
 
 ![](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/java/EX01-001.jpg)
 
-一共10个人物，每个人物可以上下左右移动。所以应提前想好一个布局方式，以便在写游戏时设定坐标。
+一共 10 个人物，每个人物可以上下左右移动。所以应提前想好一个布局方式，以便在写游戏时设定坐标。
 
 ![](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/java/EX01-002.png)
 
 程序所需知识：
 
-- Swing基础
-- Swing基本组件（`JFrame`、`JButton`）
+- Swing 基础
+- Swing 基本组件（`JFrame`、`JButton`）
 - 事件监听器（焦点、动作、键盘、鼠标）
 
 ## 2 启动类
 
-在IDEA中新建一个项目`Klotski`，并新建启动类`Start.java`和游戏窗体类`GameFrame.java`。根据启动类和游戏主体分离的原则，我们在启动类`Start.java`中只新建游戏窗体就行，不做任何与游戏内容相关的操作。
+在 IDEA 中新建一个项目 `Klotski`，并新建启动类 `Start.java` 和游戏窗体类 `GameFrame.java`。根据启动类和游戏主体分离的原则，我们在启动类 `Start.java`中只新建游戏窗体就行，不做任何与游戏内容相关的操作。
 
 ```java
 public class Start {
@@ -45,7 +45,7 @@ public class Start {
 
 ## 3 人物类
 
-在设计游戏窗体之前，我们先新建一个人物类`Person.java`，这个类用来实例化游戏中每一个人物对象。由于每一个人物对象实际上可以看做窗体的一个按钮，所以使该类继承`JButton`类。
+在设计游戏窗体之前，我们先新建一个人物类 `Person.java`，这个类用来实例化游戏中每一个人物对象。由于每一个人物对象实际上可以看做窗体的一个按钮，所以使该类继承 `JButton` 类。
 
 ```java
 import javax.swing.*;
@@ -79,7 +79,7 @@ public Person(int number, String s) {
 
 当我们想让某个人物移动时，我们需要让其从默认颜色变为别的颜色。这里可以为每个按钮添加一个监听器，并且焦点事件监听器是最适合的。当按钮被聚焦的时候，鼠标键盘也可以对指定按钮进行操作。
 
-可以直接让该类实现`FocusListener`接口，并在构造方法加上焦点事件监听器，把自己传入即可。
+可以直接让该类实现 `FocusListener` 接口，并在构造方法加上焦点事件监听器，把自己传入即可。
 
 ```java
 public class Person extends JButton implements FocusListener {	// 实现FocusListener接口
@@ -137,7 +137,7 @@ public class Person extends JButton implements FocusListener {
 
 ## 4 游戏窗体类
 
-游戏窗体类是游戏的主体部分，包含显示模块和逻辑模块。首先我们让该类继承`JFrame`类。
+游戏窗体类是游戏的主体部分，包含显示模块和逻辑模块。首先我们让该类继承 `JFrame` 类。
 
 ```java
 import javax.swing.*;
@@ -146,7 +146,7 @@ public class GameFrame extends JFrame {
 }
 ```
 
-该类首先要有10个人物，那么我们实例化一个`Person`数组；以及在属性中添加几个按钮，为边界按钮（处理游戏边界）和重新开始按钮。
+该类首先要有 10 个人物，那么我们实例化一个 `Person` 数组；以及在属性中添加几个按钮，为边界按钮（处理游戏边界）和重新开始按钮。
 
 ```java
 Person[] people = new Person[10];
@@ -170,7 +170,7 @@ public GameFrame() {
 
 ### 4.2 初始化布置
 
-在初始化方法`init()`中，我们一步步放置所需要的组件。首先把窗体设定为绝对布局，并放置重新开始按钮。
+在初始化方法 `init()` 中，我们一步步放置所需要的组件。首先把窗体设定为绝对布局，并放置重新开始按钮。
 
 ```java
 public void init() {
@@ -180,11 +180,11 @@ public void init() {
 }
 ```
 
-启动`Start.java`，查看效果。
+启动 `Start.java`，查看效果。
 
 ![](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/java/EX01-003.png)
 
-接下来放置每个人物。先写一个`String`数组，放置每个人物的名字，再将名字传入本类的属性`people`数组中。
+接下来放置每个人物。先写一个 `String` 数组，放置每个人物的名字，再将名字传入本类的属性 `people` 数组中。
 
 ```java
 String[] name = {"曹操", "关羽", "马", "黄", "赵", "张", "兵", "兵", "兵", "兵"};
@@ -194,7 +194,7 @@ for (int i = 0; i < name.length; i++) {
 }
 ```
 
-设定每个人物按钮的大小和位置。观察第1章界面分析中的图，如果设置每个格子的大小为50像素×50像素，那么曹操就是100像素×100像素；如果游戏左上角的边界为`(54, 54)`，那么曹操所在的位置应为`(104, 54)`。依次类推，设置每个人物的大小和位置。
+设定每个人物按钮的大小和位置。观察第 1 章界面分析中的图，如果设置每个格子的大小为 50 像素 × 50 像素，那么曹操就是 100 像素 × 100 像素；如果游戏左上角的边界为 `(54, 54)`，那么曹操所在的位置应为 `(104, 54)`。依次类推，设置每个人物的大小和位置。
 
 ```java
 // 以左上角的位置为(54, 54)，每个格子大小为50*50，设定每个按钮的位置
@@ -212,7 +212,7 @@ people[9].setBounds(154, 204, 50, 50);
 
 ![](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/java/EX01-004.png)
 
-再添加游戏边界，游戏边界也可以看做是按钮，我们将这4个按钮设定为宽为5的长条，并根据添加好的人物的位置确定长条位置。
+再添加游戏边界，游戏边界也可以看做是按钮，我们将这 4 个按钮设定为宽为 5 的长条，并根据添加好的人物的位置确定长条位置。
 
 ```java
 left = new JButton();
@@ -235,7 +235,7 @@ validate();
 
 ### 4.3 人物移动操作
 
-写一个`go()`方法，使人物进行上下左右移动。传进去的参数肯定是人物和方向，人物放`Person`类对象就行，方向其实把已有的4个边界按钮放进去就行了，因为它们就代表上下左右，并且可以直接拿它们的边界。
+写一个 `go()` 方法，使人物进行上下左右移动。传进去的参数肯定是人物和方向，人物放 `Person` 类对象就行，方向其实把已有的 4 个边界按钮放进去就行了，因为它们就代表上下左右，并且可以直接拿它们的边界。
 
 ```java
 public void go(Person man, JButton direction) {
@@ -249,7 +249,7 @@ public void go(Person man, JButton direction) {
 2. 看是否与其他人物的位置或游戏边界的位置相撞
 3. 如果相撞，则不移动；否则进行移动
 
-先试着移动一下，为了方便判断相撞，我们先拿一个矩形类`Rectangle`放这个人物的边界，并获得坐标。
+先试着移动一下，为了方便判断相撞，我们先拿一个矩形类 `Rectangle` 放这个人物的边界，并获得坐标。
 
 ```java
 Rectangle manRect = man.getBounds();	// 人物边界矩形
@@ -257,7 +257,7 @@ int x = manRect.x;
 int y = manRect.y;
 ```
 
-再试着移动一下，这里我们只操作`x`和`y`，所以人物、矩形都是实际上没有移动的。
+再试着移动一下，这里我们只操作 `x` 和 `y`，所以人物、矩形都是实际上没有移动的。
 
 ```java
 if (direction == above) {
@@ -277,7 +277,7 @@ if (direction == above) {
 manRect.setLocation(x, y);
 ```
 
-从这时开始，我们要进行判断，先建立一个布尔型变量`move`并初始化为`true`，并拿矩形类`Rectangle`放其他人物的边界、游戏边界的边界，使用`intersects()`方法判断是否相撞。
+从这时开始，我们要进行判断，先建立一个布尔型变量 `move` 并初始化为 `true`，并拿矩形类 `Rectangle` 放其他人物的边界、游戏边界的边界，使用 `intersects()` 方法判断是否相撞。
 
 ```java
 boolean move = true;	// 移动判断变量
@@ -293,7 +293,7 @@ if (manRect.intersects(directionRect)) {	// 与游戏边界相撞
 }
 ```
 
-再根据`move`的结果，对该人物进行移动。
+再根据 `move` 的结果，对该人物进行移动。
 
 ```java
 if (move) {
@@ -303,7 +303,7 @@ if (move) {
 
 ### 4.4 游戏重启监听器
 
-点击重新开始按钮，游戏重启。我们让本类实现`ActionListener`动作事件监听器接口，并在`init()`方法中为`restart`添加监听器。然后重写`actionPerformed()`方法，可以直接销毁游戏窗体，再重新新建实例就行了。
+点击重新开始按钮，游戏重启。我们让本类实现 `ActionListener` 动作事件监听器接口，并在 `init()` 方法中为 `restart` 添加监听器。然后重写 `actionPerformed()` 方法，可以直接销毁游戏窗体，再重新新建实例就行了。
 
 ```java
 public class GameFrame extends JFrame implements ActionListener {	// 实现ActionListener接口
@@ -325,7 +325,7 @@ public class GameFrame extends JFrame implements ActionListener {	// 实现Actio
 
 ### 4.5 键盘操作监听器
 
-键盘是可以操作人物的移动的。我们让本类实现`KeyListener`键盘事件监听器接口，并在`init()`方法中为每个人物添加监听器。
+键盘是可以操作人物的移动的。我们让本类实现 `KeyListener` 键盘事件监听器接口，并在 `init()` 方法中为每个人物添加监听器。
 
 ```java
 public class GameFrame extends JFrame implements ActionListener, KeyListener {	// 实现KeyListener接口
@@ -358,7 +358,7 @@ public class GameFrame extends JFrame implements ActionListener, KeyListener {	/
 }
 ```
 
-我们只需要重写`keyPressed()`方法。先拿到键盘事件资源（当前聚焦的人物）和键盘按键，并指挥人物按一定方向移动。
+我们只需要重写 `keyPressed()` 方法。先拿到键盘事件资源（当前聚焦的人物）和键盘按键，并指挥人物按一定方向移动。
 
 ```java
 @Override
@@ -382,7 +382,7 @@ public void keyPressed(KeyEvent e) {
 
 ### 4.6 鼠标操作监听器
 
-鼠标不仅可以聚焦人物，也可以操作人物移动。我们让本类实现`MouseListener`鼠标事件监听器接口，并在`init()`方法中为每个人物添加监听器。
+鼠标不仅可以聚焦人物，也可以操作人物移动。我们让本类实现 `MouseListener` 鼠标事件监听器接口，并在 `init()` 方法中为每个人物添加监听器。
 
 ```java
 public class GameFrame extends JFrame implements ActionListener, KeyListener, MouseListener {	// 实现MouseListener接口
@@ -426,7 +426,7 @@ public class GameFrame extends JFrame implements ActionListener, KeyListener, Mo
 }
 ```
 
-我们只需要重写`MousePressed()`方法。先拿到鼠标事件资源（鼠标点击的人物）和鼠标坐标，再拿到这个人物的边界大小，根据这个鼠标点击的位置（如点击人物上半部分，则向上移动），指挥人物按一定方向移动。
+我们只需要重写 `MousePressed()` 方法。先拿到鼠标事件资源（鼠标点击的人物）和鼠标坐标，再拿到这个人物的边界大小，根据这个鼠标点击的位置（如点击人物上半部分，则向上移动），指挥人物按一定方向移动。
 
 ```java
 @Override
@@ -451,7 +451,7 @@ public void mousePressed(MouseEvent e) {
 }
 ```
 
-注意，键盘事件和鼠标事件不用`else-if`，可以让人物斜向运动，运动顺序由程序书写顺序决定。
+注意，键盘事件和鼠标事件不用 `else-if`，可以让人物斜向运动，运动顺序由程序书写顺序决定。
 
 ### 4.7 游戏窗体类完整代码
 
@@ -624,13 +624,13 @@ public class GameFrame extends JFrame implements ActionListener, KeyListener, Mo
 
 ## 5 扩展与总结
 
-- **步数统计：**可以新写一个属性`step`，每`go()`一次就`step++`，统计游戏步数。
-- **成功判定：**当曹操走到某个坐标的时候，游戏就成功并结束了。
-- **不同关卡：**华容道有横刀立马、齐头并前、兵分三路等多种摆放方法，可以只改变人物坐标，实现不同的关卡。
-- **记录进度：**把步数、人物坐标存档到文件里，下次可以直接读档，接着来。
-- **平台迁移：**把代码换成JavaScript版，并写到网页上，游戏基本逻辑是一样的。
+- **步数统计：** 可以新写一个属性 `step`，每 `go()` 一次就 `step++`，统计游戏步数。
+- **成功判定：** 当曹操走到某个坐标的时候，游戏就成功并结束了。
+- **不同关卡：** 华容道有横刀立马、齐头并前、兵分三路等多种摆放方法，可以只改变人物坐标，实现不同的关卡。
+- **记录进度：** 把步数、人物坐标存档到文件里，下次可以直接读档，接着来。
+- **平台迁移：** 把代码换成 JavaScript 版，并写到网页上，游戏基本逻辑是一样的。
 
-这个游戏应该不难，逻辑上没有其他游戏那么多，主要是巩固Swing编程的基础。
+这个游戏应该不难，逻辑上没有其他游戏那么多，主要是巩固 Swing 编程的基础。
 
 走了好多遍终于成功了：
 

@@ -1,5 +1,5 @@
 ---
-title: LaTeX数学公式手册
+title: LaTeX 数学公式手册
 date: 2021-08-11 20:07:35
 categories: LaTeX
 tags:
@@ -12,7 +12,7 @@ comments: true
 mathjax: true
 ---
 
-LaTeX是一种基于TeX的排版系统。由于其对复杂的数学公式排版效果很好，所以常用于大型论文排版和数学公式输入。本文及本博客的文章均使用LaTeX输入数学公式。
+LaTeX 是一种基于 TeX 的排版系统。由于其对复杂的数学公式排版效果很好，所以常用于大型论文排版和数学公式输入。本文及本博客的文章均使用 LaTeX 输入数学公式。
 
 <!--more-->
 
@@ -20,22 +20,22 @@ LaTeX是一种基于TeX的排版系统。由于其对复杂的数学公式排版
 
 **LaTeX**
 
-标准写法为$ L^AT_EX $​，读音为“拉泰赫”。它是一种基于TeX的排版系统，对于生成复杂表格和数学公式表现尤为突出，适用于论文写作、数学科研类PPT制作等。
+标准写法为 $ L^AT_EX $，读音为「拉泰赫」。它是一种基于 TeX 的排版系统，对于生成复杂表格和数学公式表现尤为突出，适用于论文写作、数学科研类 PPT 制作等。
 
 **MathJax**
 
-它是一个JavaScript引擎，用来显示网络上的数学公式。本博客的公式使用MathJax引擎渲染。本质上，Typora的公式也是用MathJax渲染的。
+它是一个 JavaScript 引擎，用来显示网络上的数学公式。本博客的公式使用 MathJax 引擎渲染。本质上，Typora 的公式也是用 MathJax 渲染的。
 
 **本文的公式显示环境**
 
 - Markdown
 - LaTeX
 - MathJax v3.0.0
-- hexo-renderer-kramed渲染器
+- hexo-renderer-kramed 渲染器
 
 **注意**
 
-应特别注意Markdown渲染为HTML及其与LaTeX语法的冲突，这会影响文章效果。如应避免大括号重复出现，应加上空格。
+应特别注意 Markdown 渲染为 HTML 及其与 LaTeX 语法的冲突，这会影响文章效果。如应避免大括号重复出现，应加上空格。
 
 ```latex
 }} % Bad
@@ -46,7 +46,7 @@ LaTeX是一种基于TeX的排版系统。由于其对复杂的数学公式排版
 
 公式分为行内公式和公式块，前者嵌入行内，后者单独成行。
 
-行内公式表示方法为：` $ 公式 $ `，公式块表示方法为：` $$ 公式 $$ `，公式中的空格会被忽略。公式块可通过`\tag{n}`进行手动编号。
+行内公式表示方法为：` $ 公式 $ `，公式块表示方法为：` $$ 公式 $$ `，公式中的空格会被忽略。公式块可通过 `\tag{n}` 进行手动编号。
 
 **行内公式**	
 
@@ -54,11 +54,11 @@ LaTeX是一种基于TeX的排版系统。由于其对复杂的数学公式排版
 $ f(x) = a+b $
 ```
 
-$ f(x) = a+b $​​​​​
+$ f(x) = a+b $
 
 **公式块**
 
-注意Typora中建议写成以下形式，否则仍会显示为行内公式：
+注意 Typora 中建议写成以下形式，否则仍会显示为行内公式：
 
 ```latex
 $$
@@ -70,7 +70,7 @@ $$
 x+2 = 3*4
 $$
 
-除强调区分行内公式与公式块外，下文的公式示例均省略`$`符号。
+除强调区分行内公式与公式块外，下文的公式示例均省略 `$` 符号。
 
 **手动编号**
 
@@ -86,7 +86,7 @@ $$
 
 ### 2.1 四则运算与基本括号
 
-拉丁字母、阿拉伯数字与`+-*/=`可以直接通过键盘输入。乘号可以用`\times`表示，除号可以用`\div`表示，点乘可以用`\cdot`表示。
+拉丁字母、阿拉伯数字与 `+-*/=` 可以直接通过键盘输入。乘号可以用 `\times` 表示，除号可以用 `\div` 表示，点乘可以用 `\cdot` 表示。
 
 ```latex
 a + b - c*2 + d/e = 5 \times 3 + 8 \div 4 - f \cdot g
@@ -96,7 +96,7 @@ $$
 a + b - c*2 + d/e = 5 \times 3 + 8 \div 4 - f \cdot g
 $$
 
-小括号`()`、方括号`[]`表示其本身，花括号`{}`需要`\`转义表示。
+小括号 `()`、方括号 `[]` 表示其本身，花括号 `{}` 需要 `\` 转义表示。
 
 ```latex
 (1+2) \quad [1+2] \quad \{1+2\}
@@ -106,11 +106,11 @@ $$
 (1+2) \quad [1+2] \quad \{1+2\}
 $$
 
-由于LaTeX会忽略空格，因此用`\quad`表示空格，见上例。
+由于 LaTeX 会忽略空格，因此用 `\quad` 表示空格，见上例。
 
 ### 2.2 基本上下标
 
-用`_`表示下标，用`^`表示上标，并只处理一个字符，多个字符用`{}`括起来。`'`表示求导，可使用多个。
+用 `_` 表示下标，用 `^` 表示上标，并只处理一个字符，多个字符用 `{}` 括起来。`'` 表示求导，可使用多个。
 
 ```latex
 x_1 + x_{1,2}^2 = y_0 + y' + y''
@@ -122,7 +122,7 @@ $$
 
 ### 2.3 基本分式、根式
 
-用`\frac{a}{b}`表示分式，用`\sqrt`表示平方根，用`\sqrt[n]`表示n次方根。
+用 `\frac{a}{b}` 表示分式，用 `\sqrt` 表示平方根，用 `\sqrt[n]` 表示 n 次方根。
 
 ```latex
 \frac{x}{2} + \sqrt x = \sqrt[3] {x^2+y^2}
@@ -188,9 +188,9 @@ $ \sin a, \cos b, \tan c, \cot d, \sec e, \csc f $
 \arcsin a, \arccos b, \arctan c
 ```
 
-$ \arcsin a, \arccos b, \arctan c $​​
+$ \arcsin a, \arccos b, \arctan c $
 
-注意`\arccot, \arcsec, \arccsc`不被转义，需要用`\operatorname`替代。
+注意 `\arccot, \arcsec, \arccsc` 不被转义，需要用 `\operatorname` 替代。
 
 **双曲函数**
 
@@ -198,9 +198,9 @@ $ \arcsin a, \arccos b, \arctan c $​​
 \sinh a, \cosh b, \tanh c, \coth d
 ```
 
-$ \sinh a, \cosh b, \tanh c, \coth d $​
+$ \sinh a, \cosh b, \tanh c, \coth d $
 
-注意`\sech, \csch`不被转义，需要用`\operatorname`替代。
+注意 `\sech, \csch` 不被转义，需要用 `\operatorname` 替代。
 
 **绝对值**
 
@@ -216,11 +216,11 @@ $ \left\vert a \right\vert, |b|, | \dfrac cd |, \left| \dfrac cd \right| $
 \max(x,y), \min(x,y)
 ```
 
-$ \max(x,y), \min(x,y) $​​
+$ \max(x,y), \min(x,y) $
 
 **其他不能转义的标准函数**
 
-用`\operatorname{function}`表示，如符号函数：
+用 `\operatorname{function}` 表示，如符号函数：
 
 ```latex
 \operatorname{sgn} x
@@ -246,9 +246,9 @@ $ \lim x, \liminf y, \limsup z $
 \dim p, \deg q, \det m, \ker\phi
 ```
 
-$ \dim p, \deg q, \det m, \ker\phi $​
+$ \dim p, \deg q, \det m, \ker\phi $
 
-更多极限见4.5节。
+更多极限见 [4.5 节](#4-5-大型运算符（求和求积、极限、积分等）)。
 
 ### 3.4 投射
 
@@ -260,13 +260,13 @@ $ \Pr j, \hom l, \lVert z \rVert, \arg z $
 
 ### 3.5 微分，导数
 
-用`\mathrm{x}`处理非斜体字符，如微分符号`d`。
+用 `\mathrm{x}` 处理非斜体字符，如微分符号 `d`。
 
 ```latex
 dx, \mathrm{d}x, \partial t, \nabla\psi
 ```
 
-$ dx, \mathrm{d}x, \partial t, \nabla\psi $​
+$ dx, \mathrm{d}x, \partial t, \nabla\psi $
 
 ```latex
 \mathrm{d}y/\mathrm{d}x, \frac{\mathrm{d}y}{\mathrm{d}x}, \frac{\partial^2}{\partial x \partial y}z
@@ -294,7 +294,7 @@ $ \infty, \aleph, \complement, \backepsilon, \eth, \Finv, \hbar $
 \imath, \jmath, \Bbbk, \ell, \mho, \wp, \Re, \circledS
 ```
 
-$ \imath, \jmath, \Bbbk, \ell, \mho, \wp, \Re, \circledS $​​​​
+$ \imath, \jmath, \Bbbk, \ell, \mho, \wp, \Re, \circledS $
 
 ### 3.7 模运算
 
@@ -308,7 +308,7 @@ $ \pmod{m}, a \bmod b $
 \gcd(m,n), \operatorname{lcm}(m,n)
 ```
 
-$ \gcd(m,n), \operatorname{lcm}(m,n) $​
+$ \gcd(m,n), \operatorname{lcm}(m,n) $
 
 ```latex
 \mid, \nmid, \shortmid, \nshortmid
@@ -360,7 +360,7 @@ $ \oplus, \ominus, \otimes, \oslash, \odot $
 \circleddash, \circledcirc, \circledast
 ```
 
-$ \circleddash, \circledcirc, \circledast $​
+$ \circleddash, \circledcirc, \circledast $
 
 ```latex
 \bigoplus, \bigotimes, \bigodot
@@ -374,21 +374,21 @@ $ \bigoplus, \bigotimes, \bigodot $
 \{, \}, \emptyset, \varnothing
 ```
 
-$ \{, \}, \emptyset, \varnothing $​
+$ \{, \}, \emptyset, \varnothing $
 
-注意本环境下不支持用`\O, \empty`表示空集，需要用`\emptyset`替代。​
+注意本环境下不支持用 `\O, \empty` 表示空集，需要用 `\emptyset` 替代。
 
 ```latex
 \in, \notin, \not\in, \ni, \not\ni
 ```
 
-$ \in, \notin, \not\in, \ni, \not\ni $​​
+$ \in, \notin, \not\in, \ni, \not\ni $
 
 ```latex
 \cap, \Cap, \sqcap, \bigcap
 ```
 
-$ \cap, \Cap, \sqcap, \bigcap $​
+$ \cap, \Cap, \sqcap, \bigcap $
 
 ```latex
 \cup, \Cup, \sqcup, \bigcup, \bigsqcup, \uplus, \biguplus
@@ -522,7 +522,7 @@ $ \gtrsim, \gnsim, \gtrapprox, \gnapprox $
 \prec, \nprec, \preceq, \npreceq, \precneqq
 ```
 
-$ \prec, \nprec, \preceq, \npreceq, \precneqq $​
+$ \prec, \nprec, \preceq, \npreceq, \precneqq $
 
 ```latex
 \succ, \nsucc, \succeq, \nsucceq, \succneqq
@@ -572,13 +572,13 @@ $ \perp, \angle, \sphericalangle, \measuredangle, 45^\circ $
 \Box, \blacksquare, \diamond, \Diamond, \lozenge, \blacklozenge, \bigstar, \bigcirc
 ```
 
-$ \Box, \blacksquare, \diamond, \Diamond, \lozenge, \blacklozenge, \bigstar, \bigcirc $​
+$ \Box, \blacksquare, \diamond, \Diamond, \lozenge, \blacklozenge, \bigstar, \bigcirc $
 
 ```latex
 \triangle, \triangledown ,\bigtriangleup, \bigtriangledown, \vartriangle
 ```
 
-$ \triangle, \triangledown ,\bigtriangleup, \bigtriangledown, \vartriangle $​
+$ \triangle, \triangledown ,\bigtriangleup, \bigtriangledown, \vartriangle $
 
 ```latex
 \blacktriangle, \blacktriangledown, \blacktriangleleft, \blacktriangleright
@@ -592,7 +592,7 @@ $ \blacktriangle, \blacktriangledown, \blacktriangleleft, \blacktriangleright $
 \forall, \not\forall, \exists, \nexists
 ```
 
-$ \forall, \not\forall, \exists, \nexists $​
+$ \forall, \not\forall, \exists, \nexists $
 
 ```latex
 \because, \therefore, \And
@@ -604,7 +604,7 @@ $ \because, \therefore, \And $
 \lor, \vee, \curlyvee, \bigvee
 ```
 
-$ \lor, \vee, \curlyvee, \bigvee $​
+$ \lor, \vee, \curlyvee, \bigvee $
 
 ```latex
 \land, \wedge, \curlywedge, \bigwedge
@@ -612,7 +612,7 @@ $ \lor, \vee, \curlyvee, \bigvee $​
 
 $ \land, \wedge, \curlywedge, \bigwedge $
 
-注意本环境下不支持用`\or, \and`表示或、且，需要用`\lor, \land`替代。
+注意本环境下不支持用 `\or, \and` 表示或、且，需要用 `\lor, \land` 替代。
 
 ```latex
 \bar{x}, \bar{abc}, \overline{x}, \overline{abc}
@@ -630,7 +630,7 @@ $ \lnot, \neg, \not\operatorname{R}, \bot, \top $
 \vdash, \dashv, \vDash, \Vdash, \Vvdash, \models
 ```
 
-$ \vdash, \dashv, \vDash, \Vdash, \Vvdash, \models $​​
+$ \vdash, \dashv, \vDash, \Vdash, \Vvdash, \models $
 
 ```latex
 \nvdash, \nVdash, \nvDash, \nVDash
@@ -738,7 +738,7 @@ $ \hookrightarrow, \hookleftarrow, \multimap, \leftrightsquigarrow, \rightsquiga
 
 ### 3.15 省略号
 
-用`\cdots`表示居中的三个点，`\ldots`表示居底线的三个点，`\vdots`和`\ddots`分别表示垂直和对角线。
+用 `\cdots` 表示居中的三个点，`\ldots` 表示居底线的三个点，`\vdots` 和 `\ddots` 分别表示垂直和对角线。
 
 ```latex
 \cdots, \ldots, \vdots, \ddots
@@ -752,7 +752,7 @@ $ \cdots, \ldots, \vdots, \ddots $
 \amalg, \%, \&, \dagger, \ddagger
 ```
 
-$ \amalg, \%, \&, \dagger, \ddagger $​​​
+$ \amalg, \%, \&, \dagger, \ddagger $
 
 ```latex
 \smile, \frown, \wr, \triangleleft, \triangleright
@@ -800,7 +800,7 @@ $ \trianglelefteq, \ntrianglelefteq, \trianglerighteq, \ntrianglerighteq $
 
 ### 4.1 上下标
 
-用`_`表示下标，用`^`表示上标，并只处理一个字符，多个字符用`{}`括起来。上下标可嵌套或同时使用。
+用 `_` 表示下标，用 `^` 表示上标，并只处理一个字符，多个字符用 `{}` 括起来。上下标可嵌套或同时使用。
 
 ```latex
 a^2, a_2, a^{2+2}, a_{i,j}, x_2^3
@@ -808,7 +808,7 @@ a^2, a_2, a^{2+2}, a_{i,j}, x_2^3
 
 $ a^2, a_2, a^{2+2}, a_{i,j}, x_2^3 $
 
-前置上下标可以用空花括号`{}`承载，也可以使用`\sideset`命令。
+前置上下标可以用空花括号 `{}` 承载，也可以使用 `\sideset` 命令。
 
 ```latex
 {}_1^2X_3^4 \quad \sideset{_1^2}{_3^4} \bigotimes
@@ -818,7 +818,7 @@ $ {}_1^2X_3^4 \quad \sideset{_1^2}{_3^4} \bigotimes $
 
 ### 4.2 导数
 
-撇导数用`'`或上标的`\prime`表示，注意不要漏掉上标。
+撇导数用 `'` 或上标的 `\prime` 表示，注意不要漏掉上标。
 
 ```latex
 x', x'', x^\prime
@@ -830,9 +830,9 @@ $ x', x'', x^\prime $
 x\prime % Bad
 ```
 
-$ x\prime % Bad $​
+$ x\prime % Bad $
 
-点导数用`\dot`、`\ddot`和`\dddot`表示。
+点导数用 `\dot`、`\ddot` 和 `\dddot` 表示。
 
 ```latex
 \dot{y}, \ddot{y}, \dddot{y}
@@ -842,13 +842,13 @@ $ \dot{y}, \ddot{y}, \dddot{y} $
 
 ### 4.3 向量
 
-用`\vec`、`\boldsymbol`、`\over--arrow`或`\widehat`表示。
+用 `\vec`、`\boldsymbol`、`\over--arrow` 或 `\widehat` 表示。
 
 ```latex
 \vec{a}, \boldsymbol{b}, \overleftarrow{ab}, \overrightarrow{cd}, \overleftrightarrow{ab}, \widehat{abc}
 ```
 
-$ \vec{a}, \boldsymbol{b}, \overleftarrow{ab}, \overrightarrow{cd}, \overleftrightarrow{ab}, \widehat{abc} $​​
+$ \vec{a}, \boldsymbol{b}, \overleftarrow{ab}, \overrightarrow{cd}, \overleftrightarrow{ab}, \widehat{abc} $
 
 ### 4.4 上下线
 
@@ -894,7 +894,7 @@ $ \begin{matrix} \underbrace{a+b+\cdots+z} \\ 26 \end{matrix} $
 
 **注意**
 
-大型运算符通常含有上下部分，LaTeX用上下标表示。其中行内公式位于右上右下，公式块位于正上正下（积分除外）。
+大型运算符通常含有上下部分，LaTeX 用上下标表示。其中行内公式位于右上右下，公式块位于正上正下（积分除外）。
 
 ```latex
 $ \sum_{i=1}^{n} i^2 $
@@ -907,7 +907,8 @@ $ \sum_{i=1}^{n} i^2 $
 $$
 \sum_{i=1}^{n} i^2
 $$
-若要在行内公式显示为正上正下，可以使用`\limits`命令跟在运算符后：
+
+若要在行内公式显示为正上正下，可以使用 `\limits` 命令跟在运算符后：
 
 ```latex
 $ \sum\limits_{i=1}^{n} i^2 $
@@ -915,7 +916,7 @@ $ \sum\limits_{i=1}^{n} i^2 $
 
 $ \sum\limits_{i=1}^{n} i^2 $
 
-若要在公式块显示为右上右下，可以使用一阶无框矩阵形式或使用`\nolimits`命令：
+若要在公式块显示为右上右下，可以使用一阶无框矩阵形式或使用 `\nolimits` 命令：
 
 ```latex
 $$
@@ -969,7 +970,7 @@ $$
 \int_{a}^{b} e^x \, \mathrm{d}x
 $$
 
-`\,`可省略，但建议加入使式子更美观；`\mathrm{d}`可替换为`{\rm d}`。
+`\,` 可省略，但建议加入使式子更美观；`\mathrm{d}` 可替换为 `{\rm d}`。
 
 **二重积分、三重积分**
 
@@ -997,9 +998,9 @@ $$
 \int, \iint, \iiint, \iiiint, \idotsint, \oint
 ```
 
-$ \int, \iint, \iiint, \iiiint, \idotsint, \oint $​​
+$ \int, \iint, \iiint, \iiiint, \idotsint, \oint $
 
-注意本环境下不支持用`\oiint, \oiiint`表示二重闭合积分、三重闭合积分。
+注意本环境下不支持用 `\oiint, \oiiint` 表示二重闭合积分、三重闭合积分。
 
 **交集、并集、余积**
 
@@ -1023,7 +1024,7 @@ $$
 
 ### 5.1 基本输入
 
-分式可以通过`\over`命令，两侧标记分子分母，且整体需要用花括号括起来。
+分式可以通过 `\over` 命令，两侧标记分子分母，且整体需要用花括号括起来。
 
 ```latex
 x = { {-b \pm \sqrt{b^2-4ac} } \over {2a} }
@@ -1032,7 +1033,8 @@ x = { {-b \pm \sqrt{b^2-4ac} } \over {2a} }
 $$
 x = { {-b \pm \sqrt{b^2-4ac} } \over {2a} }
 $$
-常用的分式用`\frac{分子}{分母}`命令，便捷时使用`\frac ab`快速生成$ \frac ab $​。
+
+常用的分式用 `\frac{分子}{分母}` 命令，便捷时使用 `\frac ab` 快速生成 $ \frac ab $。
 
 ```latex
 \frac{-b \pm \sqrt{b^2-4ac} }{2a} \quad \frac ab
@@ -1052,11 +1054,13 @@ $$
 $$
 ```
 
-$ \frac{1}{2}=0.5 $​
+$ \frac{1}{2}=0.5 $
+
 $$
 \frac{1}{2}=0.5
 $$
-`\tfrac`命令用于使分式显示为*行内公式样式*。
+
+`\tfrac` 命令用于使分式显示为 *行内公式样式*。
 
 ```latex
 $$
@@ -1068,29 +1072,30 @@ $$
 \tfrac{1}{2}=0.5
 $$
 
-`\dfrac`命令用于使分式显示为*公式块样式*。
+`\dfrac` 命令用于使分式显示为 *公式块样式*。
 
 ```latex
 $ \dfrac{1}{2}=0.5 $
 ```
 
-$ \dfrac{1}{2}=0.5 $​
+$ \dfrac{1}{2}=0.5 $
 
 **注意**
 
-在指数函数、极限、积分等场景下，尽量不使用`\frac`命令，而使用`/`表示为横式分式。
+在指数函数、极限、积分等场景下，建议不使用 `\frac` 命令，而使用 `/` 表示为横式分式。
 
 ```latex
 $$
 e^{\frac{i\pi}{2} } \quad \int_{-\frac{\pi}{2} }^{\frac{\pi}{2} } \sin x \, \mathrm{d}x
-% Bad
+% OK
 $$
 ```
 
 $$
 e^{\frac{i\pi}{2} } \quad \int_{-\frac{\pi}{2} }^{\frac{\pi}{2} } \sin x \, \mathrm{d}x
-% Bad
+% OK
 $$
+
 ```latex
 $$
 e^{i\pi/2} \quad \int_{-\pi/2}^{\pi/2} \sin x \, \mathrm{d}x
@@ -1105,7 +1110,7 @@ $$
 
 ### 5.3 连分式
 
-用`\cfrac`命令输入连分式，会自动处理分子分母的高度。
+用 `\cfrac` 命令输入连分式，会自动处理分子分母的高度。
 
 ```latex
 $$
@@ -1116,9 +1121,10 @@ $$
 $$
 \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cdots} } }
 $$
+
 ###  5.4 二项式系数
 
-用`\binom`命令输入，`\tbinom`使二项式系数显示为行内公式样式，`\dbinom`使二项式系数显示为公式块样式。
+用 `\binom` 命令输入，`\tbinom` 使二项式系数显示为行内公式样式，`\dbinom` 使二项式系数显示为公式块样式。
 
 ```latex
 $$
@@ -1144,7 +1150,7 @@ $$
 $ \dbinom{n}{r} = \dfrac{n!}{k!\,(n-k)!} $
 ```
 
-$ \dbinom{n}{r} = \dfrac{n!}{k!\,(n-k)!} $​
+$ \dbinom{n}{r} = \dfrac{n!}{k!\,(n-k)!} $
 
 ## 6 矩阵、条件表达式、方程组
 
@@ -1156,13 +1162,13 @@ $ \dbinom{n}{r} = \dfrac{n!}{k!\,(n-k)!} $​
 \end{类型}
 ```
 
-类型可以是：矩阵`matrix`、`pmatrix`、`bmatrix`、`Bmatrix`、`vmatrix`、`Vmatrix`，条件表达式`cases`，多行对齐方程式`aligned`、`alignedat`。
+类型可以是：矩阵 `matrix`、`pmatrix`、`bmatrix`、`Bmatrix`、`vmatrix`、`Vmatrix`，条件表达式 `cases`，多行对齐方程式 `aligned`、`alignedat`。
 
-内容中，`&`符号表示每行的对齐内容，`\\`表示结尾处换行。
+内容中，`&` 符号表示每行的对齐内容，`\\` 表示结尾处换行。
 
 ### 6.1 无框矩阵
 
-用`&`分隔矩阵列，用`\\`分隔矩阵行。
+用 `&` 分隔矩阵列，用 `\\` 分隔矩阵行。
 
 ```latex
 \begin{matrix}
@@ -1180,9 +1186,9 @@ $$
 
 ### 6.2 有框矩阵
 
-`pmatrix`为圆括号，`bmatrix`为方括号，`Bmatrix`为花括号，`vmatrix`为竖线（行列式），`Vmatrix`为双竖线。
+`pmatrix` 为圆括号，`bmatrix` 为方括号，`Bmatrix` 为花括号，`vmatrix` 为竖线（行列式），`Vmatrix` 为双竖线。
 
-使用`\cdots`$\cdots$、`\ddots`$\ddots$、`\vdots`$\vdots$输入省略号。
+使用 `\cdots` $\cdots$、`\ddots` $\ddots$、`\vdots` $\vdots$ 输入省略号。
 
 ```latex
 \begin{pmatrix}
@@ -1246,7 +1252,7 @@ $$
 
 ### 6.3 条件表达式
 
-用`&`分隔公式与条件。
+用 `&` 分隔公式与条件。
 
 ```latex
 f(n)=
@@ -1264,7 +1270,7 @@ n/2, & \text{if } n \text{ is even} \\
 \end{cases}
 $$
 
-`\text`表示字符为文本格式，而非数学格式，注意空格处理。
+`\text` 表示字符为文本格式，而非数学格式，注意空格处理。
 
 ### 6.4 多行等式、同余式
 
@@ -1304,7 +1310,7 @@ $$
 \end{aligned}
 $$
 
-`\alignedat`用于确定行数的对齐。
+`\alignedat` 用于确定行数的对齐。
 
 ```latex
 \begin{alignedat}{3}
@@ -1324,7 +1330,7 @@ $$
 
 ### 6.5 方程组
 
-**用`cases`表达**
+**用 `cases` 表达**
 
 ```latex
 \begin{cases}
@@ -1342,7 +1348,7 @@ $$
 \end{cases}
 $$
 
-**用`aligned`表达**
+**用 `aligned` 表达**
 
 ```latex
 \left\{ \begin{aligned}
@@ -1364,7 +1370,7 @@ $$
 
 ### 7.1 基本数组与表格
 
-数组和表格以`\begin{array}{定义式}`开头，以`\end{array}`结尾。定义式中定义每列对齐方式，可用`l`、`c`、`r`分别代表居左、居中、居右。若插入水平分割线，在行内容间插入`\hline`；若插入垂直分割线，在定义式中插入`|`。表格内容用`&`分隔列，用`\\`分隔行。
+数组和表格以 `\begin{array}{定义式}` 开头，以 `\end{array}` 结尾。定义式中定义每列对齐方式，可用 `l`、`c`、`r` 分别代表居左、居中、居右。若插入水平分割线，在行内容间插入 `\hline`；若插入垂直分割线，在定义式中插入 `|`。表格内容用 `&` 分隔列，用 `\\` 分隔行。
 
 ```latex
 \begin{array}{c|lcr}
@@ -1388,7 +1394,7 @@ $$
 
 ### 7.2 用数组与表格排版
 
-可以用数组与表格实现类似`aligned`的功能。
+可以用数组与表格实现类似 `aligned` 的功能。
 
 ```latex
 \begin{array}{lcr}
@@ -1506,7 +1512,7 @@ $$
 
 ### 7.4 分割矩阵
 
-在需要分割处的定义式加入`|`。
+在需要分割处的定义式加入 `|`。
 
 ```latex
 \left[
@@ -1528,7 +1534,7 @@ $$
 
 ## 8 字体
 
-普通字符可以通过`\large`、`\small`控制大小。
+普通字符可以通过 `\large`、`\small` 控制大小。
 
 ```latex
 A, \large{A}, \small{A}
@@ -1538,7 +1544,7 @@ $ A, \large{A}, \small{A} $
 
 ### 8.1 希腊字母
 
-输入`\`加其字母名称即可，大写字母将名称首字母大写。注意本环境下部分大写希腊字母不支持转义，需要用相似的*拉丁字母*替代。
+输入 `\` 加其字母名称即可，大写字母将名称首字母大写。注意本环境下部分大写希腊字母不支持转义，需要用相似的 *拉丁字母* 替代。
 
 ```latex
 \begin{array}{c|l|c|l}
@@ -1596,7 +1602,7 @@ M \mu & \verb|M \mu| & \Omega \omega & \verb|\Omega \omega| \\
 \end{array}
 $$
 
-伽玛函数可以用`digamma`表示，另外部分变量形式可以用`\var-`开头。
+伽玛函数可以用 `digamma` 表示，另外部分变量形式可以用 `\var-` 开头。
 
 ```latex
 \digamma, \varepsilon, \vartheta, \varkappa, \varpi, \varrho, \varsigma, \varphi
@@ -1616,7 +1622,7 @@ $ \aleph, \beth, \gimel, \daleth $
 
 #### 8.3.1 黑板报粗体
 
-用`\mathbb{text}`或`\Bbb{text}`表示。
+用 `\mathbb{text}` 或 `\Bbb{text}` 表示。
 
 ```latex
 \begin{array}{c|ccc}
@@ -1640,7 +1646,7 @@ $$
 
 #### 8.3.2 粗体
 
-用`\mathbf{text}`或`{\bf text}`表示，注意控制范围，对特殊符号无效。
+用 `\mathbf{text}` 或 `{\bf text}` 表示，注意控制范围，对特殊符号无效。
 
 ```latex
 \begin{array}{c|ccc}
@@ -1664,7 +1670,7 @@ $$
 
 #### 8.3.3 粗体符号
 
-用`\boldsymbol{text}`表示，对特殊符号有效。
+用 `\boldsymbol{text}` 表示，对特殊符号有效。
 
 ```latex
 \begin{array}{c|cccccc}
@@ -1684,7 +1690,7 @@ $$
 
 #### 8.3.4 斜体（意大利体）
 
-用`\mathit{text}`或`{\it text}`或`{\mit text}`表示，注意控制范围。
+用 `\mathit{text}` 或 `{\it text}` 或 `{\mit text}` 表示，注意控制范围。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1710,11 +1716,11 @@ $$
 \end{array}
 $$
 
-可以看到`\mathit`与`\it`等效；对于*拉丁字母、小写希腊字母*，默认字体即为`\mit`。
+可以看到 `\mathit` 与 `\it` 等效；对于 *拉丁字母、小写希腊字母*，默认字体即为 `\mit`。
 
 #### 8.3.5 罗马体
 
-用`\mathrm{text}`或`{\rm text}`表示，注意控制范围。
+用 `\mathrm{text}` 或 `{\rm text}` 表示，注意控制范围。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1736,11 +1742,11 @@ $$
 \end{array}
 $$
 
-可以看到*小写希腊字母*不支持罗马体；对于*阿拉伯数字、大写希腊字母*，默认字体即为`\rm`。
+可以看到 *小写希腊字母* 不支持罗马体；对于 *阿拉伯数字、大写希腊字母*，默认字体即为 `\rm`。
 
 #### 8.3.6 等线体/无衬线体
 
-用`\mathsf{text}`或`{\sf text}`表示，注意控制范围。
+用 `\mathsf{text}` 或 `{\sf text}` 表示，注意控制范围。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1762,11 +1768,11 @@ $$
 \end{array}
 $$
 
-可以看到*小写希腊字母*不支持无衬线体。
+可以看到 *小写希腊字母* 不支持无衬线体。
 
 #### 8.3.7 手写体
 
-用`\mathscr{text}`或`{\scr text}`表示，注意控制范围。
+用 `\mathscr{text}` 或 `{\scr text}` 表示，注意控制范围。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1788,11 +1794,11 @@ $$
 \end{array}
 $$
 
-可以看到*阿拉伯数字、大写希腊字母*显示结果与斜体等效；*小写希腊字母*不改变。
+可以看到 *阿拉伯数字、大写希腊字母* 显示结果与斜体等效；*小写希腊字母* 不改变。
 
 #### 8.3.8 花体
 
-用`\mathcal{text}`或`{\cal text}`表示，注意控制范围。
+用 `\mathcal{text}` 或 `{\cal text}` 表示，注意控制范围。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1814,11 +1820,11 @@ $$
 \end{array}
 $$
 
-可以看到*阿拉伯数字、大写希腊字母*显示结果与斜体等效；*小写拉丁字母、小写希腊字母*不改变。
+可以看到 *阿拉伯数字、大写希腊字母* 显示结果与斜体等效；*小写拉丁字母、小写希腊字母* 不改变。
 
 #### 8.3.9 打字机体
 
-用`\mathtt{text}`或`{\tt text}`表示，注意控制范围。
+用 `\mathtt{text}` 或 `{\tt text}` 表示，注意控制范围。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1840,11 +1846,11 @@ $$
 \end{array}
 $$
 
-可以看到*小写希腊字母*不支持打字机体。
+可以看到 *小写希腊字母* 不支持打字机体。
 
-#### 8.3.10 Fraktur体/德国哥特体
+#### 8.3.10 Fraktur 体/德国哥特体
 
-用`\mathfrak{text}`或`{\frak text}`表示，注意控制范围。
+用 `\mathfrak{text}` 或 `{\frak text}` 表示，注意控制范围。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1868,7 +1874,7 @@ $$
 
 #### 8.3.11 小型手写体
 
-用`{\scriptstyle text}`命令，同时可以嵌套其他字体。
+用 `{\scriptstyle text}` 命令，同时可以嵌套其他字体。
 
 ```latex
 \begin{array}{c|ccccc}
@@ -1892,15 +1898,15 @@ $$
 
 ### 8.4 混合字体
 
-正常情况下，拉丁字母会被当做变量斜体显示。若需要非斜体显示，可以用`\text`命令。
+正常情况下，拉丁字母会被当做变量斜体显示。若需要非斜体显示，可以用 `\text` 命令。
 
 ```latex
 abc \quad \text{abc}
 ```
 
-$ abc \quad \text{abc} $​
+$ abc \quad \text{abc} $
 
-`\text`中仍可以使用` $ 公式 $ `插入公式。
+`\text` 中仍可以使用 ` $ 公式 $ ` 插入公式。
 
 ```latex
 f(n)=
@@ -1918,7 +1924,7 @@ n/2, & \text{if $n$ is even} \\
 \end{cases}
 $$
 
-混合输入时，注意空格显示。可以使用`~`或`\`加空格强制显示空格。
+混合输入时，注意空格显示。可以使用 `~` 或 `\` 加空格强制显示空格。
 
 ```latex
 \begin{matrix}
@@ -1940,9 +1946,9 @@ $$
 
 ## 9 括号
 
-圆括号`()`、方括号`[]`表示其本身，花括号`{}`需要`\`转义表示。
+圆括号 `()`、方括号 `[]` 表示其本身，花括号 `{}` 需要 `\` 转义表示。
 
-`\left`和`\right`命令用来生成自动匹配高度括号或括号型字符。
+`\left` 和 `\right` 命令用来生成自动匹配高度括号或括号型字符。
 
 ```latex
 (\dfrac{1}{2})^2 \quad \left( \dfrac{1}{2} \right) ^2
@@ -1998,7 +2004,7 @@ $ \left[ \dfrac{1}{2}, 1 \right) \quad \left\langle \psi \right| $
 
 ### 9.6 单边括号
 
-用`\left.`或`\right.`匹配另一边。
+用 `\left.` 或 `\right.` 匹配另一边。
 
 ```latex
 \left\{
@@ -2024,13 +2030,13 @@ $ \left. \dfrac ab \right\} $
 
 ### 9.7 控制括号大小
 
-使用`\big`、`\Big`、`\bigg`、`\Bigg`控制括号大小。
+使用 `\big`、`\Big`、`\bigg`、`\Bigg` 控制括号大小。
 
 ```latex
 \left\{ \left[ \left( \left| \left\| a \right\| +1 \right| -2 \right) +3 \right] -4 \right\}*5
 ```
 
-$ \left\{ \left[ \left( \left| \left\| a \right\| +1 \right| -2 \right) +3 \right] -4 \right\}*5 $​
+$ \left\{ \left[ \left( \left| \left\| a \right\| +1 \right| -2 \right) +3 \right] -4 \right\}*5 $
 
 ```latex
 \Bigg\{ \bigg[ \Big( \big| \left\| a \right\| +1 \big| -2 \Big) +3 \bigg] -4 \Bigg\}*5
@@ -2040,9 +2046,9 @@ $ \Bigg\{ \bigg[ \Big( \big| \left\| a \right\| +1 \big| -2 \Big) +3 \bigg] -4 \
 
 ## 10 空格
 
-LaTeX会忽略公式中的空格，空格控制从宽到窄依次为：
+LaTeX 会忽略公式中的空格，空格控制从宽到窄依次为：
 
-**双quad空格**：2个字符宽
+**双 quad 空格**：2 个字符宽
 
 ```latex
 \alpha \qquad \beta
@@ -2050,15 +2056,15 @@ LaTeX会忽略公式中的空格，空格控制从宽到窄依次为：
 
 $ \alpha \qquad \beta $
 
-**quad空格**：1个字符宽
+**quad 空格**：1 个字符宽
 
 ```latex
 \alpha \quad \beta
 ```
 
-$ \alpha \quad \beta $​
+$ \alpha \quad \beta $
 
-**空格**：1/3个字符宽
+**空格**：1/3 个字符宽
 
 ```latex
 \alpha \ \beta ~ \gamma
@@ -2066,49 +2072,49 @@ $ \alpha \quad \beta $​
 
 $ \alpha \ \beta ~ \gamma $
 
-**中空格**：2/7个字符宽
+**中空格**：2/7 个字符宽
 
 ```latex
 \alpha \; \beta
 ```
 
-$ \alpha \; \beta $​
+$ \alpha \; \beta $
 
-**小空格**：1/6个字符宽
+**小空格**：1/6 个字符宽
 
 ```latex
 \alpha \, \beta
 ```
 
-$ \alpha \, \beta $​
+$ \alpha \, \beta $
 
-**无空格**：0个字符宽
+**无空格**：0 个字符宽
 
 ```latex
 \alpha \beta
 ```
 
-$ \alpha \beta $​
+$ \alpha \beta $
 
-**紧贴**：-1/6个字符宽
+**紧贴**：-1/6 个字符宽
 
 ```latex
 \alpha \! \beta
 ```
 
-$ \alpha \! \beta $​
+$ \alpha \! \beta $
 
 ## 11 颜色
 
-使用`{\color{color}{text} }`更改文字颜色，注意控制范围。
+使用 `{\color{color}{text} }` 更改文字颜色，注意控制范围。
 
 ```latex
 \color{red}{text} \quad \color{yellow}{text} \quad \color{blue}{text} \quad \color{green}{text} \quad \color{purple}{text}
 ```
 
-$ \color{red}{text} \quad \color{yellow}{text} \quad \color{blue}{text} \quad \color{green}{text} \quad \color{purple}{text} $​
+$ \color{red}{text} \quad \color{yellow}{text} \quad \color{blue}{text} \quad \color{green}{text} \quad \color{purple}{text} $
 
-color名小写时表示简单色调，首字母大写时表示较为复杂的色调。
+color 名小写时表示简单色调，首字母大写时表示较为复杂的色调。
 
 ```latex
 \color{Red}{text} \quad \color{Orange}{text} \quad \color{RoyalBlue}{text} \quad \color{Violet}{text} \quad \color{LimeGreen}{text}
@@ -2116,7 +2122,7 @@ color名小写时表示简单色调，首字母大写时表示较为复杂的色
 
 $ \color{Red}{text} \quad \color{Orange}{text} \quad \color{RoyalBlue}{text} \quad \color{Violet}{text} \quad \color{LimeGreen}{text} $
 
-使用`{\color{ #rgb}{text} }`选择更多颜色，`rgb`的范围是`0-9`、`A-F`。
+使用 `{\color{ #rgb}{text} }` 选择更多颜色，`rgb` 的范围是 `0-9`、`A-F`。
 
 ```latex
 \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad \color{ #0F0}{text} \quad \color{ #6CF}{text}
@@ -2130,49 +2136,49 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
    $ \mathop{x} \limits_a^b $
 
-   由于`\limits`只能用在运算符（如`\sum`）后，所以可以用`\mathop`命令使字母变成运算符。
+   由于 `\limits` 只能用在运算符（如 `\sum`）后，所以可以用 `\mathop` 命令使字母变成运算符。
 
    ```latex
    \mathop{x} \limits_a^b
    ```
 
-   也可以选择`\overset`和`\underset`实现。
+   也可以选择 `\overset` 和 `\underset` 实现。
 
    ```latex
    \underset{a}{\overset{b}{x} }
    ```
 
-2. `|`和`\vert`、`\mid`的区别：
+2. `|` 和 `\vert`、`\mid` 的区别：
 
    ```latex
    | \quad \vert \quad \mid
    ```
 
-   $ | \quad \vert \quad \mid $​
+   $ | \quad \vert \quad \mid $
 
    分以下情况讨论：
 
    - **绝对值**
 
-     `|`与`\vert`均可，还可以使用`\lvert`、`\rvert`。注意到下例中，-2左侧的`\vert`被识别为*普通元素*，而非*关系元素*，因此在非匹配情况下，不建议使用`\vert`。
+     `|` 与 `\vert` 均可，还可以使用 `\lvert`、`\rvert`。注意到下例中，`-2` 左侧的 `\vert` 被识别为 *普通元素*，而非 *关系元素*，因此在非匹配情况下，不建议使用 `\vert`。
 
      ```latex
      |-1| \quad \vert -2 \vert \quad \lvert -3 \rvert
      ```
 
-     $ |-1| \quad \vert -2 \vert \quad \lvert -3 \rvert $​
+     $ |-1| \quad \vert -2 \vert \quad \lvert -3 \rvert $
 
-     当遇到分数时，使用`\left`、`\right`匹配高度。注意`\lvert`、`\rvert`并不会匹配高度！
+     当遇到分数时，使用 `\left`、`\right` 匹配高度。注意 `\lvert`、`\rvert` 并不会匹配高度！
 
      ```latex
      \lvert \dfrac ab \rvert \quad \left| \dfrac cd \right| \quad \left\vert \dfrac ef \right\vert
      ```
 
-     $ \lvert \dfrac ab \rvert \quad \left| \dfrac cd \right| \quad \left\vert \dfrac ef \right\vert $​
+     $ \lvert \dfrac ab \rvert \quad \left| \dfrac cd \right| \quad \left\vert \dfrac ef \right\vert $
 
    - **整除**
 
-     用关系符号`\mid`表示。如：
+     用关系符号 `\mid` 表示。如：
 
      ```latex
      a \mid b
@@ -2180,19 +2186,19 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
      $ a \mid b $
 
-     表示$a$能整除$b$​，即$b$能被$a$整除，如$ 3 \mid 9 $表示9能被3整除。
+     表示 $a$ 能整除 $b$，即 $b$ 能被 $a$ 整除，如 $ 3 \mid 9 $ 表示 9 能被 3 整除。
 
-     注意`\mid`不可伸长，伸长需要借助`|`，使用单边匹配`|`的方法，或`\middle`命令（`\middle`需要左右为`\left.`及`\right.`）。
+     注意 `\mid` 不可伸长，伸长需要借助 `|`，使用单边匹配 `|` 的方法，或 `\middle` 命令（`\middle` 需要左右为 `\left.` 及 `\right.`）。
 
      ```latex
      \dfrac ab \mid c \quad \left. \dfrac ab \right| c \quad \left. \dfrac ab \middle| c \right.
      ```
 
-     $ \dfrac ab \mid c \quad \left. \dfrac ab \right| c \quad \left. \dfrac ab \middle| c \right. $​
+     $ \dfrac ab \mid c \quad \left. \dfrac ab \right| c \quad \left. \dfrac ab \middle| c \right. $
 
    - **集合**
 
-     同上，应用`\mid`，伸长时用`\middle|`替代。
+     同上，应用 `\mid`，伸长时用 `\middle|` 替代。
 
      ```latex
      \begin{matrix}
@@ -2206,11 +2212,11 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
      \left\{ x \mid x \in \mathbb{R} \text{ and } x \ne 1 \right\} \\
      \left\{ \dfrac ab \mid a,b \in \mathbb{N} \text{ and } b > 5 \right\} \\
      \left\{ \left. \dfrac ab \middle| a,b \in \mathbb{N} \text{ and } b > 5 \right. \right\}
-     \end{matrix} $​
+     \end{matrix} $
 
    - **函数**
 
-     因为通常高度不固定，因此建议用`|`表示并匹配高度。
+     因为通常高度不固定，因此建议用 `|` 表示并匹配高度。
 
      ```latex
      f'(x_0) = \left. f'(x) \right| _{x=x_0} = \left. \dfrac{\mathrm{d}f}{\mathrm{d}x} \right| _{x=x_0}
@@ -2220,7 +2226,7 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
    - **双竖线**
 
-     把`|`、`\vert`、`\lvert`、`\rvert`、`\mid`分别替换为`\|`、`\Vert`、`\lVert`、`\rVert`、`\parallel`即可，基本属性与上述对应单竖线类似。
+     把 `|`、`\vert`、`\lvert`、`\rvert`、`\mid` 分别替换为 `\|`、`\Vert`、`\lVert`、`\rVert`、`\parallel` 即可，基本属性与上述对应单竖线类似。
 
      ```latex
      \| x \| \quad \left\Vert \dfrac ab \right\Vert \quad \lVert c \rVert \quad l \parallel m
@@ -2230,7 +2236,7 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
 3. 如何输入斜分式？
 
-   $ {}^1/_2 $​
+   $ {}^1/_2 $
 
    用上下标即可。
 
@@ -2242,7 +2248,7 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
    $ \mathrm{CH_3CH_2OH \xrightarrow[170^\circ C]{浓H_2SO_4} CH_2=CH_2 \uparrow + H_2O } $
 
-   使用`\xrightarrow`和已有的符号即可。也可使用宏包，在此不表。
+   使用 `\xrightarrow` 和已有的符号即可。也可使用宏包，在此不表。
 
    ```latex
    \mathrm{CH_3CH_2OH \xrightarrow[170^\circ C]{浓H_2SO_4} CH_2=CH_2 \uparrow + H_2O }
@@ -2272,7 +2278,7 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
 5. 如何给公式加方框？
 
-   用`\boxed`命令或用1*1表格的边框。
+   用 `\boxed` 命令或用 1*1 表格的边框。
 
    ```latex
    \boxed {E=mc^2}
@@ -2298,7 +2304,7 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
    $ \require{cancel} \dfrac{\cancel{15}3}{\cancel{25}5} = \dfrac{3}{5} $
 
-   可以使用`\cancel`、`\bcancel`、`\xcancel`和`\cancelto`命令（需要`\require`导包）。
+   可以使用 `\cancel`、`\bcancel`、`\xcancel` 和 `\cancelto` 命令（需要 `\require` 导包）。
 
    ```latex
    \require{cancel}
@@ -2338,7 +2344,7 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
    \end{array}
    $$
    
-   上例还使用了`\verb`命令来显示原文照排效果。
+   上例还使用了 `\verb` 命令来显示原文照排效果。
 
 ## 13 示例
 
@@ -2384,6 +2390,6 @@ $ \color{ #0FF}{text} \quad \color{ #00F}{text} \quad \color{ #F0F}{text} \quad 
 
 ## 14 小工具
 
-- 手画符号搜索LaTeX代码：http://detexify.kirelabs.org/classify.html
-- LaTeX在线编辑器：<http://www.codecogs.com/latex/eqneditor.php>
+- 手画符号搜索 LaTeX 代码：http://detexify.kirelabs.org/classify.html
+- LaTeX 在线编辑器：<http://www.codecogs.com/latex/eqneditor.php>
 
