@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"corecabin.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="问题描述：已经部署到GitHub Pages的Hexo博客，电脑端可以根据域名访问，手机端无法访问。">
+  <meta name="description" content="问题描述：已经部署到 GitHub Pages 的 Hexo 博客，电脑端可以根据域名访问，手机端无法访问。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决Hexo博客手机端无法访问的问题">
+<meta property="og:title" content="解决 Hexo 博客手机端无法访问的问题">
 <meta property="og:url" content="https://corecabin.cn/2021/08/14/solve-the-problem-that-mobile-terminal-of-hexo-blog-cannot-be-accessed/index.html">
 <meta property="og:site_name" content="卡洛的核心舱">
-<meta property="og:description" content="问题描述：已经部署到GitHub Pages的Hexo博客，电脑端可以根据域名访问，手机端无法访问。">
+<meta property="og:description" content="问题描述：已经部署到 GitHub Pages 的 Hexo 博客，电脑端可以根据域名访问，手机端无法访问。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-01.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-02.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-04.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-05.png">
 <meta property="article:published_time" content="2021-08-14T06:32:11.000Z">
-<meta property="article:modified_time" content="2025-01-11T18:16:43.887Z">
+<meta property="article:modified_time" content="2025-01-13T17:43:59.471Z">
 <meta property="article:author" content="卡洛">
 <meta property="article:tag" content="博客">
 <meta property="article:tag" content="Hexo">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title>解决Hexo博客手机端无法访问的问题 | 卡洛的核心舱</title>
+  <title>解决 Hexo 博客手机端无法访问的问题 | 卡洛的核心舱</title>
   
 
 
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          解决Hexo博客手机端无法访问的问题
+          解决 Hexo 博客手机端无法访问的问题
         </h1>
 
         <div class="post-meta">
@@ -244,7 +244,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-01-12 02:16:43" itemprop="dateModified" datetime="2025-01-12T02:16:43+08:00">2025-01-12</time>
+                <time title="修改时间：2025-01-14 01:43:59" itemprop="dateModified" datetime="2025-01-14T01:43:59+08:00">2025-01-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>526</span>
+              <span>533</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -288,24 +288,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>问题描述</strong>：已经部署到GitHub Pages的Hexo博客，电脑端可以根据域名访问，手机端无法访问。</p>
+        <p><strong>问题描述</strong>：已经部署到 GitHub Pages 的 Hexo 博客，电脑端可以根据域名访问，手机端无法访问。</p>
 <span id="more"></span>
-<h3 id="1-原因"><a href="#1-原因" class="headerlink" title="1 原因"></a>1 原因</h3><p>通常是GitHub Pages的ip地址解析出现的bug。电脑端可以正常访问大概率是因为科学上网的缘故，手机端无法访问是因为拒绝了域名解析所用的ip。</p>
-<h3 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2 解决方法"></a>2 解决方法</h3><h4 id="2-1-重新ping一下github-io的ip"><a href="#2-1-重新ping一下github-io的ip" class="headerlink" title="2.1 重新ping一下github.io的ip"></a>2.1 重新ping一下github.io的ip</h4><p>打开cmd，输入以下指令：</p>
+<h3 id="1-原因"><a href="#1-原因" class="headerlink" title="1 原因"></a>1 原因</h3><p>通常是 GitHub Pages 的 ip 地址解析出现的 bug。电脑端可以正常访问大概率是因为 <del>科学上网的缘故</del> 存在 DNS 缓存，手机端无法访问是因为拒绝了域名解析所用的 ip。</p>
+<h3 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2 解决方法"></a>2 解决方法</h3><h4 id="2-1-重新-ping-一下-github-io-的-ip"><a href="#2-1-重新-ping-一下-github-io-的-ip" class="headerlink" title="2.1 重新 ping 一下 github.io 的 ip"></a>2.1 重新 ping 一下 github.io 的 ip</h4><p>打开 cmd，输入以下指令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping kaluojushi.github.io</span><br></pre></td></tr></table></figure>
-<p><code>ping</code>后面跟GitHub Pages的地址，如<code>username.github.io</code>。</p>
-<p>可以看到当前的ip是185.199.109.153。</p>
+<p><code>ping</code> 后面跟 GitHub Pages 的地址，如 <code>username.github.io</code>。</p>
+<p>可以看到当前的 ip 是 185.199.109.153。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-01.png" alt=""></p>
-<h4 id="2-2-修改域名解析"><a href="#2-2-修改域名解析" class="headerlink" title="2.2 修改域名解析"></a>2.2 修改域名解析</h4><p>打开域名DNS解析商（我的是腾讯云），修改A记录的记录值为上面ping到的ip。</p>
+<h4 id="2-2-修改域名解析"><a href="#2-2-修改域名解析" class="headerlink" title="2.2 修改域名解析"></a>2.2 修改域名解析</h4><p>打开域名 DNS 解析商（我的是腾讯云），修改 A 记录的记录值为上面 ping 到的 ip。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-02.png" alt=""></p>
-<h4 id="2-3-验证"><a href="#2-3-验证" class="headerlink" title="2.3 验证"></a>2.3 验证</h4><p>打开<a target="_blank" rel="noopener" href="http://tool.chinaz.com/dns/">站长工具DNS查询</a>，选择A类型，输入域名，查看解析结果，如果为刚才修改的结果就表示成功（如果未成功需要等待一段时间）。</p>
+<h4 id="2-3-验证"><a href="#2-3-验证" class="headerlink" title="2.3 验证"></a>2.3 验证</h4><p>打开<a target="_blank" rel="noopener" href="http://tool.chinaz.com/dns/">站长工具 DNS 查询</a>，选择 A 类型，输入域名，查看解析结果，如果为刚才修改的结果就表示成功（如果未成功需要等待一段时间）。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-03.png" alt=""></p>
 <p>至此电脑端和手机端应该都可以访问了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-04.png" alt="电脑端"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20210814-05.png" alt="手机端"></p>
-<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h3><p>此问题其实与Hexo无关，还是国内访问GitHub及其所提供的服务不稳定的bug。再有问题就再换A记录！</p>
-<p>不知道一条域名是否可以添加多条A记录，没有深入探究，在此暂时不表。</p>
-<p>用<a target="_blank" rel="noopener" href="https://gitee.com/help/articles/4136">Gitee Pages</a>代替GitHub Pages其实也是备选项之一，对国内服务的支持更好。</p>
+<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3 总结"></a>3 总结</h3><p>此问题其实与 Hexo 无关，还是国内访问 GitHub 及其所提供的服务不稳定的 bug。再有问题就再换 A 记录！</p>
+<p>不知道一条域名是否可以添加多条 A 记录，没有深入探究，在此暂时不表。</p>
+<p>用 <a target="_blank" rel="noopener" href="https://gitee.com/help/articles/4136">Gitee Pages</a> 代替 GitHub Pages 其实也是备选项之一，对国内服务的支持更好。</p>
 
     </div>
 
@@ -334,8 +334,8 @@
       <i class="fa fa-chevron-left"></i> 解决 hexo-renderer-kramed 渲染冲突的部分问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/08/11/latex-mathematical-formula-handbook/" rel="next" title="LaTeX数学公式手册">
-      LaTeX数学公式手册 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/08/11/latex-mathematical-formula-handbook/" rel="next" title="LaTeX 数学公式手册">
+      LaTeX 数学公式手册 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -396,7 +396,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8E%9F%E5%9B%A0"><span class="nav-text">1 原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">2 解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%87%8D%E6%96%B0ping%E4%B8%80%E4%B8%8Bgithub-io%E7%9A%84ip"><span class="nav-text">2.1 重新ping一下github.io的ip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E4%BF%AE%E6%94%B9%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="nav-text">2.2 修改域名解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E9%AA%8C%E8%AF%81"><span class="nav-text">2.3 验证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%80%BB%E7%BB%93"><span class="nav-text">3 总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8E%9F%E5%9B%A0"><span class="nav-text">1 原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">2 解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%87%8D%E6%96%B0-ping-%E4%B8%80%E4%B8%8B-github-io-%E7%9A%84-ip"><span class="nav-text">2.1 重新 ping 一下 github.io 的 ip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E4%BF%AE%E6%94%B9%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="nav-text">2.2 修改域名解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E9%AA%8C%E8%AF%81"><span class="nav-text">2.3 验证</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%80%BB%E7%BB%93"><span class="nav-text">3 总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
