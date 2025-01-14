@@ -21,9 +21,9 @@ comments: true
 
 ## 4 统计报表
 
-【统计报表】模块用于展示该公司的设备销售数据或故障数据。从这里开始，其实已经是纯前端工作，之后用到了大量的图表，我都是使用[Apache ECharts](https://echarts.apache.org/zh/index.html)进行开发的。
+【统计报表】模块用于展示该公司的设备销售数据或故障数据。从这里开始，其实已经是纯前端工作，之后用到了大量的图表，我都是使用 [Apache ECharts](https://echarts.apache.org/zh/index.html) 进行开发的。
 
-我负责【统计报表】-【统计分析】的【设备分析】部分，即分析公司在每个省份、每种设备类型各卖了多少。这个页面有两个图，分别是【各地区设备统计】和【设备销售类型销量分析】。由于没有从后端拿数据，数据在客户提供的Excel里，所以我这里将数据写死在前端。
+我负责【统计报表】-【统计分析】的【设备分析】部分，即分析公司在每个省份、每种设备类型各卖了多少。这个页面有两个图，分别是【各地区设备统计】和【设备销售类型销量分析】。由于没有从后端拿数据，数据在客户提供的 Excel 里，所以我这里将数据写死在前端。
 
 ![各地区设备统计](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-01.png)
 
@@ -35,7 +35,7 @@ comments: true
 
 #### 4.1.1 图表组件
 
-为了更好地管理图表，我将所有的图表都写成了Vue组件（Component）的形式，而非写在当前页面。在当前页面导入组件，并注册组件使用它。
+为了更好地管理图表，我将所有的图表都写成了 Vue 组件（Component）的形式，而非写在当前页面。在当前页面导入组件，并注册组件使用它。
 
 ```html
 <div>
@@ -53,7 +53,7 @@ export default {
 }
 ```
 
-当父组件（页面）要使用子组件（图表）的数据时，例如父组件要调用子组件的函数，可以在子组件添加`ref`属性寻找它。
+当父组件（页面）要使用子组件（图表）的数据时，例如父组件要调用子组件的函数，可以在子组件添加 `ref` 属性寻找它。
 
 ```javascript
 /** 搜索按钮操作 */
@@ -62,7 +62,7 @@ handleQuery() {
 },
 ```
 
-当子组件（图表）要使用父组件（页面）的数据时，例如子组件想知道父组件的搜索框是什么条件，可以使用`this.$parent`向上寻找父组件。**注意：由于Vue实际上可能套了好几层`div`，所以要寻找好几层才能到目标父组件，可以在控制台`console.log`一下`this`及其父元素。**
+当子组件（图表）要使用父组件（页面）的数据时，例如子组件想知道父组件的搜索框是什么条件，可以使用 `this.$parent` 向上寻找父组件。**注意：由于 Vue 实际上可能套了好几层 `div`，所以要寻找好几层才能到目标父组件，可以在控制台 `console.log` 一下 `this` 及其父元素。**
 
 ```javascript
 getProvinceData() {
@@ -90,7 +90,7 @@ data: {
 },
 ```
 
-首先我们拿到这些数据后，要处理成Echarts支持的数据形式。这里我们使用数组的形式。先添加数据：
+首先我们拿到这些数据后，要处理成 Echarts 支持的数据形式。这里我们使用数组的形式。先添加数据：
 
 ```javascript
 getProvinceData() {
@@ -142,17 +142,17 @@ getDeviceNumber() {
 },
 ```
 
-由于排序和饼图需要计算每个省份的设备总数，所以我们给`deviceNumber`对象加一个属性`total`，其值为数组。`provinceData`的顺序是确定的，它的索引对应`total`数组里和每个`type`数组里的索引。再根据已有数据，给对应类型的省份索引位置加数据，总数也要加数据，最终得到：
+由于排序和饼图需要计算每个省份的设备总数，所以我们给 `deviceNumber` 对象加一个属性 `total`，其值为数组。`provinceData` 的顺序是确定的，它的索引对应 `total` 数组里和每个 `type` 数组里的索引。再根据已有数据，给对应类型的省份索引位置加数据，总数也要加数据，最终得到：
 
 ![console.log(this.deviceNumber)](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-03.png)
 
-每个数组34个元素对应34个省级行政区，其中每个位置是哪个省由`provinceData`数组确定。
+每个数组 34 个元素对应 34 个省级行政区，其中每个位置是哪个省由 `provinceData` 数组确定。
 
 #### 4.1.3 数据处理
 
 以上数据还不能被图表使用，需要做进一步处理。
 
-首先对于柱形图，我们需要让它按总数数量排序。Echarts是不能做到这个功能的，所以我们需要处理数据源。
+首先对于柱形图，我们需要让它按总数数量排序。Echarts 是不能做到这个功能的，所以我们需要处理数据源。
 
 ```javascript
 transformData() {
@@ -192,9 +192,9 @@ transformData() {
 },
 ```
 
-以上代码4-12行，我们得到的`flagData`是由34个数字组成的数组，代表了每个省份的数量排序，即对于某个省份数量，有多少个省份数量比它小，那它就排多少位。13-20行处理并列的省份，这样就得到了从小到大的省份新顺序。再根据这个新顺序，将数量与省份赋值到`sortedDeviceNumber`和`sortedProvinceData`里。柱形图就可以用这个数据了。
+以上代码 4-12 行，我们得到的 `flagData` 是由 34 个数字组成的数组，代表了每个省份的数量排序，即对于某个省份数量，有多少个省份数量比它小，那它就排多少位。13-20 行处理并列的省份，这样就得到了从小到大的省份新顺序。再根据这个新顺序，将数量与省份赋值到 `sortedDeviceNumber` 和 `sortedProvinceData` 里。柱形图就可以用这个数据了。
 
-对于饼图，我们只需要省份和总数，注意总数为0时，将总数设置为`null`，这样它就会被视为无效数据，不会出现在饼图上。
+对于饼图，我们只需要省份和总数，注意总数为 0 时，将总数设置为 `null`，这样它就会被视为无效数据，不会出现在饼图上。
 
 ```javascript
 getPieData() {
@@ -211,7 +211,7 @@ getPieData() {
 
 #### 4.1.4 柱形图和饼形图数据传入
 
-这两个图属于一个图表，因此Echarts的`series`数量为n+1，n是设备类型数（表示柱形图），1表示饼图。
+这两个图属于一个图表，因此 Echarts 的 `series` 数量为 n+1，n 是设备类型数（表示柱形图），1 表示饼图。
 
 ```javascript
 getSeries() {
@@ -278,17 +278,17 @@ getSeries() {
 },
 ```
 
-以上代码11-16行，当柱形图某个数据小于10时，则不显示标签数值，以免影响美观，或出现多个0重叠的情况。
+以上代码 11-16 行，当柱形图某个数据小于 10 时，则不显示标签数值，以免影响美观，或出现多个 0 重叠的情况。
 
 ![柱形图标签用函数格式化](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-05.png)
 
-以上代码30-36行，当饼图某个数据项占比小于1%时，就显示`<1%`，以免被圆整为`0%`。47-49行，处理了饼图悬浮提示框的显示形式，用到了`params`即每个数据项的几个参数。
+以上代码 30-36 行，当饼图某个数据项占比小于 1% 时，就显示 `<1%`，以免被圆整为 `0%`。47-49 行，处理了饼图悬浮提示框的显示形式，用到了 `params` 即每个数据项的几个参数。
 
 ![饼图标签与悬浮提示框用函数格式化](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-06.png)
 
 #### 4.1.5 生成图表
 
-生成图表用典型的`init`方法。
+生成图表用典型的 `init` 方法。
 
 ```html
 <template>
@@ -375,7 +375,7 @@ initEcharts() {
 }
 ```
 
-注意以上代码第2行，如果要使用`macarons`主题，需要找到它的位置并导入。
+注意以上代码第 2 行，如果要使用 `macarons` 主题，需要找到它的位置并导入。
 
 ```javascript
 import echarts from 'echarts'
@@ -386,7 +386,7 @@ import "../../../../node_modules/echarts/theme/macarons";
 
 之后的代码前端经常会报获取不到属性的错误，这甚至可能导致图表无法显示，为此有以下解决办法：
 
-- 如果是在Vue部分直接使用对象的属性，可以先用`v-if`判断其是否存在。如以下代码，`staticInfo`本来是个空对象，是在调用函数后才赋值，如果没有`v-if`，函数调用延迟时，Vue尝试填充此处的文本插值，就会报找不到`ncsId`属性的错。
+- 如果是在 Vue 部分直接使用对象的属性，可以先用 `v-if` 判断其是否存在。如以下代码，`staticInfo` 本来是个空对象，是在调用函数后才赋值，如果没有 `v-if`，函数调用延迟时，Vue 尝试填充此处的文本插值，就会报找不到 `ncsId` 属性的错。
 
   ```html
   <div class="cell" v-if="staticInfo.ncsId">{{ staticInfo.ncsId }}</div>
@@ -412,7 +412,7 @@ import "../../../../node_modules/echarts/theme/macarons";
   }
   ```
 
-- 将生成图表的函数放在`mounted`的`nextTick`里，或直接设置整个函数体位于`nextTick`里，如：
+- 将生成图表的函数放在 `mounted` 的 `nextTick` 里，或直接设置整个函数体位于 `nextTick` 里，如：
 
   ```javascript
   mounted() {
@@ -436,7 +436,7 @@ import "../../../../node_modules/echarts/theme/macarons";
 
 #### 4.2.1 让柱形图同一系列显示不同的颜色
 
-柱形图其实只有一个系列，即设备数量。但为了让每一个柱形显示不同颜色，就要加单独的`itemStyle`。
+柱形图其实只有一个系列，即设备数量。但为了让每一个柱形显示不同颜色，就要加单独的 `itemStyle`。
 
 ```javascript
 getDeviceNumber() {
@@ -466,7 +466,7 @@ getDeviceNumber() {
 },
 ```
 
-#### 4.2.2 让柱形图横坐标标签旋转45度
+#### 4.2.2 让柱形图横坐标标签旋转 45 度
 
 横坐标标签过长，需要斜向放置，才能完整显示且更美观。
 
@@ -484,11 +484,11 @@ xAxis: {
 
 ![柱状图坐标标签旋转](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-07.png)
 
-饼图不用这么做，直接将`color`写在`option`里就好了，它会自动把不同颜色赋给不同的数据项。
+饼图不用这么做，直接将 `color` 写在 `option` 里就好了，它会自动把不同颜色赋给不同的数据项。
 
 ## 5 工作台
 
-【工作台】是个类似于“大屏看板”的功能区，分为【产品全地图】和【设备状态看板】两个模块。
+【工作台】是个类似于「大屏看板」的功能区，分为【产品全地图】和【设备状态看板】两个模块。
 
 ### 5.1 产品全地图
 
@@ -498,13 +498,13 @@ xAxis: {
 
 ### 5.2 设备状态看板
 
-【设备状态看板】展示了所有添加在【设备信息】里的设备，并根据采集到的数据展示它们的开关机状态，还可以点击每台设备右上角的按钮查看详细的监控数据。开关机状态所用的颜色来自[ElementUI的调色板颜色](https://element.eleme.cn/#/zh-CN/component/color)。
+【设备状态看板】展示了所有添加在【设备信息】里的设备，并根据采集到的数据展示它们的开关机状态，还可以点击每台设备右上角的按钮查看详细的监控数据。开关机状态所用的颜色来自 [ElementUI 的调色板颜色](https://element.eleme.cn/#/zh-CN/component/color)。
 
 ![设备状态看板页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-09.png)
 
 #### 5.2.1 右上角的时间
 
-看板右上角的时间可以通过js的定时器完成。先在Vue中为其占位，并设置好css样式。
+看板右上角的时间可以通过 js 的定时器完成。先在 Vue 中为其占位，并设置好 CSS 样式。
 
 ```html
 <div class="header_timer">
@@ -562,7 +562,7 @@ setNowTimes() {
 }
 ```
 
-再在`mounted`里设置一个定时器，设置为1000毫秒（即1秒）刷新一次就好，这样就实现了一个不断变化的时间。
+再在 `mounted` 里设置一个定时器，设置为 1000 毫秒（即 1 秒）刷新一次就好，这样就实现了一个不断变化的时间。
 
 ```javascript
 mounted() {
@@ -580,7 +580,7 @@ mounted() {
 
 ![搜索信息](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-12.png)
 
-这个搜索功能和其他单表的搜索没有什么区别，都是获取`queryParams`然后调用`getList`函数。首先在页面的相关位置加上这三个提示的内容：
+这个搜索功能和其他单表的搜索没有什么区别，都是获取 `queryParams` 然后调用 `getList` 函数。首先在页面的相关位置加上这三个提示的内容：
 
 ```html
 <el-row :gutter="10" v-show="isSearched" class="white-text medium-text" style="margin-bottom: 15px">
@@ -596,7 +596,7 @@ mounted() {
 </el-row>
 ```
 
-定义布尔变量`isSearched`，判断是否在进行搜索，以及三个变量放搜索值。在搜索和重置搜索函数上，也要对这些变量进行处理：
+定义布尔变量 `isSearched`，判断是否在进行搜索，以及三个变量放搜索值。在搜索和重置搜索函数上，也要对这些变量进行处理：
 
 ```javascript
 /** 搜索按钮操作 */
@@ -621,7 +621,7 @@ resetQuery() {
 },
 ```
 
-定义一个`getFocus`函数，用来把搜索值传给三个变量：
+定义一个 `getFocus` 函数，用来把搜索值传给三个变量：
 
 ```javascript
 getFocus() {
@@ -652,9 +652,9 @@ getFocus() {
 },
 ```
 
-这个当时写的代码明显可以用`find`函数替代啊，大意了。
+这个当时写的代码明显可以用 `find` 函数替代啊，大意了。
 
-当设备总数为0时，其实也要设计一个整体的页面，返回按钮与重置按钮功能一致，调用同一个函数。
+当设备总数为 0 时，其实也要设计一个整体的页面，返回按钮与重置按钮功能一致，调用同一个函数。
 
 ```html
 <div class="device_container" style="margin-top: 15px">
@@ -669,11 +669,11 @@ getFocus() {
 </div>
 ```
 
-![设备总数为0](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-13.png)
+![设备总数为 0](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-13.png)
 
 #### 5.2.3 纯前端功底：图例和设备框的设计
 
-这我是完全用HTML+CSS写的，真正考验前端功底。上代码：
+这我是完全用 HTML+CSS 写的，真正考验前端功底。上代码：
 
 ```html
 <el-row :gutter="20" class="white-text medium-text">
@@ -753,7 +753,7 @@ getFocus() {
 </el-row>
 ```
 
-以上代码第29行，使用`v-for`要绑定`key`。
+以上代码第 29 行，使用 `v-for` 要绑定 `key`。
 
 ```css
 .white-text {
@@ -836,15 +836,15 @@ td div {
 }
 ```
 
-虽然现有的框架、组件非常好用，但要做出自己的效果还是需要靠HTML+CSS完成，这也让我体会到几十年前前端工程师的艰辛。
+虽然现有的框架、组件非常好用，但要做出自己的效果还是需要靠 HTML+CSS 完成，这也让我体会到几十年前前端工程师的艰辛。
 
 #### 5.2.4 路由跳转
 
-我们想让每台机床展现详细的监控数据，就做了一个按钮入口，这个实现方式有很多，比如ElementUI的[对话框](https://element.eleme.cn/#/zh-CN/component/dialog)、[弹出框](https://element.eleme.cn/#/zh-CN/component/popover)或[抽屉](https://element.eleme.cn/#/zh-CN/component/drawer)等。最终我们决定做一个单独的页面展示机床数据。
+我们想让每台机床展现详细的监控数据，就做了一个按钮入口，这个实现方式有很多，比如 ElementUI 的 [对话框](https://element.eleme.cn/#/zh-CN/component/dialog)、[弹出框](https://element.eleme.cn/#/zh-CN/component/popover) 或 [抽屉](https://element.eleme.cn/#/zh-CN/component/drawer) 等。最终我们决定做一个单独的页面展示机床数据。
 
-每个机床应该共用一个页面模板，但数据需要有所不同，可以根据机床的id进行区分。这用的是若依的[路由跳转](http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%8F%9C%E5%8D%95%E9%A1%B5%E7%AD%BE)。
+每个机床应该共用一个页面模板，但数据需要有所不同，可以根据机床的 id 进行区分。这用的是若依的 [路由跳转](http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%8F%9C%E5%8D%95%E9%A1%B5%E7%AD%BE)。
 
-在`router`的`index.js`里面，新配置一个路由：
+在 `router` 的 `index.js` 里面，新配置一个路由：
 
 ```javascript
 {
@@ -872,29 +872,29 @@ td div {
 </router-link>
 ```
 
-就可以跳转到指定的这个链接，链接所展示的页面是路由里`require`的页面，接下来编辑这个页面即可。
+就可以跳转到指定的这个链接，链接所展示的页面是路由里 `require` 的页面，接下来编辑这个页面即可。
 
 ### 5.3 设备详细数据
 
-这里展示每个机床的详细数据，不同的机床路径不同，数据不同。下图路径后的数字就是这台机床的id。
+这里展示每个机床的详细数据，不同的机床路径不同，数据不同。下图路径后的数字就是这台机床的 id。
 
 ![设备详细数据页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-15.png)
 
-#### 5.3.1 机床id
+#### 5.3.1 机床 id
 
-机床id是最核心的数据，不仅这个页面的路径需要机床id，页面所有的数据也通过机床id拿到。所以在Vue的`data`里，就定义好机床id。
+机床 id 是最核心的数据，不仅这个页面的路径需要机床 id，页面所有的数据也通过机床 id 拿到。所以在 Vue 的 `data` 里，就定义好机床 id。
 
 ```javascript
 deviceId: this.$route.params && this.$route.params.id,
 ```
 
-利用逻辑与的短路特性，如果获取到了`this.$route.param`，就返回id。
+利用逻辑与的短路特性，如果获取到了 `this.$route.param`，就返回 id。
 
 #### 5.3.2 表格信息与变量绑定
 
-所有的信息都是根据拿到的机床id，然后使用后端的函数与前端的api查到的，包含静态数据（如设备归属信息）和动态数据（如设备运行状态）。特别要注意拿到的动态数据要看是否绑定，绑定的话还要显示用户自定义的名称和单位。
+所有的信息都是根据拿到的机床 id，然后使用后端的函数与前端的 api 查到的，包含静态数据（如设备归属信息）和动态数据（如设备运行状态）。特别要注意拿到的动态数据要看是否绑定，绑定的话还要显示用户自定义的名称和单位。
 
-例如以下是设备基本信息的Vue代码：
+例如以下是设备基本信息的 Vue 代码：
 
 ```html
 <el-col :lg="8" :md="12" class="card-box">
@@ -965,7 +965,7 @@ deviceId: this.$route.params && this.$route.params.id,
 </el-col>
 ```
 
-再例如以下是设备运行状态的Vue代码：
+再例如以下是设备运行状态的 Vue 代码：
 
 ```html
 <el-col :lg="8" :md="24" class="card-box">
@@ -1057,7 +1057,7 @@ deviceId: this.$route.params && this.$route.params.id,
 </el-col>
 ```
 
-这里首先拿到对象时要判断其是否为空对象，因为**空对象在JavaScript中被视为`true`**。这里我用的是自定义函数：
+这里首先拿到对象时要判断其是否为空对象，因为 **空对象在 JavaScript 中被视为 `true`**。这里我用的是自定义函数：
 
 ```javascript
 // 空对象
@@ -1069,9 +1069,9 @@ isEmptyObject(obj) {
 },
 ```
 
-（JavaScript中，`undefined`、`null`、`-0`、`0`（`+0`）、`NaN`、`''`（空字符串）都被视为`false`，其他都被视为`true`，如空数组`[]`和空对象`{}`也被视为`true`）
+（JavaScript 中，`undefined`、`null`、`-0`、`0`（`+0`）、`NaN`、`''`（空字符串）都被视为 `false`，其他都被视为 `true`，如空数组 `[]` 和空对象 `{}` 也被视为 `true`）
 
-然后，我们会拿到一些机床数据，例如`dynamicTimeInfo`、`dynamicProgStatus`对象。为了实现变量绑定，我们还需要拿到：用户自定义的所有变量（从【变量信息】里拿），用户绑定到这台机床类型的变量（从绑定表里拿）。我用以下方式获取与处理变量：
+然后，我们会拿到一些机床数据，例如 `dynamicTimeInfo`、`dynamicProgStatus` 对象。为了实现变量绑定，我们还需要拿到：用户自定义的所有变量（从【变量信息】里拿），用户绑定到这台机床类型的变量（从绑定表里拿）。我用以下方式获取与处理变量：
 
 ```javascript
 // 变量绑定
@@ -1119,7 +1119,7 @@ getBindingParamInfo() {
 },
 ```
 
-`getParams`函数拿所有的自定义变量，`getMongos`函数拿所有的MongoDB变量，`getBindings`函数拿所有的绑定关系，`getBindingParamInfo`函数先把为当前类型绑定的变量放进数组里，再通过之前拿的信息为这些变量一一补充信息（如名称、单位等），最后在一个`showParam`数组里，为每个MongoDB变量设置布尔值，方便Vue里的`v-if`使用。
+`getParams` 函数拿所有的自定义变量，`getMongos` 函数拿所有的 MongoDB 变量，`getBindings` 函数拿所有的绑定关系，`getBindingParamInfo` 函数先把为当前类型绑定的变量放进数组里，再通过之前拿的信息为这些变量一一补充信息（如名称、单位等），最后在一个 `showParam` 数组里，为每个 MongoDB 变量设置布尔值，方便 Vue 里的 `v-if` 使用。
 
 #### 5.3.3 主轴信息图表：日期信息通信
 
@@ -1273,7 +1273,7 @@ getDynamicSpindleInfoList() {
 </el-card>
 ```
 
-屏幕的宽度提前写在`data`里：
+屏幕的宽度提前写在 `data` 里：
 
 ```javascript
 screenWidth: document.body.clientWidth
@@ -1310,9 +1310,9 @@ findWhetherBound() {
 },
 ```
 
-这样通过`isBound`这个对象，就知道`cmdSpeed`和`actSpeed`绑定与否。
+这样通过 `isBound` 这个对象，就知道 `cmdSpeed` 和 `actSpeed` 绑定与否。
 
-再将数据处理为Echarts接受的形式（拿了所有数据）：
+再将数据处理为 Echarts 接受的形式（拿了所有数据）：
 
 ```javascript
 getSpeedDatasetSource() {
@@ -1328,7 +1328,7 @@ getSpeedDatasetSource() {
 },
 ```
 
-最后初始化图表。客户要求默认只显示主轴指定转速（`cmdSpeed`），不显示主轴实际转速（`actSpeed`），这在Echarts中可以用`selected`属性设置。
+最后初始化图表。客户要求默认只显示主轴指定转速（`cmdSpeed`），不显示主轴实际转速（`actSpeed`），这在 Echarts 中可以用 `selected` 属性设置。
 
 ```javascript
 // 初始化图表
@@ -1424,9 +1424,9 @@ getSpeedGraph() {
 
 #### 5.3.6 普通刷新
 
-整个设备详细数据一共有4个普通刷新，分别是最上面的白色按钮“刷新状态”，以及3个动态数据卡片右上角的蓝色“刷新”文字。
+整个设备详细数据一共有 4 个普通刷新，分别是最上面的白色按钮「刷新状态」，以及 3 个动态数据卡片右上角的蓝色「刷新」文字。
 
-刷新操作只要将按钮绑定到一个刷新函数就好了，函数内再调用重置相关信息或获得相关信息的函数，以实现数据刷新。这里我还写了几个`loading`变量，并将它们`v-loading`绑定到相关标签上，并在刷新时设置为`true`，获取完毕数据后设置为`false`，这样就可以实现加载功能。
+刷新操作只要将按钮绑定到一个刷新函数就好了，函数内再调用重置相关信息或获得相关信息的函数，以实现数据刷新。这里我还写了几个 `loading` 变量，并将它们 `v-loading` 绑定到相关标签上，并在刷新时设置为 `true`，获取完毕数据后设置为 `false`，这样就可以实现加载功能。
 
 ```javascript
 // 刷新处理
@@ -1461,9 +1461,9 @@ handleDriveRefresh() {
 
 #### 5.3.7 自动刷新
 
-这是个比较复杂的功能，需要综合运用Vue和JavaScript知识，写出来和debug都花了我一段时间。
+这是个比较复杂的功能，需要综合运用 Vue 和 JavaScript 知识，写出来和 debug 都花了我一段时间。
 
-实际上这个自动刷新用的还是上面的`handleGlobalRefresh`函数，只是要定时执行，并且还能调整开关与刷新频率。
+实际上这个自动刷新用的还是上面的 `handleGlobalRefresh` 函数，只是要定时执行，并且还能调整开关与刷新频率。
 
 先在页面的合适位置放上这两个按钮：
 
@@ -1495,7 +1495,7 @@ handleDriveRefresh() {
 
 ![自动刷新功能](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-19.png)
 
-定义变量，默认情况下开启刷新开关，并设置频率为10 s：
+定义变量，默认情况下开启刷新开关，并设置频率为 10 s：
 
 ```javascript
 // 刷新频率
@@ -1513,7 +1513,7 @@ refreshOptions: [
 refreshTimer: null,
 ```
 
-当刷新频率发生变化时，即上面的`el-select`选中别的选项时，触发`handleRefreshSetting`函数，处理这个变化：
+当刷新频率发生变化时，即上面的 `el-select` 选中别的选项时，触发 `handleRefreshSetting` 函数，处理这个变化：
 
 ```javascript
 handleRefreshSetting() {
@@ -1529,7 +1529,7 @@ handleRefreshSetting() {
 },
 ```
 
-**重点来了**，由于这是个路由页面，所以可以利用[Vue路由的导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)（导航表示路由发生改变）和Vue的生命周期destroyed（现已改名为[unmounted](https://v3.cn.vuejs.org/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA)），来处理可能发生的变化，并按不同的变化执行刷新操作。
+**重点来了**，由于这是个路由页面，所以可以利用 [Vue 路由的导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)（导航表示路由发生改变）和 Vue 的生命周期 destroyed（现已改名为 [unmounted](https://v3.cn.vuejs.org/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA)），来处理可能发生的变化，并按不同的变化执行刷新操作。
 
 ```javascript
 export default {
@@ -1568,11 +1568,11 @@ export default {
 }
 ```
 
-**凡是在路由内设置定时器，一定要通过导航守卫去处理它**，否则会出现离开了详细数据页面，别的页面还在每隔10 s自动刷新的bug。
+**凡是在路由内设置定时器，一定要通过导航守卫去处理它**，否则会出现离开了详细数据页面，别的页面还在每隔 10 s 自动刷新的 bug。
 
 ## 6 首页的合作伙伴
 
-首页的其他部分是苏州团队做的，下面的合作伙伴是我做的。合作伙伴只要放进公司的logo和名称就行了。
+首页的其他部分是苏州团队做的，下面的合作伙伴是我做的。合作伙伴只要放进公司的 logo 和名称就行了。
 
 ```html
 <el-row :gutter="20" style="margin-bottom:0.5rem">
@@ -1604,9 +1604,9 @@ export default {
 </el-row>
 ```
 
-每一个企业都是一个`el-col`，分为logo的`div`和名称的`div`。每一个`el-col`使用了`v-for`，所以要绑定`key`。
+每一个企业都是一个 `el-col`，分为 logo 的 `div` 和名称的 `div`。每一个 `el-col` 使用了 `v-for`，所以要绑定 `key`。
 
-企业的名称写死在`data`中：
+企业的名称写死在 `data` 中：
 
 ```javascript
 partnerNames: [
@@ -1617,7 +1617,7 @@ partnerNames: [
 ]
 ```
 
-企业的logo由于位置一致，只是名称不同，因此写个函数去获取它：
+企业的 logo 由于位置一致，只是名称不同，因此写个函数去获取它：
 
 ```javascript
 data() {
@@ -1644,10 +1644,10 @@ methods: {
 
 ---
 
-从5月到7月，我就在做这些模块的前端开发。与我们之前做的模块不同，这些模块大部分是纯前端工作，比如统计图、设备看板等，除此之外，前端还要构思从后端拿到数据后怎么处理数据的逻辑。拿到变量绑定数据，怎么让它以用户自定义的情况显示？拿到机床主轴数据，怎么让它画成既直观又美观、还让客户满意的图表？都需要我去想想。
+从 5 月到 7 月，我就在做这些模块的前端开发。与我们之前做的模块不同，这些模块大部分是纯前端工作，比如统计图、设备看板等，除此之外，前端还要构思从后端拿到数据后怎么处理数据的逻辑。拿到变量绑定数据，怎么让它以用户自定义的情况显示？拿到机床主轴数据，怎么让它画成既直观又美观、还让客户满意的图表？都需要我去想想。
 
 因此，**越是傻瓜式的页面与操作方式，肯定是程序在背后为你做了越多的事情，这些程序也是程序员的思想结晶。**
 
 这个项目已经验收完毕了，通过开发这个项目，我也学会了很多前端的知识，和一些后端、数据库知识。这些知识希望在将来都能用得上。接下来的任务，就是聚焦一个研究方向，好好做科研了。
 
-![统计报表、工作台等剩余模块的commit过程](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-23.png)
+![统计报表、工作台等剩余模块的 commit 过程](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211028/20211028-23.png)

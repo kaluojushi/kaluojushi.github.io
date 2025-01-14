@@ -14,29 +14,29 @@ tags:
 comments: true
 ---
 
-今年3月到7月，我参与了课题组负责的**某机床厂远程运维平台开发**的项目，并主要承担前端开发工作。这个项目马上（10月底）就要结题了，因此总结一下在这半年的开发过程中遇到的一些技术问题或难题，以给之后的学习或开发作参考。
+今年 3 月到 7 月，我参与了课题组负责的 **某机床厂远程运维平台开发** 的项目，并主要承担前端开发工作。这个项目马上（10 月底）就要结题了，因此总结一下在这半年的开发过程中遇到的一些技术问题或难题，以给之后的学习或开发作参考。
 
 <!--more-->
 
 ## 1 项目简介
 
-这个项目是导师接的一个工业互联网项目，用于某机床厂的远程运营维护。从3月开始，我们就着手参与这个项目。
+这个项目是导师接的一个工业互联网项目，用于某机床厂的远程运营维护。从 3 月开始，我们就着手参与这个项目。
 
 > 本平台主要适用于工业互联网远程运维场景，采集机床运行数据，及时、准确地为机床厂提供机床的各项运行数据可视化、设备故障的报警等相关信息，高效地为用户提供机床的远程运维服务。
 >
 > ——《智能运维云平台用户操作手册》
 
-这个平台由3个团队共同参与开发，分别是杭州团队（浙大）、苏州团队（苏州研究院）和昆山团队（昆山某公司），后来昆山团队退出了，项目就完全由杭州和苏州负责了。
+这个平台由 3 个团队共同参与开发，分别是杭州团队（浙大）、苏州团队（苏州研究院）和昆山团队（昆山某公司），后来昆山团队退出了，项目就完全由杭州和苏州负责了。
 
-这个项目里我们杭州团队负责了【企业中心】、【设备中心】的开发，在昆山团队退出后，我们还额外负责了原来昆山做的【工作台】、【统计报表】部分。杭州团队是包括我在内的3个研究生，我负责前端，另外2个同学负责后端，其中1个还负责数据库管理。
+这个项目里我们杭州团队负责了【企业中心】、【设备中心】的开发，在昆山团队退出后，我们还额外负责了原来昆山做的【工作台】、【统计报表】部分。杭州团队是包括我在内的 3 个研究生，我负责前端，另外 2 个同学负责后端，其中 1 个还负责数据库管理。
 
-4月初，我们经过了多次讨论，研究了若干技术选型，如人人开源、JeecgBoot等，最终决定以[若依管理系统](http://ruoyi.vip/)为基础，搭建我们的平台。从以下我们做好的首页中，也可以见到一丝端倪。
+4 月初，我们经过了多次讨论，研究了若干技术选型，如人人开源、JeecgBoot 等，最终决定以 [若依管理系统](http://ruoyi.vip/) 为基础，搭建我们的平台。从以下我们做好的首页中，也可以见到一丝端倪。
 
 ![首页](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-01 - 副本2.png)
 
-（首页除了下面的**合作伙伴**是我设计的外，其他全部是苏州团队设计的）
+（首页除了下面的 **合作伙伴** 是我设计的外，其他全部是苏州团队设计的）
 
-从4月开始，我着手学习前端三件套、[Vue](https://v3.cn.vuejs.org/)与[ElementUI](https://element.eleme.cn/#/zh-CN)，并到后期边做边学，积累了很多技术经验。并且由于前端需要后端支持，因此我也在自己的电脑上搭配了完整的后端环境。
+从 4 月开始，我着手学习前端三件套、[Vue](https://v3.cn.vuejs.org/) 与 [ElementUI](https://element.eleme.cn/#/zh-CN)，并到后期边做边学，积累了很多技术经验。并且由于前端需要后端支持，因此我也在自己的电脑上搭配了完整的后端环境。
 
 ## 2 企业中心
 
@@ -44,7 +44,7 @@ comments: true
 
 ### 2.1 企业管理
 
-我们第一个着手做的就是【企业中心】的【企业管理】模块。这是一个单表，即这个模块只需要**增删改查**的功能，能实现数据项的罗列与变更功能。由于若依系统自带**代码生成器**，可以根据数据库的某个表自动生成后端代码（domain、mapper、service、controller四个层）以及前端代码（api接口和vue页面），所以这很大程度减轻了我们的工作量，我们只需要生成表再改一改就好了。下文中与表有关的模块大多数都是这么做的。
+我们第一个着手做的就是【企业中心】的【企业管理】模块。这是一个单表，即这个模块只需要 **增删改查** 的功能，能实现数据项的罗列与变更功能。由于若依系统自带 **代码生成器**，可以根据数据库的某个表自动生成后端代码（domain、mapper、service、controller 四个层）以及前端代码（api 接口和 vue 页面），所以这很大程度减轻了我们的工作量，我们只需要生成表再改一改就好了。下文中与表有关的模块大多数都是这么做的。
 
 ![企业管理页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-02.png)
 
@@ -52,7 +52,7 @@ comments: true
 
 这是后来加的一个功能，客户要求在【企业管理】模块，每个企业可以有一个对应的地区，并且可以根据地区筛选企业。
 
-要导入全国的省市区数据就是一个很麻烦的过程，这个是很难做到写死在代码里的。我找到了ElementUI提供的一个npm包，包含所有中国省市区级联数据，即[element-china-area-data](https://www.npmjs.com/package/element-china-area-data)，并根据[这个页面的示例](https://plortinus.github.io/element-china-area-data/index.html)做了这个功能。这个包是ElementUI提供的，所以可以直接使用[ElementUI的级联选择器](https://element.eleme.cn/#/zh-CN/component/cascader)。
+要导入全国的省市区数据就是一个很麻烦的过程，这个是很难做到写死在代码里的。我找到了 ElementUI 提供的一个 npm 包，包含所有中国省市区级联数据，即 [element-china-area-data](https://www.npmjs.com/package/element-china-area-data)，并根据 [这个页面的示例](https://plortinus.github.io/element-china-area-data/index.html) 做了这个功能。这个包是 ElementUI 提供的，所以可以直接使用 [ElementUI的级联选择器](https://element.eleme.cn/#/zh-CN/component/cascader)。
 
 1. 导入这个包里所用到的几个数组和对象。
 
@@ -88,7 +88,7 @@ comments: true
 
    ![表格里显示的地区](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-03.png)
 
-   因为数据库里有单独的“省”字段，因此搜索时可以只筛选省。
+   因为数据库里有单独的「省」字段，因此搜索时可以只筛选省。
 
    ```html
    <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch" label-width="75px">
@@ -124,7 +124,7 @@ comments: true
 
    ![搜索功能的企业地区](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-04.png)
 
-3. 新增企业功能，客户要求省份信息必填，市区信息选填，所以这个级联菜单与element-china-area-data的展示页面做得有所不同。
+3. 新增企业功能，客户要求省份信息必填，市区信息选填，所以这个级联菜单与 element-china-area-data 的展示页面做得有所不同。
 
    ```html
    <el-dialog :title="title" :visible.sync="open" width="700px" append-to-body>
@@ -178,7 +178,7 @@ comments: true
    </el-dialog>
    ```
 
-   下拉列表和级联列表要联动，什么省就要给什么市，所以要给级联表加个`key`（否则级联表不会根据所选省份变化），并且绑定到一个`provinceRefresh`的变量上，并在其他相关部分将其设置为省份的`code`，然后在某个函数处理省份的变化，见如下的`script`部分：
+   下拉列表和级联列表要联动，什么省就要给什么市，所以要给级联表加个 `key`（否则级联表不会根据所选省份变化），并且绑定到一个 `provinceRefresh` 的变量上，并在其他相关部分将其设置为省份的 `code`，然后在某个函数处理省份的变化，见如下的 `script` 部分：
 
    ```javascript
    data() {
@@ -278,7 +278,7 @@ comments: true
 
    ![字典数据页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-08.png)
 
-3. 在前端的Vue代码里，使用下拉菜单时，绑定键值：
+3. 在前端的 Vue 代码里，使用下拉菜单时，绑定键值：
 
    ```html
    <el-form-item label="数据类型" prop="paramType">
@@ -293,7 +293,7 @@ comments: true
    </el-form-item>
    ```
 
-4. 在前端的`script`部分，定义这个数组，并且使用若依自带的函数去获取它：
+4. 在前端的 `script` 部分，定义这个数组，并且使用若依自带的函数去获取它：
 
    ```javascript
    data() {
@@ -372,9 +372,9 @@ methods: {
 }
 ```
 
-当然可能有更好的写法，但是只要让这个数组成为一个对象数组，并且有键值对（即`value`和`label`）就好了。
+当然可能有更好的写法，但是只要让这个数组成为一个对象数组，并且有键值对（即 `value` 和 `label`）就好了。
 
-如果需要前面出现编号，就改一下`label`：
+如果需要前面出现编号，就改一下 `label`：
 
 ```javascript
 getCompanyTypeOptions() {
@@ -391,7 +391,7 @@ getCompanyTypeOptions() {
 
 ![公司类型](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-09.png)
 
-（对于JavaScript的`for-each`循环，`in`循环的是数组的索引或对象的键，即`let index in array`、`let key in object`，`of`循环的是数组的元素，即`let item of array`；知道了索引或键，可以通过方括号或小数点去访问对应的元素或值；更详细可以看这篇文章：《{% post_link several-ways-of-traversing-arrays-and-objects-in-javascript %}》）
+（对于 JavaScript 的 `for-each` 循环，`in` 循环的是数组的索引或对象的键，即 `let index in array`、`let key in object`，`of` 循环的是数组的元素，即 `let item of array`；知道了索引或键，可以通过方括号或小数点去访问对应的元素或值；更详细可以看这篇文章：《{% post_link several-ways-of-traversing-arrays-and-objects-in-javascript %}》）
 
 #### 2.1.3 删除按钮的提示修改
 
@@ -414,7 +414,7 @@ handleDelete(row) {
 },
 ```
 
-第3行这个获取id，实际上是判断删除按钮的入口，是单个数据项，还是勾选后点击的删除，前者是一个对象（即参数`row`）的id，后者是一个id数组，通过逻辑或选择一个值。但是第4行会暴露主键id，因此我对这部分代码（以及我们做的所有模块的删除功能）做了如下修改：
+第 3 行这个获取 id，实际上是判断删除按钮的入口，是单个数据项，还是勾选后点击的删除，前者是一个对象（即参数 `row`）的 id，后者是一个 id 数组，通过逻辑或选择一个值。但是第 4 行会暴露主键 id，因此我对这部分代码（以及我们做的所有模块的删除功能）做了如下修改：
 
 ```javascript
 /** 删除按钮操作 */
@@ -438,13 +438,13 @@ handleDelete(row) {
 },
 ```
 
-JavaScript的`typeof`函数可以返回变量的类型（字符串表示），如果是`number`类型，说明这是`row.id`，长度为1；如果是`object`类型（数组即对象），说明这是`this.ids`，长度为数组的`length`。再判断ids的长度是否大于1，输出对应的结果。
+JavaScript 的 `typeof` 函数可以返回变量的类型（字符串表示），如果是 `number` 类型，说明这是 `row.id`，长度为 1；如果是 `object` 类型（数组即对象），说明这是 `this.ids`，长度为数组的 `length`。再判断 ids 的长度是否大于 1，输出对应的结果。
 
 ![删除企业](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-10.png)
 
 #### 2.1.4 解决手机端消息框显示不全的问题
 
-在做响应式布局时遇到的bug，像上面删除时弹出的警告框，如果屏幕宽度过窄，可能显示不全，连确定按钮都点不到：
+在做响应式布局时遇到的 bug，像上面删除时弹出的警告框，如果屏幕宽度过窄，可能显示不全，连确定按钮都点不到：
 
 ![在屏幕宽度过窄时，消息框显示不全](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-19.png)
 
@@ -460,7 +460,7 @@ JavaScript的`typeof`函数可以返回变量的类型（字符串表示），�
 </style>
 ```
 
-使消息框在屏幕尺寸小于750px时，宽度调整为相对尺寸（80%），避免显示不全。
+使消息框在屏幕尺寸小于 750px 时，宽度调整为相对尺寸（80%），避免显示不全。
 
 ### 2.2 组织管理
 
@@ -472,7 +472,7 @@ JavaScript的`typeof`函数可以返回变量的类型（字符串表示），�
 
 数据库是没法放树表的，只可以放单表。每个组织在数据库中是单独的一项，表面上是同级的，但是可以给它加一个字段，表示该组织的上级组织。由于上下级组织是一对多的关系，所以我们只关注某个组织的上级组织，并一层层关联起来。
 
-数据库里，`org_id`是主键，`enterprise_id`跟踪这个组织的最顶层（指企业层）是什么，`higher_org`跟踪这个组织的上层组织是什么。
+数据库里，`org_id` 是主键，`enterprise_id` 跟踪这个组织的最顶层（指企业层）是什么，`higher_org` 跟踪这个组织的上层组织是什么。
 
 ![数据库里的组织表](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-12.png)
 
@@ -482,17 +482,17 @@ JavaScript的`typeof`函数可以返回变量的类型（字符串表示），�
 
 #### 2.2.2 后端对于树表的处理
 
-由于**一个企业同时也是一个组织**，所以凡是在【企业管理】模块做的**增删改**操作都要关联到【组织管理】模块：
+由于 **一个企业同时也是一个组织**，所以凡是在【企业管理】模块做的 **增删改** 操作都要关联到【组织管理】模块：
 
 - 增：【企业管理】增加一个企业，【组织管理】就要增加这个企业组织
-- 删：【企业管理】删除一个企业，【组织管理】就要删除这个企业组织及其所有下级组织（所有`enterprise_id`符合企业id的组织）
-- 改：【企业管理】更改了企业的名称，【组织管理】就要对对应的企业组织（在所有`enterprise_id`符合企业id的组织里找`higher_org`为0的组织）改名
+- 删：【企业管理】删除一个企业，【组织管理】就要删除这个企业组织及其所有下级组织（所有 `enterprise_id` 符合企业 id 的组织）
+- 改：【企业管理】更改了企业的名称，【组织管理】就要对对应的企业组织（在所有 `enterprise_id` 符合企业 id 的组织里找 `higher_org` 为 0 的组织）改名
 
-这个工作前端后端都可以做，经过权衡，我们决定让后端完成这个工作，更改`xml`文件就可以了。
+这个工作前端后端都可以做，经过权衡，我们决定让后端完成这个工作，更改 `xml` 文件就可以了。
 
 #### 2.2.3 前端对于树表的处理
 
-若依展示树表的方式是使用一个`Treeselect`组件。之后的代码里，如果要使用树表下拉框，也需要注册这个组件。
+若依展示树表的方式是使用一个 `Treeselect` 组件。之后的代码里，如果要使用树表下拉框，也需要注册这个组件。
 
 ```javascript
 import Treeselect from "@riophae/vue-treeselect";
@@ -524,7 +524,7 @@ export default {
 
 我对若依自动生成的树表进行了一些修改，以便更满足我们的逻辑要求：
 
-1. 若依默认的下拉树结构有顶级节点，并设置id为0：
+1. 若依默认的下拉树结构有顶级节点，并设置 id 为 0：
 
    ```javascript
    /** 查询部门下拉树结构 */
@@ -538,7 +538,7 @@ export default {
    },
    ```
 
-   我们需要有顶级节点的存在，但是不希望它出现在下拉树里，就把它去掉，直接设置`orgOptions`：
+   我们需要有顶级节点的存在，但是不希望它出现在下拉树里，就把它去掉，直接设置 `orgOptions`：
 
    ```javascript
    /** 查询部门下拉树结构 */
@@ -573,7 +573,7 @@ export default {
 
 3. 对于企业组织，我们不希望用户在【组织管理】对其做过多的改动（因为改动可以在【企业管理】完成），就做如下修改：
 
-   - 企业组织不需要删除按钮，给它加一个`v-if`：
+   - 企业组织不需要删除按钮，给它加一个 `v-if`：
 
      ```html
      <el-button
@@ -588,7 +588,7 @@ export default {
 
      ![隐藏企业组织的删除](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-15.png)
 
-   - 企业组织本身不需要展现上级组织，加`v-if`将其隐藏；企业组织的所属企业与部门名称不希望用户在此修改，加`v-if`和`disabled`属性：
+   - 企业组织本身不需要展现上级组织，加 `v-if` 将其隐藏；企业组织的所属企业与部门名称不希望用户在此修改，加 `v-if` 和 `disabled` 属性：
 
      ```html
      <!-- 添加或修改组织管理对话框 -->
@@ -660,22 +660,22 @@ export default {
 
 #### 3.1.1 变量绑定功能的逻辑
 
-1. 后端用Node-RED采集加入网络的机床的数据，采用**饱和采集**，即采集所有机床的所有数据
-2. 用户在【设备信息】模块加入设备，并设置数控系统id
-3. 用户在【变量信息】模块里自定义一个变量，并将该变量与MongoDB数据库采集到的变量名关联起来
+1. 后端用 Node-RED 采集加入网络的机床的数据，采用 **饱和采集**，即采集所有机床的所有数据
+2. 用户在【设备信息】模块加入设备，并设置数控系统 id
+3. 用户在【变量信息】模块里自定义一个变量，并将该变量与 MongoDB 数据库采集到的变量名关联起来
 4. 用户在【设备类型】模块里对该设备的类型绑定需要的变量
-5. 系统根据该机床的数控系统id，拿到MongoDB里该机床的所有数据
+5. 系统根据该机床的数控系统 id，拿到 MongoDB 里该机床的所有数据
 6. 前端再判断哪些变量绑定了，绑定的展示给用户，未绑定的不予展示
 
 事实上，我们还做不到远程控制（绑定的采集，不绑定的不采集），只能饱和采集、饱和获取数据，再按需展示。
 
 #### 3.1.2 变量关联
 
-自定义变量的目的，是前端展示变量数据时，可以自定义显示的变量名、变量单位等。它本身不具有任何意义，除非与MongoDB的变量关联。
+自定义变量的目的，是前端展示变量数据时，可以自定义显示的变量名、变量单位等。它本身不具有任何意义，除非与 MongoDB 的变量关联。
 
-MongoDB采集到的数据有特殊的变量字段名，用户自定义变量后，与该变量字段关联，就可以使用这个数据。
+MongoDB 采集到的数据有特殊的变量字段名，用户自定义变量后，与该变量字段关联，就可以使用这个数据。
 
-如MongoDB的`poweronTime`采集到了数据220，前端显示：`当前运行时间：220 分钟`。如果用户更改这个变量的名称与单位，则前端显示随之改变，但数值不变。（不支持单位转换，如果单位设置为秒，则还是显示`220 秒`）
+如 MongoDB 的 `poweronTime` 采集到了数据 220，前端显示：`当前运行时间：220 分钟`。如果用户更改这个变量的名称与单位，则前端显示随之改变，但数值不变。（不支持单位转换，如果单位设置为秒，则还是显示 `220 秒`）
 
 ![添加变量信息页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-21.png)
 
@@ -723,7 +723,7 @@ MongoDB采集到的数据有特殊的变量字段名，用户自定义变量后�
 </el-dialog>
 ```
 
-`mongoVariableOptions`是从数据库里拿的，因为它一般不会变化，所以没有做前端入口，但是保留了前端api调用。如果要修改，需要直接操作数据库。同时，由于自定义变量数据库存放的是mongoDB变量的id，因此表格里需要做格式化，不能显示id，要显示`label`。
+`mongoVariableOptions` 是从数据库里拿的，因为它一般不会变化，所以没有做前端入口，但是保留了前端 api 调用。如果要修改，需要直接操作数据库。同时，由于自定义变量数据库存放的是 MongoDB 变量的 id，因此表格里需要做格式化，不能显示 id，要显示 `label`。
 
 ```javascript
 // mongo变量列表获取
@@ -746,7 +746,7 @@ mongoIdFormat(row, column) {
 },
 ```
 
-这里用到了[`find`函数](https://www.runoob.com/jsref/jsref-find.html)，用来代替复杂的`for-if`来寻找数组中符合条件的元素。否则以上代码就会写成：
+这里用到了 [`find` 函数](https://www.runoob.com/jsref/jsref-find.html)，用来代替复杂的 `for-if` 来寻找数组中符合条件的元素。否则以上代码就会写成：
 
 ```javascript
 // 变量关联翻译
@@ -771,7 +771,7 @@ mongoIdFormat(row, column) {
 
 #### 3.2.1 图片上传与显示
 
-图片上传功能是若依自带的`ImageUpload`组件，不需要额外设置。
+图片上传功能是若依自带的 `ImageUpload` 组件，不需要额外设置。
 
 ![添加设备类型页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-23.png)
 
@@ -794,7 +794,7 @@ mongoIdFormat(row, column) {
 </el-table>
 ```
 
-图片有则显示，没有则不显示，如果不加`v-if`，没有图片时会出现一个读取图片失败的方框占位，影响美观。
+图片有则显示，没有则不显示，如果不加 `v-if`，没有图片时会出现一个读取图片失败的方框占位，影响美观。
 
 #### 3.2.2 单选/多选按钮的逻辑
 
@@ -804,8 +804,8 @@ mongoIdFormat(row, column) {
 
 若依则是通过如下方式设置这两种按钮的逻辑的：
 
-- 表格数据项按钮传参，为当前参数；上方的按钮不传参，此时函数的参数就为`undefined`，通过一个数组`ids`去处理。再通过逻辑或选择，见2.1.3节。
-- 上方的按钮设置`disabled`属性为布尔值`single`或`multiple`，在勾选时改变其布尔值，以达到按钮启用效果。
+- 表格数据项按钮传参，为当前参数；上方的按钮不传参，此时函数的参数就为 `undefined`，通过一个数组 `ids` 去处理。再通过逻辑或选择，见 2.1.3 节。
+- 上方的按钮设置 `disabled` 属性为布尔值 `single` 或 `multiple`，在勾选时改变其布尔值，以达到按钮启用效果。
 
 ```html
 <el-row :gutter="10" class="mb8">
@@ -905,11 +905,11 @@ methods: {
 
 #### 3.2.3 绑定变量
 
-绑定变量用的是一个穿梭框，基于[ElementUI的穿梭框](https://element.eleme.cn/#/zh-CN/component/transfer)设计。左边是变量列表，右边是已与该类型绑定的变量。
+绑定变量用的是一个穿梭框，基于 [ElementUI 的穿梭框](https://element.eleme.cn/#/zh-CN/component/transfer) 设计。左边是变量列表，右边是已与该类型绑定的变量。
 
 ![对设备类型绑定变量页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-24.png)
 
-**Vue部分**，将穿梭框放在一个对话框里即可。
+**Vue 部分**，将穿梭框放在一个对话框里即可。
 
 ```html
 <!-- 绑定变量对话框 -->
@@ -930,7 +930,7 @@ methods: {
 </el-dialog>
 ```
 
-**`script`部分**，当用户点击某个设备类型的绑定按钮时，调用`handleBind`函数：
+**`script` 部分**，当用户点击某个设备类型的绑定按钮时，调用 `handleBind` 函数：
 
 ```javascript
 /** 绑定变量按钮操作 */
@@ -953,9 +953,9 @@ handleBind(row) {
 },
 ```
 
-提前准备一个类型与变量的关联表，存储两者id。上面第6行查询该表，并把属于该类型的已绑定的变量id拿出来放在数组中备用。
+提前准备一个类型与变量的关联表，存储两者 id。上面第 6 行查询该表，并把属于该类型的已绑定的变量 id 拿出来放在数组中备用。
 
-用户在穿梭框内操作完毕，准备点击确定按钮时，调用`bindingparamSubmitForm`函数：
+用户在穿梭框内操作完毕，准备点击确定按钮时，调用 `bindingparamSubmitForm` 函数：
 
 ```javascript
 /** 绑定变量提交按钮 */
@@ -1018,7 +1018,7 @@ bindingparamSubmitForm() {
 },
 ```
 
-上述代码的逻辑是，判断一下现在的`deviceBindingParamValue`数组与穿梭框修改后的有哪些变化，有加的就加`needToAdd`，有删除的就加`needToDelete`，再逐一修改。其中5-15行这里：
+上述代码的逻辑是，判断一下现在的 `deviceBindingParamValue` 数组与穿梭框修改后的有哪些变化，有加的就加 `needToAdd`，有删除的就加 `needToDelete`，再逐一修改。其中 5-15 行这里：
 
 ```javascript
 const difference = this.deviceBindingParamValueOrigin.concat(this.deviceBindingParamValue).filter(function(v, i, arr) {
@@ -1034,11 +1034,11 @@ for (let dif of difference) {
 }
 ```
 
-`concat`连接改变前和改变后的两个数组，`filter`筛选出其中元素前后索引值相等的数组（即只出现一次的数字，就是被改变的），再通过判断这个数组中每个元素出现在改变前还是改变后的数组，确定要加还是要删。
+`concat` 连接改变前和改变后的两个数组，`filter` 筛选出其中元素前后索引值相等的数组（即只出现一次的数字，就是被改变的），再通过判断这个数组中每个元素出现在改变前还是改变后的数组，确定要加还是要删。
 
-如`deviceBindingParamValueOrigin`数组（改变前）为`[1, 2, 4]`，`deviceBindingParamValue`数组（改变后）为`[1, 4, 5]`，则[`concat`](https://www.runoob.com/jsref/jsref-concat-string.html)后为`[1, 2, 4, 1, 4, 5]`，[`filter`](https://www.runoob.com/jsref/jsref-filter.html)后为`[2, 5]`，判断后，`needToAdd`为`[5]`，`needToDelete`为`[2]`，再拿这两个数组去做真正地增删操作。
+如 `deviceBindingParamValueOrigin` 数组（改变前）为 `[1, 2, 4]`，`deviceBindingParamValue` 数组（改变后）为 `[1, 4, 5]`，则 [`concat`](https://www.runoob.com/jsref/jsref-concat-string.html) 后为 `[1, 2, 4, 1, 4, 5]`，[`filter`](https://www.runoob.com/jsref/jsref-filter.html) 后为 `[2, 5]`，判断后，`needToAdd` 为 `[5]`，`needToDelete` 为 `[2]`，再拿这两个数组去做真正地增删操作。
 
-用户准备点击取消按钮时，调用`bindingparamCancel`函数：
+用户准备点击取消按钮时，调用 `bindingparamCancel` 函数：
 
 ```javascript
 // 绑定变量取消按钮
@@ -1073,6 +1073,6 @@ bindingparamCancel() {
 
 ---
 
-以上【企业中心】和【设备中心】两个模块，如果不算后期不断地调整美化，只算页面和功能的大体成型，我大概做了**3个星期**左右。这3个星期也是边学边做的一个过程，巩固了很多Vue和JavaScript的知识，对于我的代码和debug能力有很大的提升。昆山团队退出后，我们开始忙于【工作台】与【统计报表】的制作，这花了我**整整2个月**。这两个模块的技术难度也不亚于这篇文章所提到的，下次有空再补充！
+以上【企业中心】和【设备中心】两个模块，如果不算后期不断地调整美化，只算页面和功能的大体成型，我大概做了 **3 个星期** 左右。这 3 个星期也是边学边做的一个过程，巩固了很多 Vue 和 JavaScript 的知识，对于我的代码和 debug 能力有很大的提升。昆山团队退出后，我们开始忙于【工作台】与【统计报表】的制作，这花了我 **整整 2 个月**。这两个模块的技术难度也不亚于这篇文章所提到的，下次有空再补充！
 
-![企业中心和设备中心的commit过程](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-26.png)
+![企业中心和设备中心的 commit 过程](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211024/20211024-26.png)

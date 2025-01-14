@@ -1,5 +1,5 @@
 ---
-title: JavaScript中布尔值为false的几种情况
+title: JavaScript 中布尔值为 false 的几种情况
 date: 2021-12-13 09:47:52
 categories: JavaScript
 tags:
@@ -10,7 +10,7 @@ tags:
 comments: true
 ---
 
-前端开发经常需要用到`if`判断，下文归纳JavaScript中布尔值为`false`的几种情况，便于今后开发使用。
+前端开发经常需要用到 `if` 判断，下文归纳 JavaScript 中布尔值为 `false` 的几种情况，便于今后开发使用。
 
 <!--more-->
 
@@ -18,26 +18,26 @@ comments: true
 
 1. `undefined`：未定义
 2. `null`：空值
-3. `false`：布尔值`false`，注意字符串`'false'`为`true`
-4. 0：数字0，注意字符串`'0'`为`true`
-5. `NaN`：非数值，例如`Math.log(-1)`，注意`typeof NaN`为`number`
-6. `""`或`''`：空字符串，注意空格字符串`' '`为`true`
+3. `false`：布尔值 `false`，注意字符串 `'false'` 为 `true`
+4. 0：数字 0，注意字符串 `'0'` 为 `true`
+5. `NaN`：非数值，例如 `Math.log(-1)`，注意 `typeof NaN` 为`number`
+6. `""` 或 `''`：空字符串，注意空格字符串 `' '` 为 `true`
 
-## 2 不同数据类型转换为`false`的情况
+## 2 不同数据类型转换为 `false` 的情况
 
-| 数据类型  |              转换为`true`               |  转换为`false`   |
-| :-------: | :-------------------------------------: | :--------------: |
-|  Boolean  |                 `true`                  |     `false`      |
-|  String   |             任何非空字符串              | `''`（空字符串） |
-|  Number   | 任何非零数值（包括`Infinity`，如`1/0`） |     0和`NaN`     |
-|  Object   | 任何对象（包括空数组`[]`、空对象`{}`）  |      `null`      |
-| Undefined |                    /                    |   `undefined`    |
+| 数据类型  |          转换为 `true`           | 转换为 `false` |
+| :-------: |:-----------------------------:|:-----------:|
+|  Boolean  |            `true`             |   `false`   |
+|  String   |            任何非空字符串            | `''`（空字符串）  |
+|  Number   | 任何非零数值（包括 `Infinity`，如 `1/0`） |  0 和 `NaN`  |
+|  Object   |   任何对象（包括空数组 `[]`、空对象 `{}`）   |   `null`    |
+| Undefined |               /               | `undefined` |
 
 **说明：**
 
-1. 使用取反运算符`!`和`!!`可将任何数据类型转换为布尔值，`!!`为本身代表的布尔值，`!`为相反布尔值。
+1. 使用取反运算符 `!` 和 `!!` 可将任何数据类型转换为布尔值，`!!` 为本身代表的布尔值，`!` 为相反布尔值。
 
-   例如`1-2`为`-1`，`!(1-2)`为`false`，`!!(1-2)`为`true`。
+   例如 `1-2` 为 `-1`，`!(1-2)` 为 `false`，`!!(1-2)` 为 `true`。
 
 2. 以下是一些数据的求布尔值结果：
 
@@ -57,7 +57,7 @@ comments: true
 
 有时候需要对某个数组或对象做判断，判断其是否为空，可以通过如下方式：
 
-1. 使用`length`属性，适用于数组，如：
+1. 使用 `length` 属性，适用于数组，如：
 
    ```javascript
    let array1 = [];
@@ -66,7 +66,7 @@ comments: true
    if (array2.length) console.log('array2 not empty');	// array2 not empty
    ```
 
-2. 使用`for-in`遍历和`hasOwnProperty`判断，并把遍历结果写成函数，适用于数组和对象，如：
+2. 使用 `for-in` 遍历和 `hasOwnProperty` 判断，并把遍历结果写成函数，适用于数组和对象，如：
 
    ```javascript
    let array1 = [];
@@ -87,7 +87,7 @@ comments: true
    if (isEmpty(obj2)) console.log('obj2 is empty');
    ```
 
-## 4 出现`undefined`的几种情况
+## 4 出现 `undefined` 的几种情况
 
 1. 变量未定义，注意这种情况现在会报错
 
@@ -114,14 +114,14 @@ comments: true
    // y = undefined
    ```
 
-4. 函数未`return`
+4. 函数未 `return`
 
    ```javascript
    function fun() {}
    console.log(fun());	// undefined
    ```
 
-5. 函数`return`没有值
+5. 函数 `return` 没有值
 
    ```javascript
    function fun() {
@@ -146,16 +146,16 @@ comments: true
    console.log(array[-1]);	// undefined
    ```
 
-8. 数组`find`方法未找到元素
+8. 数组 `find` 方法未找到元素
 
    ```javascript
    let array = [{id: 1, name: 'a'}, {id: 2, name: 'b'}];
    console.log(array.find(item => item.id === 3));	// undefined
    ```
 
-## 5 出现`null`的几种情况
+## 5 出现 `null` 的几种情况
 
-1. 获取DOM元素时未获取到指定元素对象
+1. 获取 DOM 元素时未获取到指定元素对象
 
    ```html
    <!DOCTYPE html>
@@ -172,13 +172,13 @@ comments: true
    </html>
    ```
 
-2. 原型链的顶点，即`Object.prototype.__proto__`
+2. 原型链的顶点，即 `Object.prototype.__proto__`
 
    ```javascript
    console.log(Object.prototype.__proto__);	// null
    ```
    
-2. 正则捕获时未捕获到结果，包括：正则对象的`exec`方法未匹配、字符串的`match`方法未匹配。
+3. 正则捕获时未捕获到结果，包括：正则对象的 `exec` 方法未匹配、字符串的 `match` 方法未匹配
 
    ```javascript
    const string = "xyz123ABC2";

@@ -1,5 +1,5 @@
 ---
-title: 如何在GitHub Pages中使用动态数据
+title: 如何在 GitHub Pages 中使用动态数据
 date: 2021-11-23 14:04:04
 categories: Development
 tags:
@@ -15,17 +15,17 @@ tags:
 comments: true
 ---
 
-最近在写一个纯前端兴趣项目时遇到的问题，前端需要展示一些数据。在传统的开发模式中，如Java小游戏开发，会把这些数据存储在文件中（如历史分数等），可以对其进行读写。但在前端开发时，这些数据的交互变得比较复杂，尤其是需要读写的时候。
+最近在写一个纯前端兴趣项目时遇到的问题，前端需要展示一些数据。在传统的开发模式中，如 Java 小游戏开发，会把这些数据存储在文件中（如历史分数等），可以对其进行读写。但在前端开发时，这些数据的交互变得比较复杂，尤其是需要读写的时候。
 
 <!--more-->
 
 ## 1 需求分析
 
-在传统的本地开发模式中，当我们需要一个长期稳定存储的数据，并可以对它进行读写时，通常不会把它写在代码里，而是放在一个文件中，并通过IO流的方式去操作它，这在Java小游戏开发中比较常见，例如游戏历史分数。
+在传统的本地开发模式中，当我们需要一个长期稳定存储的数据，并可以对它进行读写时，通常不会把它写在代码里，而是放在一个文件中，并通过 IO 流的方式去操作它，这在 Java 小游戏开发中比较常见，例如游戏历史分数。
 
-当我们在写纯前端项目，并把它展示到[GitHub Pages](https://pages.github.com/)时，这就不适用了。众所周知，GitHub Pages提供的是静态页面展示，我们应该是可以通过固定的JavaScript代码去实现文件的读取，但如果要写文件的话，且不说JavaScript如何实现文件写入，由于我们的文件放在GitHub仓库里，要更改仓库文件其实就是一次`git push`过程，这就比较奇怪了。
+当我们在写纯前端项目，并把它展示到 [GitHub Pages](https://pages.github.com/) 时，这就不适用了。众所周知，GitHub Pages 提供的是静态页面展示，我们应该是可以通过固定的 JavaScript 代码去实现文件的读取，但如果要写文件的话，且不说 JavaScript 如何实现文件写入，由于我们的文件放在 GitHub 仓库里，要更改仓库文件其实就是一次 `git push` 过程，这就比较奇怪了。
 
-> JavaScript实现文本文件的读取：参考<https://www.cnblogs.com/jscs/p/13444671.html>
+> JavaScript 实现文本文件的读取：参考<https://www.cnblogs.com/jscs/p/13444671.html>
 >
 > 写一个函数：
 >
@@ -47,7 +47,7 @@ comments: true
 > console.log(string);
 > ```
 >
-> 也可以使用JSON格式的数据，那就更简单了，在此不表。
+> 也可以使用 JSON 格式的数据，那就更简单了，在此不表。
 
 但我们又不可避免地需要使用一些动态数据，并通过前端实现读写，最好是像数据库一样，可以实现增删改查。
 
@@ -61,7 +61,7 @@ comments: true
 
 下面我们举一个例子，这个例子就是个简单的表格，需要有增删改查功能。
 
-在WebStorm或Idea中新建一个项目`CloudBackendExample`，然后新建文件`index.html`，导入Vue和ElementUI，并写一个表格模板。
+在 WebStorm 或 Idea 中新建一个项目 `CloudBackendExample`，然后新建文件 `index.html`，导入 Vue 和 ElementUI，并写一个表格模板。
 
 ```html
 <!DOCTYPE html>
@@ -166,7 +166,7 @@ comments: true
 </style>
 ```
 
-同时，新建一个`index.js`，先写好一些基本的Vue内容，比如一些数据和方法。
+同时，新建一个 `index.js`，先写好一些基本的 Vue 内容，比如一些数据和方法。
 
 ```javascript
 new Vue({
@@ -276,13 +276,13 @@ new Vue({
 });
 ```
 
-这个页面是可以预览的，也没什么问题，它甚至可以直接传到GitHub仓库里，开GitHub Pages后可以直接在网络上预览。但是它没有任何数据，而且增删改查按钮都不能用。
+这个页面是可以预览的，也没什么问题，它甚至可以直接传到 GitHub 仓库里，开 GitHub Pages 后可以直接在网络上预览。但是它没有任何数据，而且增删改查按钮都不能用。
 
 ![预览页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-01.png)
 
 ## 3 云后端简介
 
-这时候就要用到云后端了。云后端相当于传统项目开发中的数据库+后端，对于纯前端开发来说，它可以实现数据存储、增删改查功能，和传统开发一样，给前端一个api接口，前端用它就好了。
+这时候就要用到云后端了。云后端相当于传统项目开发中的数据库 + 后端，对于纯前端开发来说，它可以实现数据存储、增删改查功能，和传统开发一样，给前端一个 api 接口，前端用它就好了。
 
 > 大部分的产品都是数据驱动的，它们有一个最大的特点，就是对后端的需求在模式上其实是比较统一的：
 >
@@ -292,34 +292,34 @@ new Vue({
 >
 > 这样的模式适合互联网上绝大部分产品，虽然数据结构有差异、业务逻辑不一样，但是前后端交互的主体——「数据」，抽象来看是一致的，后端的架构（譬如 LAMP）也是大同小异的，而且同样的系统在一遍一遍地被重复开发，极大浪费了我们宝贵的技术资源。
 >
-> ——[LeanCloud文档：数据存储服务总览](https://leancloud.cn/docs/storage_overview.html)
+> ——[LeanCloud 文档：数据存储服务总览](https://leancloud.cn/docs/storage_overview.html)
 
-比如以[LeanCloud](https://www.leancloud.cn/)云服务为例，它提供数据存储、云引擎+数据库、即时通讯等服务，我们其实只需要**数据存储**里的**结构化数据存储**功能就可以了。它直接存储JSON对象并提供增删改查接口，这就可以让我们的页面发生变化了。
+比如以 [LeanCloud](https://www.leancloud.cn/) 云服务为例，它提供数据存储、云引擎 + 数据库、即时通讯等服务，我们其实只需要 **数据存储** 里的 **结构化数据存储** 功能就可以了。它直接存储 JSON 对象并提供增删改查接口，这就可以让我们的页面发生变化了。
 
-注册一个LeanCloud账号，进入控制台，创建一个应用，输入应用名称，开发版已经足够使用了。
+注册一个 LeanCloud 账号，进入控制台，创建一个应用，输入应用名称，开发版已经足够使用了。
 
 ![创建应用](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-02.png)
 
-我们使用JavaScript写入每个功能，所以参考[LeanCloud里JavaScript的数据存储开发文档](https://leancloud.cn/docs/leanstorage_guide-js.html)。
+我们使用 JavaScript 写入每个功能，所以参考 [LeanCloud 里 JavaScript 的数据存储开发文档](https://leancloud.cn/docs/leanstorage_guide-js.html)。
 
 ## 4 写入增删改查功能
 
 ### 4.1 准备工作
 
-根据文档，我们首先引入SDK，直接在`index.html`中通过CDN引入：
+根据文档，我们首先引入 SDK，直接在 `index.html` 中通过 CDN 引入：
 
 ```html
 <!--  import LeanCloud-->
 <script src="//code.bdstatic.com/npm/leancloud-storage@4.12.0/dist/av-min.js"></script>
 ```
 
-然后再在`index.js`开头引用全局变量`AV`：
+然后再在 `index.js` 开头引用全局变量 `AV`：
 
 ```js
 const { Query, User } = AV;
 ```
 
-服务需要初始化，我们在控制台中找到应用凭证，将App ID、App Key和服务器地址放到初始化函数中：
+服务需要初始化，我们在控制台中找到应用凭证，将 App ID、App Key 和服务器地址放到初始化函数中：
 
 ![应用凭证](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-03.png)
 
@@ -331,9 +331,9 @@ AV.init({
 });
 ```
 
-搞定之后，还需要创建一个Class来存放结构化数据。根据[文档](https://leancloud.cn/docs/leanstorage_guide-js.html#hash813593086)，Class可以在JavaScript中被创建，但我们并不需要在前端中去创建Class，所以我们在控制台添加好。
+搞定之后，还需要创建一个 Class 来存放结构化数据。根据 [文档](https://leancloud.cn/docs/leanstorage_guide-js.html#hash813593086)，Class 可以在 JavaScript 中被创建，但我们并不需要在前端中去创建 Class，所以我们在控制台添加好。
 
-在控制台中找到数据存储的结构化数据，创建一个新的Class，并把权限设置为无限制，以便可以进行读写。
+在控制台中找到数据存储的结构化数据，创建一个新的 Class，并把权限设置为无限制，以便可以进行读写。
 
 ![创建Class](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-04.png)
 
@@ -349,9 +349,9 @@ AV.init({
 
 ### 4.2 查
 
-首先完成`getList`函数，这是最基本的函数，展示表格、实现搜索都用到它。
+首先完成 `getList` 函数，这是最基本的函数，展示表格、实现搜索都用到它。
 
-构建一个`Av.Query`，无需添加其查询条件，直接寻找，可以获取到所有对象。
+构建一个 `Av.Query`，无需添加其查询条件，直接寻找，可以获取到所有对象。
 
 ```javascript
 const queryAll = new AV.Query('Data');	// Data为Class名
@@ -360,13 +360,13 @@ queryAll.find().then((rows) => {
 });
 ```
 
-在前端log一下`rows`，发现是这个东西：
+在前端 log 一下 `rows`，发现是这个东西：
 
 ![console.log(rows)](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-08.png)
 
-好耶！得到一个数组，这个数组长度为2，正好是我们刚添加的两条数据，里面是2个对象。只是它里面的对象仿佛不是一个我们要的JSON数据。
+好耶！得到一个数组，这个数组长度为 2，正好是我们刚添加的两条数据，里面是 2 个对象。只是它里面的对象仿佛不是一个我们要的 JSON 数据。
 
-原来这个对象是封装好的，取属性值可以通过对象的`get`函数，或是通过`attributes`属性。我们把`attributes`属性放到表格数据里。
+原来这个对象是封装好的，取属性值可以通过对象的 `get` 函数，或是通过 `attributes` 属性。我们把 `attributes` 属性放到表格数据里。
 
 ```javascript
 getList() {
@@ -384,9 +384,9 @@ getList() {
 
 表格中有数据了！
 
-![通过getList，表格拿到了数据](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-09.png)
+![通过 getList，表格拿到了数据](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-09.png)
 
-接下来完成搜索功能，搜索功能实际上也只是调用`getList`，所以`getList`还需要再根据`queryParams`改一下：
+接下来完成搜索功能，搜索功能实际上也只是调用 `getList`，所以 `getList` 还需要再根据 `queryParams` 改一下：
 
 ```javascript
 getList() {
@@ -406,17 +406,17 @@ getList() {
 },
 ```
 
-搜索功能就完成了。`handleQuery`和`resetQuery`两个函数也不需要改动。
+搜索功能就完成了。`handleQuery` 和 `resetQuery` 两个函数也不需要改动。
 
 ![搜索功能](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-10.png)
 
 ### 4.3 增
 
-新增按钮的函数`handleAdd`无需修改，目前即使我们不写任何操作，点击新增按钮，也可以出现这个对话框：
+新增按钮的函数 `handleAdd` 无需修改，目前即使我们不写任何操作，点击新增按钮，也可以出现这个对话框：
 
 ![添加数据对话框](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-11.png)
 
-我们要写的是确定按钮的函数`submitForm`。由于这个对话框新增与修改共用，因此我们在函数里，需要判断一下当前操作是新增还是修改，它们最大的不同是当前的`form`数据的`id`属性是否为`null`。
+我们要写的是确定按钮的函数 `submitForm`。由于这个对话框新增与修改共用，因此我们在函数里，需要判断一下当前操作是新增还是修改，它们最大的不同是当前的 `form` 数据的 `id` 属性是否为 `null`。
 
 ```javascript
 submitForm() {
@@ -436,7 +436,7 @@ submitForm() {
 },
 ```
 
-添加数据的方法是，先新建一个Data的对象，然后通过`set`设定其属性值，再调用`save`存储到云端。
+添加数据的方法是，先新建一个 Data 的对象，然后通过 `set` 设定其属性值，再调用 `save` 存储到云端。
 
 ```javascript
 submitForm() {
@@ -470,11 +470,11 @@ submitForm() {
 
 ![表格中成功新增数据](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-12.png)
 
-![云后端控制台也成功新增数据，并且自动设置id](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-13.png)
+![云后端控制台也成功新增数据，并且自动设置 id](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-13.png)
 
 ### 4.4 删
 
-我们要写函数`handleDelete`，并且注意，删除可以单选删除，可以多选删除，需要删除的参数可能是对象或数组。这是由是否传入参数`row`来决定的，需要注意的是，虽然上面的删除按钮和右侧的删除按钮调用同一个函数，上面的删除按钮没有传入参数`row`，此时会传入一个**点击事件**并赋给`row`。可以通过判断`row.id`的方式，来判断当前点击的是哪个删除按钮；如果通过`row`，那就无法判断了。
+我们要写函数 `handleDelete`，并且注意，删除可以单选删除，可以多选删除，需要删除的参数可能是对象或数组。这是由是否传入参数 `row` 来决定的，需要注意的是，虽然上面的删除按钮和右侧的删除按钮调用同一个函数，上面的删除按钮没有传入参数 `row`，此时会传入一个 **点击事件** 并赋给 `row`。可以通过判断 `row.id` 的方式，来判断当前点击的是哪个删除按钮；如果通过 `row`，那就无法判断了。
 
 ```javascript
 handleDelete(row) {
@@ -499,7 +499,7 @@ handleDelete(row) {
 }
 ```
 
-对于对象，直接调用`destroy`就好；对于数组，可以使用`destroyAll`一次请求中删除。
+对于对象，直接调用 `destroy` 就好；对于数组，可以使用 `destroyAll` 一次请求中删除。
 
 ```javascript
 handleDelete(row) {
@@ -561,7 +561,7 @@ handleDelete(row) {
 
 ### 4.5 改
 
-修改与新增用的是同一个对话框，因此修改时，要先获得修改对象的数据，并赋给`form`。修改对象的传入也有两种方式，一种是当前行`row`，一种是选中数组（长度为1）。
+修改与新增用的是同一个对话框，因此修改时，要先获得修改对象的数据，并赋给 `form`。修改对象的传入也有两种方式，一种是当前行 `row`，一种是选中数组（长度为 1）。
 
 ```javascript
 handleUpdate(row) {
@@ -587,7 +587,7 @@ handleUpdate(row) {
 
 ![修改数据对话框](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20211122/20211122-15.png)
 
-最后再完成`submitForm`函数中修改操作的部分，这部分与新增操作类似。
+最后再完成 `submitForm` 函数中修改操作的部分，这部分与新增操作类似。
 
 ```javascript
 submitForm() {
@@ -640,11 +640,11 @@ submitForm() {
 
 ## 5 总结
 
-云后端可以解决纯前端代码有时候需要用到动态数据时的一些难题，其直接提供JSON数据的存储，并提供增删改查接口，省去前端开发中缺少后端服务器和数据库的问题。对于一些简单的前端程序，比如只用前端写一个排行榜并放到GitHub Pages上，这个排行榜数据极其简单，无必要搭建后端和数据库，但数据需要可以实现动态的读写，这时云后端就比较合适。有时候也可以用在前端开发测试模拟数据上，或是在静态博客里面放一些动态数据（如统计访问量，甚至是开发评论系统）。
+云后端可以解决纯前端代码有时候需要用到动态数据时的一些难题，其直接提供 JSON 数据的存储，并提供增删改查接口，省去前端开发中缺少后端服务器和数据库的问题。对于一些简单的前端程序，比如只用前端写一个排行榜并放到 GitHub Pages 上，这个排行榜数据极其简单，无必要搭建后端和数据库，但数据需要可以实现动态的读写，这时云后端就比较合适。有时候也可以用在前端开发测试模拟数据上，或是在静态博客里面放一些动态数据（如统计访问量，甚至是开发评论系统）。
 
 但其使用范围还是有限，免费版具有用量限制，安全性不高，与数据库的交互还存在一定的不便等。
 
-[腾讯云](https://cloud.tencent.com/)、[阿里云](https://www.aliyun.com/)等也提供更安全稳定的收费版云存储服务，还有[MaxLeap](https://maxleap.cn/s/web/zh_cn/index.html)、[Bomb](https://www.bmob.cn/)等其他云服务提供商，可以根据需要选择。
+[腾讯云](https://cloud.tencent.com/)、[阿里云](https://www.aliyun.com/) 等也提供更安全稳定的收费版云存储服务，还有 [MaxLeap](https://maxleap.cn/s/web/zh_cn/index.html)、[Bomb](https://www.bmob.cn/) 等其他云服务提供商，可以根据需要选择。
 
 这个项目的展示页面：<https://corecabin.cn/CloudBackendExample/>
 
