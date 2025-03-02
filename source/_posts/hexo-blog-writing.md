@@ -66,7 +66,7 @@ $ hexo clean
 $ hexo new [post] "postName"
 ```
 
-根目录会在 `/source/_posts` 下新建文件 `postName.md`，通常采用英文命名`postName`。
+根目录会在 `/source/_posts` 下新建文件 `postName.md`，通常采用英文命名 `postName`。
 
 ### 2.2 新建页面
 
