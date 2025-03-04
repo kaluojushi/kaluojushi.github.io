@@ -4,6 +4,8 @@ date: 2025-03-03 01:06:59
 categories: Bilibili
 tags:
   - 个人项目
+  - 技术
+  - 音乐
   - 苏打绿
   - Bilibili
 comments: true
@@ -43,7 +45,11 @@ comments: true
 
 UVR5 全称 Ultimate Vocal Remover，是一个用大模型提取伴奏的工具。
 
-之前的文章提到过，我最开始在 B 站上传视频，就是发布苏打绿歌曲的伴奏。UVR5 就是我用来提取伴奏的工具。这个工具对音乐的处理极好，比网上或者 KTV 那种消音伴奏、单声道伴奏效果好多了。
+{% post_link my-2023-and-2024-annual-summary#3-2-苏打绿伴奏 '之前的文章'%} 提到过，我最开始在 B 站上传视频，就是发布苏打绿歌曲的伴奏。UVR5 就是我用来提取伴奏的工具。这个工具对音乐的处理极好，比网上或者 KTV 那种消音伴奏、单声道伴奏效果好多了。
+
+UVR5 使用各种大模型来处理音乐，因此需要极大的空间（好像软件安装包就 1 个 G，更别说软件本体了）和超强的性能（支持 GPU 加速）。我当前使用的是 M4 Pro 芯片的 Macbook Pro，跑完一首歌大概只需要 10 秒钟，而我当时研究生期间，用办公室电脑的 CPU 跑时，一首歌需要 1-2 分钟，而且 CPU 占用率被拉到 100% 根本没法做别的事情。
+
+<img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20250303-UVR.png" alt="UVR5 页面" style="zoom:35%;" />
 
 我目前使用的模型主要是两个。需要带和声的伴奏，我使用的模型是 **VR Architecture** 的 **6_HP-Karaoke-UVR** 模型。需要去除所有人声只留乐器的伴奏，我使用的模型是 **MDX-Net** 的 **UVR-MDX-NET Inst Main** 模型。
 
@@ -52,18 +58,31 @@ UVR5 全称 Ultimate Vocal Remover，是一个用大模型提取伴奏的工具�
 - 毕竟是从混音音轨提取，所以可能会有一些瑕疵，比如会带上喘息、气口，或是乐器不够突出等
 - 对二胡等中国传统乐器的支持不太好，模型会认为是人声
 - 对男女对唱或多人合唱的处理效果不太好，这种时候我会建议观众使用器乐伴奏
+- 大模型的下载需要科学上网
 
 ### 2.2 [Adobe Audition](https://www.adobe.com/products/audition.html)
+
+Audition（简称 AU）是 Adobe 家专业的音频处理软件。我从高中就开始使用 AU 剪辑音频，虽然到现在开始，我还只掌握了点皮毛。
+
+我使用 AU 主要的场景是用于录制「{% post_link my-2023-and-2024-annual-summary#3-3-苏打音趴 '苏打音趴'%}」节目，以及节目后的剪辑。主要涉及到我和另一位主持人的录音，需要相互剪辑为一个音轨，以及加上节目 BGM。其次，我有时候还会使用 AU 剪辑单个音乐文件。
+
+我目前使用的 AU 也并不是破解版，而是浙大的正版。得益于我毕业前给我浙 VPN 充值数千块钱，我目前依然可以享受到在校生福利，足够我使用到 60 岁。~~也许到我 60 那年发现自己充少了，因为还没退休~~
 
 ## 3 图片获取
 
 ### 3.1 [Facebook](https://www.facebook.com/)
+
+Facebook 上主要用于获取苏打绿的一些动态图片。不从微博找主要是因为一是微博图片有水印，二是苏打绿微博开了半年可见，对于我这种需要经常考古的粉丝来说简直是灾难。
+
+Facebook 的图片可以直接右键保存，没啥好说的。
 
 ### 3.2 [Instagram](https://www.instagram.com/)
 
 ### 3.3 [小红书](https://www.xiaohongshu.com/)
 
 ### 3.4 [iSearch 4.5](https://i.oppsu.cn/)
+
+网址为 <https://i.oppsu.cn/>。
 
 ## 4 图片处理
 
