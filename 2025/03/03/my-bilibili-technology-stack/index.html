@@ -27,13 +27,17 @@
 <meta property="og:site_name" content="卡洛的核心舱">
 <meta property="og:description" content="从 2022 年 11 月我上传第 1 个视频开始，我成为 B 站 up 主已经有两年多的时间了。期间也拥有了两千粉丝，并收获了二十多万的播放量。 本文整理了我作为 B 站 up 主所使用的一些「技术栈」，也就是各种软件、网站、工具等，供大家参考学习。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20250303-UVR.png">
 <meta property="article:published_time" content="2025-03-02T17:06:59.000Z">
-<meta property="article:modified_time" content="2025-03-03T18:47:43.946Z">
+<meta property="article:modified_time" content="2025-03-04T17:37:59.653Z">
 <meta property="article:author" content="卡洛">
+<meta property="article:tag" content="技术">
 <meta property="article:tag" content="个人项目">
 <meta property="article:tag" content="苏打绿">
 <meta property="article:tag" content="Bilibili">
+<meta property="article:tag" content="音乐">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20250303-UVR.png">
 
 <link rel="canonical" href="https://corecabin.cn/2025/03/03/my-bilibili-technology-stack/">
 
@@ -235,7 +239,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-04 02:47:43" itemprop="dateModified" datetime="2025-03-04T02:47:43+08:00">2025-03-04</time>
+                <time title="修改时间：2025-03-05 01:37:59" itemprop="dateModified" datetime="2025-03-05T01:37:59+08:00">2025-03-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,7 +264,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -291,15 +295,24 @@
 <p>由于我现在使用 Macbook 作为日常生产力，所以我使用的是 <a target="_blank" rel="noopener" href="https://um-react.netlify.app/">音乐解锁 React 版</a> 进行音乐解锁。其中，QQ 音乐的版本应降级到 8.8.0，并在网站上传密钥，跟着网站提示操作就可以了。</p>
 <h2 id="2-音频处理"><a href="#2-音频处理" class="headerlink" title="2 音频处理"></a>2 音频处理</h2><h3 id="2-1-UVR5"><a href="#2-1-UVR5" class="headerlink" title="2.1 UVR5"></a>2.1 <a target="_blank" rel="noopener" href="https://github.com/Anjok07/ultimatevocalremovergui">UVR5</a></h3><p>仓库为 <a target="_blank" rel="noopener" href="https://github.com/Anjok07/ultimatevocalremovergui">https://github.com/Anjok07/ultimatevocalremovergui</a>。</p>
 <p>UVR5 全称 Ultimate Vocal Remover，是一个用大模型提取伴奏的工具。</p>
-<p>之前的文章提到过，我最开始在 B 站上传视频，就是发布苏打绿歌曲的伴奏。UVR5 就是我用来提取伴奏的工具。这个工具对音乐的处理极好，比网上或者 KTV 那种消音伴奏、单声道伴奏效果好多了。</p>
+<p><a href="/2025/01/18/my-2023-and-2024-annual-summary/#3-2-%E8%8B%8F%E6%89%93%E7%BB%BF%E4%BC%B4%E5%A5%8F" title="我的 2023 和 2024 年度总结">之前的文章</a> 提到过，我最开始在 B 站上传视频，就是发布苏打绿歌曲的伴奏。UVR5 就是我用来提取伴奏的工具。这个工具对音乐的处理极好，比网上或者 KTV 那种消音伴奏、单声道伴奏效果好多了。</p>
+<p>UVR5 使用各种大模型来处理音乐，因此需要极大的空间（好像软件安装包就 1 个 G，更别说软件本体了）和超强的性能（支持 GPU 加速）。我当前使用的是 M4 Pro 芯片的 Macbook Pro，跑完一首歌大概只需要 10 秒钟，而我当时研究生期间，用办公室电脑的 CPU 跑时，一首歌需要 1-2 分钟，而且 CPU 占用率被拉到 100% 根本没法做别的事情。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20250303-UVR.png" alt="UVR5 页面" style="zoom:35%;" /></p>
 <p>我目前使用的模型主要是两个。需要带和声的伴奏，我使用的模型是 <strong>VR Architecture</strong> 的 <strong>6_HP-Karaoke-UVR</strong> 模型。需要去除所有人声只留乐器的伴奏，我使用的模型是 <strong>MDX-Net</strong> 的 <strong>UVR-MDX-NET Inst Main</strong> 模型。</p>
 <p>目前在我使用的过程中，UVR5 也存在一些缺点，如下：</p>
 <ul>
 <li>毕竟是从混音音轨提取，所以可能会有一些瑕疵，比如会带上喘息、气口，或是乐器不够突出等</li>
 <li>对二胡等中国传统乐器的支持不太好，模型会认为是人声</li>
 <li>对男女对唱或多人合唱的处理效果不太好，这种时候我会建议观众使用器乐伴奏</li>
+<li>大模型的下载需要科学上网</li>
 </ul>
-<h3 id="2-2-Adobe-Audition"><a href="#2-2-Adobe-Audition" class="headerlink" title="2.2 Adobe Audition"></a>2.2 <a target="_blank" rel="noopener" href="https://www.adobe.com/products/audition.html">Adobe Audition</a></h3><h2 id="3-图片获取"><a href="#3-图片获取" class="headerlink" title="3 图片获取"></a>3 图片获取</h2><h3 id="3-1-Facebook"><a href="#3-1-Facebook" class="headerlink" title="3.1 Facebook"></a>3.1 <a target="_blank" rel="noopener" href="https://www.facebook.com/">Facebook</a></h3><h3 id="3-2-Instagram"><a href="#3-2-Instagram" class="headerlink" title="3.2 Instagram"></a>3.2 <a target="_blank" rel="noopener" href="https://www.instagram.com/">Instagram</a></h3><h3 id="3-3-小红书"><a href="#3-3-小红书" class="headerlink" title="3.3 小红书"></a>3.3 <a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/">小红书</a></h3><h3 id="3-4-iSearch-4-5"><a href="#3-4-iSearch-4-5" class="headerlink" title="3.4 iSearch 4.5"></a>3.4 <a target="_blank" rel="noopener" href="https://i.oppsu.cn/">iSearch 4.5</a></h3><h2 id="4-图片处理"><a href="#4-图片处理" class="headerlink" title="4 图片处理"></a>4 图片处理</h2><h3 id="4-1-美图秀秀"><a href="#4-1-美图秀秀" class="headerlink" title="4.1 美图秀秀"></a>4.1 <a target="_blank" rel="noopener" href="https://www.meitu.com/">美图秀秀</a></h3><h2 id="5-视频获取"><a href="#5-视频获取" class="headerlink" title="5 视频获取"></a>5 视频获取</h2><h3 id="5-1-Youtube"><a href="#5-1-Youtube" class="headerlink" title="5.1 Youtube"></a>5.1 <a target="_blank" rel="noopener" href="https://www.youtube.com/">Youtube</a></h3><h3 id="5-2-Bilibili"><a href="#5-2-Bilibili" class="headerlink" title="5.2 Bilibili"></a>5.2 <a target="_blank" rel="noopener" href="https://www.bilibili.com/">Bilibili</a></h3><h2 id="6-视频处理"><a href="#6-视频处理" class="headerlink" title="6 视频处理"></a>6 视频处理</h2><h3 id="6-1-剪映专业版"><a href="#6-1-剪映专业版" class="headerlink" title="6.1 剪映专业版"></a>6.1 <a target="_blank" rel="noopener" href="https://www.capcut.cn/">剪映专业版</a></h3>
+<h3 id="2-2-Adobe-Audition"><a href="#2-2-Adobe-Audition" class="headerlink" title="2.2 Adobe Audition"></a>2.2 <a target="_blank" rel="noopener" href="https://www.adobe.com/products/audition.html">Adobe Audition</a></h3><p>Audition（简称 AU）是 Adobe 家专业的音频处理软件。我从高中就开始使用 AU 剪辑音频，虽然到现在开始，我还只掌握了点皮毛。</p>
+<p>我使用 AU 主要的场景是用于录制「<a href="/2025/01/18/my-2023-and-2024-annual-summary/#3-3-%E8%8B%8F%E6%89%93%E9%9F%B3%E8%B6%B4" title="我的 2023 和 2024 年度总结">苏打音趴</a>」节目，以及节目后的剪辑。主要涉及到我和另一位主持人的录音，需要相互剪辑为一个音轨，以及加上节目 BGM。其次，我有时候还会使用 AU 剪辑单个音乐文件。</p>
+<p>我目前使用的 AU 也并不是破解版，而是浙大的正版。得益于我毕业前给我浙 VPN 充值数千块钱，我目前依然可以享受到在校生福利，足够我使用到 60 岁。<del>也许到我 60 那年发现自己充少了，因为还没退休</del></p>
+<h2 id="3-图片获取"><a href="#3-图片获取" class="headerlink" title="3 图片获取"></a>3 图片获取</h2><h3 id="3-1-Facebook"><a href="#3-1-Facebook" class="headerlink" title="3.1 Facebook"></a>3.1 <a target="_blank" rel="noopener" href="https://www.facebook.com/">Facebook</a></h3><p>Facebook 上主要用于获取苏打绿的一些动态图片。不从微博找主要是因为一是微博图片有水印，二是苏打绿微博开了半年可见，对于我这种需要经常考古的粉丝来说简直是灾难。</p>
+<p>Facebook 的图片可以直接右键保存，没啥好说的。</p>
+<h3 id="3-2-Instagram"><a href="#3-2-Instagram" class="headerlink" title="3.2 Instagram"></a>3.2 <a target="_blank" rel="noopener" href="https://www.instagram.com/">Instagram</a></h3><h3 id="3-3-小红书"><a href="#3-3-小红书" class="headerlink" title="3.3 小红书"></a>3.3 <a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/">小红书</a></h3><h3 id="3-4-iSearch-4-5"><a href="#3-4-iSearch-4-5" class="headerlink" title="3.4 iSearch 4.5"></a>3.4 <a target="_blank" rel="noopener" href="https://i.oppsu.cn/">iSearch 4.5</a></h3><p>网址为 <a target="_blank" rel="noopener" href="https://i.oppsu.cn/">https://i.oppsu.cn/</a>。</p>
+<h2 id="4-图片处理"><a href="#4-图片处理" class="headerlink" title="4 图片处理"></a>4 图片处理</h2><h3 id="4-1-美图秀秀"><a href="#4-1-美图秀秀" class="headerlink" title="4.1 美图秀秀"></a>4.1 <a target="_blank" rel="noopener" href="https://www.meitu.com/">美图秀秀</a></h3><h2 id="5-视频获取"><a href="#5-视频获取" class="headerlink" title="5 视频获取"></a>5 视频获取</h2><h3 id="5-1-Youtube"><a href="#5-1-Youtube" class="headerlink" title="5.1 Youtube"></a>5.1 <a target="_blank" rel="noopener" href="https://www.youtube.com/">Youtube</a></h3><h3 id="5-2-Bilibili"><a href="#5-2-Bilibili" class="headerlink" title="5.2 Bilibili"></a>5.2 <a target="_blank" rel="noopener" href="https://www.bilibili.com/">Bilibili</a></h3><h2 id="6-视频处理"><a href="#6-视频处理" class="headerlink" title="6 视频处理"></a>6 视频处理</h2><h3 id="6-1-剪映专业版"><a href="#6-1-剪映专业版" class="headerlink" title="6.1 剪映专业版"></a>6.1 <a target="_blank" rel="noopener" href="https://www.capcut.cn/">剪映专业版</a></h3>
     </div>
 
     
@@ -309,9 +322,11 @@
       <footer class="post-footer">
           
           <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
               <a href="/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" rel="tag"><i class="fa fa-tag"></i> 个人项目</a>
               <a href="/tags/%E8%8B%8F%E6%89%93%E7%BB%BF/" rel="tag"><i class="fa fa-tag"></i> 苏打绿</a>
               <a href="/tags/Bilibili/" rel="tag"><i class="fa fa-tag"></i> Bilibili</a>
+              <a href="/tags/%E9%9F%B3%E4%B9%90/" rel="tag"><i class="fa fa-tag"></i> 音乐</a>
           </div>
 
         
@@ -412,7 +427,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">54</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
