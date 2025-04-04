@@ -98,20 +98,60 @@ Instagram 我会保存一些苏打绿团员的动态图片，但由于 Instagram
 
 ![iSearch 4.5 页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20250303-iSearch.png)
 
-## 4 图片处理
+## 4 图片素材
 
-### 4.1 [美图秀秀](https://www.meitu.com/)
+### 4.1 [Grabient](https://www.grabient.com/)
 
-美图秀秀的电脑版和手机版是我处理图片最常用的软件。我从小学就开始使用美图秀秀处理图片，相比 PhotoShop，我觉得它更简单易用，而且在近年也更新了很多 AI 功能，十分好用。
+网址为 <https://www.grabient.com/>。
 
-此外，美图秀秀我也充值了会员，对于一些会员专属功能，还是有用的，而且电脑手机 VIP 互通，比较良心。
+这是一个渐变色生成网站，可以生成各种渐变色，包括线性、径向、径向渐变等。
 
-## 5 视频获取
+<span style="background:linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:saturate(200%)">拿到渐变色后，就可以设置到各种图片或样式当中了（就像这段文字），也可以一键复制 CSS。</span>
 
-### 5.1 [Youtube](https://www.youtube.com/)
+### 4.2 [Coolors](https://coolors.co/)
 
-### 5.2 [Bilibili](https://www.bilibili.com/)
+网址为 <https://coolors.co/>。
 
-## 6 视频处理
+Coolors 是一个在线配色工具，可以生成各种配色方案，当需要使用多种颜色时，使用这个网站就可以快速生成。
 
-### 6.1 [剪映专业版](https://www.capcut.cn/)
+### 4.3 [Texturelabs](https://texturelabs.org/)
+
+网址为 <https://texturelabs.org/>。
+
+Texturelabs 是一个纹理类素材库，包含丰富的肌理种类，比如纸张、金属、墙面等。需要使用图片作为底纹时，就可以使用这个网站。
+
+## 5 图片处理
+
+### 5.1 [美图秀秀](https://www.meitu.com/)
+
+美图秀秀的电脑版和手机版是我处理图片最常用的软件。我从小学就开始使用美图秀秀处理图片，相比 PhotoShop，我觉得它更简单易用。
+
+此外，美图秀秀我也充值了会员，对于一些会员专属功能，还是有用的，而且电脑手机 VIP 互通，比较良心。而且在近年也更新了很多 AI 功能，十分好用，我最常使用的有 AI 消除、AI 抠图等功能。
+
+### 5.2 视频转 GIF
+
+有时候我需要将视频转为 GIF 图，这时候我会使用 iOS 自带的快捷指令 APP，使用内置的指令即可。不过我用的最多的还是【视频转 GIF】这个小程序，相比快捷指令，这个小程序可以实现调速、增加字幕等功能，同时也基本是免费的（要看一下广告）。
+
+## 6 视频获取
+
+### 6.1 [Youtube](https://www.youtube.com/)
+
+Youtube 主要是用来下载苏打绿的 MV 视频。Youtube 下载视频的方式很多，Google 一搜一大把，这里有一大堆丰富的 [Youtube 视频下载网站](https://github.com/Alvin9999/new-pac/wiki/YouTube%E4%B8%8B%E8%BD%BD1080%E6%95%99%E7%A8%8B)，可以参考。
+
+但是 Youtube 下载视频很难下到完整的 1080P 或 4k 分辨率的视频，目前还是没有什么更好的方法。
+
+### 6.2 [Bilibili](https://www.bilibili.com/)
+
+所以有时候我也会在 Bilibili 上找 MV 下载。B 站下视频方式也更多，我自己使用的是 [ACG 助手（原名哔哩哔哩助手）](https://acghelper.com/) 这个 Chrome 扩展。
+
+## 7 视频处理
+
+### 7.1 [剪映专业版](https://www.capcut.cn/)
+
+对于剪视频来说，我使用剪映专业版。
+
+最开始我使用的是 B 站官方出的 [必剪](https://bcut.bilibili.cn/)，虽然它与 B 站关联密切，但其实还是不如老牌视频剪辑软件——剪映好用。
+
+剪映我也充值了会员（~~果然一直氪金一直爽~~），不过用到的会员功能并不多，基础的剪辑功能已经够用了。
+
+![剪映页面](https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20250303-capcut.png)
