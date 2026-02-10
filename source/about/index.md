@@ -12,7 +12,7 @@ layout: page
 
 ## 1 我是
 
-华为终端员工，26 岁，岗位是通用软件开发工程师，目前在做 OpenHarmony ArkUI 基础框架开发工作，常用 ID 卡洛/Carlo，代码爱好者。
+华为终端员工，27 岁，岗位是通用软件开发工程师，目前在做 OpenHarmony ArkUI 基础框架开发工作，常用 ID 卡洛/Carlo，代码爱好者。
 
 > 为啥叫卡洛？因为我不喜欢吃胡萝卜。~~胡萝卜=carrot=卡洛=Carlo~~
 
@@ -93,6 +93,7 @@ layout: page
 
 - [GitHub](https://github.com/kaluojushi)
 - [Gitee](https://gitee.com/kaluojushi)
+- [GitCode](https://gitcode.com/kaluojushi1)
 - [微信公众号](/about/weixin_platform)
 - E-mail：[carlo0901@163.com](mailto:carlo0901@163.com)
 - 留言：可以在下方评论区留言
