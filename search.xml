@@ -2565,8 +2565,55 @@ x = {-b \pm \sqrt{b^2-4ac} \over 2a}.</script><p>更多公式相关见《<a href
 <p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20260211-3.png" alt="截止即日我的 B 站视频数据"></p>
 <p>和代码项目不同的是，伴奏视频的制作比较套路化，我可以在新歌发表后马上就做好发出，所以基本上不会鸽。我还发了一期答题视频，可惜数据一般，其实这类视频比伴奏视频耗精力更多。</p>
 <p>2025 年没有更新苏打音趴，苏打音趴节目还是之前的三期。虽然我和罗老师两人都多次提出要重启录制，但确实没人动手，还是那个原因——时间精力不够。这个就不强求自己了，当然我自己也很期待新节目能做一下。</p>
-<h2 id="3-AI"><a href="#3-AI" class="headerlink" title="3 AI"></a>3 AI</h2><h2 id="4-一些兴趣"><a href="#4-一些兴趣" class="headerlink" title="4 一些兴趣"></a>4 一些兴趣</h2><h3 id="4-1-音乐与演唱会-🎶"><a href="#4-1-音乐与演唱会-🎶" class="headerlink" title="4.1 音乐与演唱会 🎶"></a>4.1 音乐与演唱会 🎶</h3><h3 id="4-2-影视剧-🎬"><a href="#4-2-影视剧-🎬" class="headerlink" title="4.2 影视剧 🎬"></a>4.2 影视剧 🎬</h3><h3 id="4-3-旅行-🧳"><a href="#4-3-旅行-🧳" class="headerlink" title="4.3 旅行 🧳"></a>4.3 旅行 🧳</h3><h2 id="5-一些生活细节"><a href="#5-一些生活细节" class="headerlink" title="5 一些生活细节"></a>5 一些生活细节</h2><h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6 总结"></a>6 总结</h2><p>Tomorrow will be fine.</p>
-<h2 id="7-七个问题"><a href="#7-七个问题" class="headerlink" title="7 七个问题"></a>7 七个问题</h2><blockquote id="fn_1">
+<h2 id="3-AI"><a href="#3-AI" class="headerlink" title="3 AI"></a>3 AI</h2><h3 id="3-1-Claude-Code-OpenCode"><a href="#3-1-Claude-Code-OpenCode" class="headerlink" title="3.1 Claude Code + OpenCode"></a>3.1 Claude Code + OpenCode</h3><p>今年初，公司开始让我们使用 AI 辅助写代码。这种 AI 辅助不是我之前使用的 Copilot 这种 AI 续写代码，也不是 DeepSeek 这种聊天式 AI（不过这两种我在工作中已经经常使用了），而是 Agent 类 AI 辅助。这种 Agent 不仅结合了以上两者的特点，还可以阅读整个代码仓，在我的监督下以任务式驱动的方式去完成整个代码方案的设计和编辑，并且有极高的准确率，这对我们工作确实有很大的帮助。</p>
+<p>公司开始使用的是 <a href="https://www.anthropic.com/">Claude Code</a>，后来由于开源原因，改成了 <a href="https://opencode.ai/">OpenCode</a>。<a href="https://gitcode.com/openharmony/arkui_ace_engine/pull/79885">这个 PR</a> 就是我用 Claude Code 写的测试代码，可以看到它精准理解了我函数的作用，并迅速生成四百多行的不同角度的测试代码，虽然我做了一些修改才能编译通过，但是编译后测试成功率就达到了 100%，这大大提升了我们的工作效率。或许这就是公司的目的吧。</p>
+<blockquote>
+<p>之前有人问我，现在 AI 这么发达，写的代码水平也如此高，公司要求大家用 AI 写代码，会不会威胁我们程序员的工作。我觉得暂时不会，但是需要警醒，有了 AI 辅助后，原来三个人干的活一个人能干完，当公司发现人力成本大于 AI 的费用时，我们就要担心失业风险了。</p>
+</blockquote>
+<p>尝到 Agent 的甜头后，我也很快自己购买了 Claude Code 的套餐，希望在这一年能在个人项目上做出突破。如上所见，AI 可以帮助我把某个项目达到无穷的高度，即使是我的知识盲区，我相信在 AI 的辅助下，我也可以做出一些原来做不出来的东西。</p>
+<h3 id="3-2-ChatGPT"><a href="#3-2-ChatGPT" class="headerlink" title="3.2 ChatGPT"></a>3.2 ChatGPT</h3><p>早在 2023 年年初，ChatGPT 刚火起来时，我就用 ChatGPT 辅助写论文了。这几年来，虽然 ChatGPT 用的次数比较少了，反而是国产 AI 比较多（<del>主要是因为翻墙麻烦</del>），但 2025 年，GPT-4o 支持图像生成的时候，我还是很快充值 ChatGPT Plus 玩了一下。</p>
+<blockquote>
+<p>你看，我当前在各平台使用的 <a href="/img/avatar.jpg">avatar</a> 就是当时使用 ChatGPT 帮我生成的。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20260211-4.png" style="zoom: 30%;" /></p>
+<p>后来使用 ChatGPT 尝试生成的图片有这些：</p>
+<ul>
+<li>卡通风格的 avatar，例如我现在的，在有参考图的情况下效果还可以，纯口述就不太行</li>
+<li>照片转换风格，效果也还可以，因为有参考图，但是对文字处理不好</li>
+<li>做物料素材图，效果一般，主要是文字处理不好，风格转换也不稳定</li>
+<li>做宠物素材图，这个效果不错，猫狗还是比较容易被 AI 模拟的</li>
+<li>做 chibi sticker，这也是当时最火的玩法，我做了无数个 sticker，这个效果是很好了</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/kaluojushi/Corecabin-Picbed/img/20250303/20260211-5.jpeg" style="zoom: 30%;" /></p>
+<p>后来热度过去后，就没怎么玩了。现在据说 GPT-4o 已经退役了，真是令人唏嘘。不过现在国产 AI 在图像生成方面也后起强劲，我也用过豆包生成一些图片，蛮有意思的。</p>
+<p>对于我的个人项目来说，除了代码，美工也是我比较头疼的地方。目前我还找不到一个好用的 AI 辅助美工的方法，即使是上面这些 AI 图像生成也不太行。相信以后可能会有更好的方法吧。</p>
+<h2 id="4-一些兴趣"><a href="#4-一些兴趣" class="headerlink" title="4 一些兴趣"></a>4 一些兴趣</h2><p>上次年度总结聊了聊找工作和科研，这两点在这一年都没啥聊的。那就讲讲这一年生活中的方方面面吧，总结一些有兴趣的东西。</p>
+<h3 id="4-1-音乐与演唱会-🎶"><a href="#4-1-音乐与演唱会-🎶" class="headerlink" title="4.1 音乐与演唱会 🎶"></a>4.1 音乐与演唱会 🎶</h3><p>2024 年在公众号上总结了 <a href="https://mp.weixin.qq.com/s/jchDwfVdMzMa3MwoencS4g">年度的十首歌</a>。2025 年来不及写了，但我已经做好了列表，这里简单讲一下吧。</p>
+<p><strong>第十名：孙燕姿〈日落〉。</strong> 我真的很想看孙燕姿演唱会啊！</p>
+<p><strong>第九名：陈粒〈自然环境〉。</strong> 没看成《洄游》巡演，看到《一粒》也算圆了心愿。</p>
+<p><strong>第八名：苏打绿〈白日梦绳索〉。</strong> 新加坡演唱会的完美回忆，今年在公众号上发表的 <a href="https://mp.weixin.qq.com/s/cNBehZ1KBxx9fKR1K966DQ">生活类年度总结</a> 也是以这首歌为主题。</p>
+<p><strong>第七名：苏打绿〈黎明前最暗时候（Live）〉。</strong> 作为一首 2024 年发表的歌，2025 年在《二十站一刻》的现场版反而更触动我。不过 2024 年的那个录音室版本使用的是现场 Vocal，这么说触动我的反而是现场编曲？</p>
+<p><strong>第六名：龚钰祺、Bernd Ruf、GermanPops Orchestra〈第四乐章 有精神的快板-庄严的快板〉。</strong> </p>
+<p><strong>第五名：安溥 Anpu〈Transatlanticism〉。</strong></p>
+<p><strong>第四名：苏打绿〈你在烦恼什么（二十年一刻 Live）〉。</strong></p>
+<p><strong>第三名：苏打绿〈小星群（故事未了版）〉。</strong></p>
+<p><strong>第二名：张悬〈蓝天白云〉。</strong></p>
+<p><strong>第一名：苏打绿〈应许（Live）〉。</strong></p>
+<p><strong>第零名：苏打绿〈近未来〉。</strong></p>
+<p>提名奖（不分先后）：</p>
+<ul>
+<li>苏打绿〈Let’s Dream About Love（feat. GermanPops Orchestra）〉</li>
+<li>徐佳莹〈灰色〉</li>
+<li>吴青峰、路嘉欣〈蔓延（Live）〉</li>
+<li>苏打绿〈To You（Live）〉</li>
+<li>齐豫、吴青峰《一念之间》</li>
+<li>苏打绿〈只有可以（Live）〉</li>
+<li>安溥 Anpu〈秦皇岛（Live）〉</li>
+<li>龚钰祺〈Pet PlayGround〉</li>
+<li>……</li>
+</ul>
+<h3 id="4-2-影视剧-🎬"><a href="#4-2-影视剧-🎬" class="headerlink" title="4.2 影视剧 🎬"></a>4.2 影视剧 🎬</h3><h3 id="4-3-旅行-🧳"><a href="#4-3-旅行-🧳" class="headerlink" title="4.3 旅行 🧳"></a>4.3 旅行 🧳</h3><h2 id="5-一些生活细节"><a href="#5-一些生活细节" class="headerlink" title="5 一些生活细节"></a>5 一些生活细节</h2><h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6 总结"></a>6 总结</h2><p>Tomorrow will be fine.</p>
+<blockquote id="fn_1">
 <sup>1</sup>. 现网单：在已经发布的商用版本中发现的问题，这时候可能需要紧急修复并带入最新版本。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
 <blockquote id="fn_2">
@@ -2588,6 +2635,10 @@ x = {-b \pm \sqrt{b^2-4ac} \over 2a}.</script><p>更多公式相关见《<a href
         <tag>苏打绿</tag>
         <tag>2026</tag>
         <tag>ArkUI</tag>
+        <tag>音乐</tag>
+        <tag>AI</tag>
+        <tag>影视剧</tag>
+        <tag>软件</tag>
       </tags>
   </entry>
   <entry>
