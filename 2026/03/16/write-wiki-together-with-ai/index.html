@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"corecabin.cn","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="之前说今年要多做个人项目，今年的第一个个人项目还是偏向于给我自己用的项目，就是做了个个人知识库。神奇的是，知识库内容的书写是我和 AI 一起完成的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="和 AI 一起写知识库">
+<meta property="og:url" content="https://corecabin.cn/2026/03/16/write-wiki-together-with-ai/index.html">
+<meta property="og:site_name" content="卡洛的核心舱">
+<meta property="og:description" content="之前说今年要多做个人项目，今年的第一个个人项目还是偏向于给我自己用的项目，就是做了个个人知识库。神奇的是，知识库内容的书写是我和 AI 一起完成的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-15T16:43:47.000Z">
+<meta property="article:modified_time" content="2026-03-15T19:00:58.416Z">
+<meta property="article:author" content="卡洛">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="个人项目">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="核心舱">
+<meta property="article:tag" content="知识库">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://corecabin.cn/2026/03/16/write-wiki-together-with-ai/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>和 AI 一起写知识库 | 卡洛的核心舱</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">卡洛的核心舱</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Tomorrow will be fine.</p>
+      <a>
+        <img class="custom-logo-image" src="/img/custom-logo.png" alt="卡洛的核心舱">
+      </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-fw fa-link"></i>友链</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://corecabin.cn/2026/03/16/write-wiki-together-with-ai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.jpg">
+      <meta itemprop="name" content="卡洛">
+      <meta itemprop="description" content="华为终端 | ArkUI 开发 | 代码爱好者">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卡洛的核心舱">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          和 AI 一起写知识库
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2026-03-16 00:43:47 / 修改时间：03:00:58" itemprop="dateCreated datePublished" datetime="2026-03-16T00:43:47+08:00">2026-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>之前说今年要多做个人项目，今年的第一个个人项目还是偏向于给我自己用的项目，就是做了个个人知识库。神奇的是，知识库内容的书写是我和 AI 一起完成的。</p>
+<span id="more"></span>
+<h2 id="1-Corecabin-Wiki"><a href="#1-Corecabin-Wiki" class="headerlink" title="1 Corecabin Wiki"></a>1 Corecabin Wiki</h2><p><a href="/2026/02/11/my-2025-annual-summary/" title="我的 2025 年度总结">2025 的年度总结</a> 里说，今年要做更多个人项目，也要掌握一些新的技术，于是我迫切地需要做一个个人知识库，来记录我的一些技术积累和学习笔记，刚好这就是我今年的第一个个人项目了。</p>
+<p>知识库叫 <a target="_blank" rel="noopener" href="https://wiki.corecabin.cn/"><strong>Corecabin Wiki</strong></a>，网址是 <a target="_blank" rel="noopener" href="https://wiki.corecabin.cn">wiki.corecabin.cn</a>。</p>
+<p>首先在技术选型上，我首先是参考了本科同学 <a target="_blank" rel="noopener" href="https://leiwei.space/wiki/">哈哈哥的个人知识库</a>，他使用的是框架是 <a target="_blank" rel="noopener" href="https://tidgi.fun/">TiddlyWiki</a>。不过说实话这种页面模式我不太喜欢，这种标签式的卡片一个个蹦出来，一下子就迷失方向了（<del>现在我也没看懂哈哈哥的 wiki 是怎么写的</del>）。后来还是使用了之前做 <a href="https://corecabin.cn/carlo-tools/" target="_blank">Carlo Tools</a> 时用过的 <a target="_blank" rel="noopener" href="https://docsify.js.org/#/zh-cn/"><strong>docsify</strong></a>。这种目录树的形式也比较直观，好组织内容。</p>
+<h2 id="2-静态页面部署"><a href="#2-静态页面部署" class="headerlink" title="2 静态页面部署"></a>2 静态页面部署</h2><p>由于 docsify 是个轻量级文档生成器，所写的 Markdown 文件不需要构建静态 HTML 文件，而是在运行时自动转换，所以可以直接仍在 GitHub Pages 上，也不需要新建分支，Carlo Tools 就是这么干的。而且在不配置自定义域名的情况下，Carlo Tools 的访问地址就是 <code>kaluojushi.github.io/carlo-tools/</code>（因为 <code>kaluojushi.github.io</code> 被我映射成了核心舱地址 <code>corecabin.cn</code>，所以 Carlo Tools 实际上的访问地址是 <code>corecabin.cn/carlo-tools/</code>）。</p>
+<p>但上次说到我想试试 <a target="_blank" rel="noopener" href="https://vercel.com/"><strong>Vercel</strong></a> 的静态页面部署，于是打算把 Corecabin Wiki 部署在 Vercel 上。Vercel 的部署方式和 GitHub 一样简单，选择仓库、设置构建命令（docsify 不需要构建，所以直接留空）和输出目录（docsify 的输出目录是 <code>./docs</code>），就可以完成部署，然后就可以用 <a target="_blank" rel="noopener" href="https://corecabin-wiki.vercel.app">corecabin-wiki.vercel.app</a> 去访问了。</p>
+<p>考虑到 Vercel 的自定义域名配置超方便，我就给 Corecabin Wiki 的配置了核心舱的二级域名 <code>wiki.corecabin.cn</code>。Vercel 配置的自定义域名在国内访问似乎比 Github Pages 更快一些，不知道是什么原因，可能是 GitHub 太容易被墙了？以后如果做那种面向大众的项目，可能会更倾向于用 Vercel 来部署了。</p>
+<blockquote>
+<p>比如我很快就把我做的 <a target="_blank" rel="noopener" href="https://github.com/kaluojushi/20yike-2024-annual-report">苏打绿 2024 二十年一刻观演报告</a> 重新部署在 Vercel 上了，并配置了新域名 <a target="_blank" rel="noopener" href="https://2024.sodagreen.me">2024.sodagreen.me</a>。效果好得不得了。</p>
+</blockquote>
+<p>docsify 其实还支持使用 <a target="_blank" rel="noopener" href="https://vercel.com/docs/cli">Vercel CLI</a> 来部署，直接在本地运行 <code>vercel</code> 命令就行，这个还没试过，以后可以尝试一下。</p>
+<h2 id="3-AI-辅助完成-wiki"><a href="#3-AI-辅助完成-wiki" class="headerlink" title="3 AI 辅助完成 wiki"></a>3 AI 辅助完成 wiki</h2><p>上次说过今年的个人项目可能会更多借助 AI 来辅助完成，没想到先在个人知识库用上了。</p>
+<p>一开始我就想将 Vercel 项目配置自定义域名的这个步骤写到 wiki 里，但我发现我写了个简单的步骤后，就不知道怎么扩充了。于是我让 <a target="_blank" rel="noopener" href="https://opencode.ai/">OpenCode</a> 帮我扩展文档，结果它直接写成了一篇超详细的文档（<del>简直是个互联网裁缝</del>），远远超出我的预期，甚至把常见问题补充得明明白白。于是，以同样的步骤，我写大纲，它来扩充，就完成了好几篇 wiki，效率及其之高。</p>
+<p>后来我发现，虽然 OpenCode 写的文档确实很详细，但它并不符合一个个人知识库风格，有这些问题：</p>
+<ul>
+<li>它把文档理解成了指南文档而不是笔记，例如「本指南」「本教程」的描述，这不是给外人看的，个人知识库更应该是告诉我自己应该怎么做</li>
+<li>文档中有很多第二人称表述，如「你的 GitHub 用户名」，但我只需要知道这里使用用户名就可以</li>
+<li>文档中有很多细节描述，这对我来说是十分冗余的，一些过于简单的前置条件和复杂的操作步骤我都是不需要知道的</li>
+</ul>
+<p>当我把这些信息喂给 OpenCode 之后，它马上开始大刀阔斧的删减，最终的结果就完全符合我的预期了。为了让它保持这个风格，我又让它把这个风格写到 <a target="_blank" rel="noopener" href="https://github.com/kaluojushi/corecabin-wiki/blob/main/AGENT.md">AGENT.md</a> 和 <a target="_blank" rel="noopener" href="https://github.com/kaluojushi/corecabin-wiki/blob/main/AGENT_ZH.md">AGENT_ZH.md</a> 里。记住这个最核心的原则后，它不仅可以修改自己写的文档，应该以后也可以把我自己写的文档修改成这个风格。</p>
+<h2 id="4-做-favicon"><a href="#4-做-favicon" class="headerlink" title="4 做 favicon"></a>4 做 favicon</h2><p>以前的 favicon 都是我自己设计的，要么通过找图片来抠图（比如核心舱），要么通过 icon 素材网找现成素材（比如 Carlo Tools），然后通过工具修改尺寸和格式，于是开始一直没有做 Corecabin Wiki 的 favicon。</p>
+<p>今晚突然想，OpenCode 既然能写代码，那生成一个 SVG 应该没问题吧？于是我又让它阅读了我的整个项目，然后让它根据项目设计一个 favicon，结果它在询问了我想要的风格后，直接就生成了一个 SVG 文件。虽然在工作时我就见识过 AI 帮我写代码的强大能力，没想到它在几乎「全盲」的情况下，能够直接「看见」图片的样子，这让我感到太神奇了。</p>
+<blockquote>
+<p>「全盲」是因为大模型毕竟是 LLM（大预言模型），并非多模态模型，所以它并不能真正「看见」图片，只是「想象」出图片的样子。我觉得我如果让它修改 SVG 的一部分样子，它应该也能做到。</p>
+<p>之前工作的时候还有一个能力让我感到很神奇，就是它能辅助写 ArkTS 代码，在没有编译的情况下，它也能「想象」出页面的渲染布局效果，能根据我的描述修改细节，太 nb 了。</p>
+</blockquote>
+<p>以下就是 OpenCode 生成的 SVG 文件，我一点都没有参与设计，大家看看效果如何，反正我觉得对一个 favicon 来说已经足够了：</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><defs><linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#667eea"/><stop offset="100%" style="stop-color:#764ba2"/></linearGradient><linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffffff"/><stop offset="100%" style="stop-color:#e8e8ff"/></linearGradient></defs><circle cx="256" cy="256" r="240" fill="url(#bgGradient)"/><circle cx="256" cy="256" r="208" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.3"/><ellipse cx="256" cy="256" rx="224" ry="80" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.25" transform="rotate(-30 256 256)"/><ellipse cx="256" cy="256" rx="224" ry="80" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.25" transform="rotate(30 256 256)"/><g transform="translate(128, 160)"><path d="M128 48 L128 192 Q64 176 0 192 L0 48 Q64 32 128 48 Z" fill="url(#bookGradient)" opacity="0.95"/><path d="M128 48 L128 192 Q192 176 256 192 L256 48 Q192 32 128 48 Z" fill="url(#bookGradient)" opacity="0.95"/><line x1="128" y1="32" x2="128" y2="208" stroke="#667eea" stroke-width="4"/><line x1="24" y1="80" x2="104" y2="72" stroke="#764ba2" stroke-width="3" opacity="0.4"/><line x1="24" y1="112" x2="104" y2="104" stroke="#764ba2" stroke-width="3" opacity="0.4"/><line x1="24" y1="144" x2="104" y2="136" stroke="#764ba2" stroke-width="3" opacity="0.4"/><line x1="152" y1="72" x2="232" y2="80" stroke="#764ba2" stroke-width="3" opacity="0.4"/><line x1="152" y1="104" x2="232" y2="112" stroke="#764ba2" stroke-width="3" opacity="0.4"/><line x1="152" y1="136" x2="232" y2="144" stroke="#764ba2" stroke-width="3" opacity="0.4"/></g><circle cx="96" cy="112" r="8" fill="#ffffff" opacity="0.6"/><circle cx="416" cy="128" r="10" fill="#ffffff" opacity="0.5"/><circle cx="80" cy="384" r="6" fill="#ffffff" opacity="0.4"/><circle cx="432" cy="368" r="8" fill="#ffffff" opacity="0.5"/></svg>
+
+<p>此外，在我的要求下，它还帮我生成了高清 SVG 和使用于苹果设备的 apple-touch-icon。</p>
+<p>在我让它帮我把图片转换为 PNG 格式时它就犯了难，似乎它并没有这个能力。但很快，它就开始尝试使用我电脑上的 npm，在本地装了一个临时工具 Sharp 库，然后快速写了个 js 脚本来操作。还别说，这比我自己去找工具转换方便多了。AI 的能力真是太强大了，感觉现在我也只触碰到了冰山一角，以后还可以继续探索一下。</p>
+<h2 id="5-和大家汇报一下我的-AI-使用进展"><a href="#5-和大家汇报一下我的-AI-使用进展" class="headerlink" title="5 和大家汇报一下我的 AI 使用进展"></a>5 和大家汇报一下我的 AI 使用进展</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%A0%B8%E5%BF%83%E8%88%B1/" rel="tag"><i class="fa fa-tag"></i> 核心舱</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+              <a href="/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/" rel="tag"><i class="fa fa-tag"></i> 个人项目</a>
+              <a href="/tags/AI/" rel="tag"><i class="fa fa-tag"></i> AI</a>
+              <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 知识库</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2026/02/11/my-2025-annual-summary/" rel="next" title="我的 2025 年度总结">
+      我的 2025 年度总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Corecabin-Wiki"><span class="nav-text">1 Corecabin Wiki</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E9%83%A8%E7%BD%B2"><span class="nav-text">2 静态页面部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-AI-%E8%BE%85%E5%8A%A9%E5%AE%8C%E6%88%90-wiki"><span class="nav-text">3 AI 辅助完成 wiki</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%81%9A-favicon"><span class="nav-text">4 做 favicon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%92%8C%E5%A4%A7%E5%AE%B6%E6%B1%87%E6%8A%A5%E4%B8%80%E4%B8%8B%E6%88%91%E7%9A%84-AI-%E4%BD%BF%E7%94%A8%E8%BF%9B%E5%B1%95"><span class="nav-text">5 和大家汇报一下我的 AI 使用进展</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="卡洛"
+      src="/img/avatar.jpg">
+  <p class="site-author-name" itemprop="name">卡洛</p>
+  <div class="site-description" itemprop="description">华为终端 | ArkUI 开发 | 代码爱好者</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/kaluojushi" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/kaluojushi" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;kaluojushi" rel="noopener" target="_blank"><i class="fa fa-fw fa-git"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/about/weixin_platform" title="微信公众号 → &#x2F;about&#x2F;weixin_platform"><i class="fa fa-fw fa-wechat"></i>微信公众号</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:carlo0901@163.com" title="E-Mail → mailto:carlo0901@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      一些个人项目
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://sodaguide.cn/" title="https:&#x2F;&#x2F;sodaguide.cn&#x2F;" rel="noopener" target="_blank">苏打盖 Sodaguide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jsguide.cn/" title="https:&#x2F;&#x2F;jsguide.cn&#x2F;" rel="noopener" target="_blank">JS Guide</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://corecabin.cn/carlo-tools/" title="https:&#x2F;&#x2F;corecabin.cn&#x2F;carlo-tools&#x2F;">Carlo Tools</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="/about/projects" title="&#x2F;about&#x2F;projects">……更多</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-space-shuttle"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carlo's Core Cabin</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '1407ab1c0b39227dc1cf',
+      clientSecret: '26ee955828427b835c315459ffa1b1eff180e9e8',
+      repo        : 'Corecabin_Comments',
+      owner       : 'kaluojushi',
+      admin       : ['kaluojushi'],
+      id          : '3ec0a4ba932ad6ed367040880bf04fd4',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
