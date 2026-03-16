@@ -123,6 +123,7 @@ menu:
   tags: /tags/ || tags
   links: /links/ || link
   about: /about/ || user
+  wiki: https://wiki.corecabin.cn/ || book
   # schedule: /schedule/ || calendar
   # sitemap: /sitemap.xml || sitemap
   # commonweal: /404/ || heartbeat
