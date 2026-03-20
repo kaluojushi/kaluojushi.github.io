@@ -20,6 +20,14 @@ type: links
 
 ---
 
+一些让我受启发的博客：
+
+- [Untitled Spot_未命名小站](https://untitled.pw/)
+- [Kingfish404's Blog](https://blog.kingfish404.cn/)
+- [colored-dye's blog](https://colored-dye.github.io/blog/)
+- [LGiki's Blog](https://lgiki.net/)
+- [CYFOR'blog](https://www.cyfor.cn/)
+
 与建站有关的基础服务提供：[GitHub](https://github.com/)、[Hexo](https://hexo.io/zh-cn/)、[腾讯云](https://cloud.tencent.com/)
 
 Hexo模板：[NexT](https://github.com/theme-next/hexo-theme-next)
