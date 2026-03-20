@@ -24,7 +24,7 @@ comments: true
 
 二是利用 GitHub 的 [GitHub Pages](https://pages.github.com/) 功能，加上开源的博客框架，做出静态页面即可。我选择尝试这种方法。
 
-在此之前，我参考了很多人的博客，包括本科同学 [哈哈哥的博客](https://leiwei.xyz/) 就是基于 GitHub Pages 搭建。
+在此之前，我参考了很多人的博客，包括本科同学 [哈哈哥的博客](https://leiwei.space/) 就是基于 GitHub Pages 搭建。
 
 ## 2 GitHub Pages 和 git
 
