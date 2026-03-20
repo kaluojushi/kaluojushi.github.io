@@ -13,14 +13,14 @@ comments: false
 > 
 > 项目网址：<https://sodaguide.cn/>
 
-## [苏打绿二十年一刻 2024 观演报告]()
+## [苏打绿二十年一刻 2024 观演报告](https://2024.sodagreen.me/)
 
 > 选择你所去过的场次，查看你的苏打绿二十年一刻巡回演唱会 2024 年度观演报告
 > 
 > 项目地址：[kaluojushi / 20yike-2024-annual-report
 ](https://github.com/kaluojushi/20yike-2024-annual-report)
 > 
-> 项目网址：<20yike-report.sodaguide.io>
+> 项目网址：<https://2024.sodagreen.me> / <https://20yike-report.sodaguide.io>
 
 ## 苏打音趴 Soda Yinpa
 
@@ -28,13 +28,13 @@ comments: false
 > 
 > 播客地址：[小宇宙 FM](https://www.xyzfm.link/ntufw)、[网易云音乐·播客](https://y.music.163.com/m/radio?app_version=9.0.10&id=1005427596&userid=6203371&dlt=0846)、[喜马拉雅](https://m.ximalaya.com/selfshare/albumnew/82001242?commandShareId=68a6aea100e0f63fce133eaeaf29be0b&shareTime=1717216421996&shareLevel=1&uid=250911018&srcType=6&subType=7&srcId=82001242)、[QQ 音乐](https://c6.y.qq.com/base/fcgi-bin/u?__=1q5kBCPft5mh)、[BiliBili](https://b23.tv/2EaylBh)
 
-## [JS Guide](https://jsguide.cn/)
+## [Corecabin Wiki](https://wiki.corecabin.cn/)
 
-> 一份前端面试指南
->
-> 项目地址：[kaluojushi / jsguide](https://github.com/kaluojushi/jsguide)
+> 核心舱知识库
 > 
-> 项目网址：<https://jsguide.cn/>
+> 项目地址：[kaluojushi / corecabin-wiki](https://github.com/kaluojushi/corecabin-wiki)
+> 
+> 项目网址：<https://wiki.corecabin.cn/>
 
 ## [Carlo Tools](https://corecabin.cn/carlo-tools/)
 
@@ -43,6 +43,14 @@ comments: false
 > 项目地址：[kaluojushi / carlo-tools](https://github.com/kaluojushi/carlo-tools)
 > 
 > 项目网址：<https://corecabin.cn/carlo-tools/>
+
+## [JS Guide](https://jsguide.cn/)
+
+> 一份前端面试指南
+>
+> 项目地址：[kaluojushi / jsguide](https://github.com/kaluojushi/jsguide)
+>
+> 项目网址：<https://jsguide.cn/>
 
 ## zju-health-report
 
