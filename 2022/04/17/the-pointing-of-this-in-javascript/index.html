@@ -325,7 +325,7 @@
 <p>面试常考题：通过 <code>new</code> 创建构造函数的一个实例时，发生了什么？</p>
 <p>以 <code>var a = new A()</code> 为例：</p>
 <ol>
-<li>创建一个空对象：<code>var obj = {}</code></li>
+<li>创建一个空对象：<code>var obj = &#123;&#125;</code></li>
 <li>让构造器函数 <code>A</code> 的 <code>this</code> 指向对象 <code>obj</code>，并执行 <code>A</code> 中的函数体：<code>var result = A.call(obj)</code></li>
 <li>设置原型链，让对象 <code>obj</code> 的 <code>__proto__</code> 属性指向构造器函数 <code>A</code> 的原型对象：<code>obj.__proto__ = A.prototype</code></li>
 <li>判断构造器函数 <code>A</code> 的返回类型，如果是值类型，结果返回 <code>obj</code>，如果是引用类型（<code>null</code> 除外），返回引用类型的对象：<code>a = result &amp;&amp; (typeof result === &quot;object&quot;) ? result : obj</code></li>
@@ -376,8 +376,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;me&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>()();	<span class="comment">// window对象 window对象</span></span><br><span class="line"><span class="keyword">let</span> fn2 = fn.<span class="title function_">call</span>(obj);	<span class="comment">// &#123; name: &#x27;me&#x27; &#125;</span></span><br><span class="line"><span class="title function_">fn2</span>();	<span class="comment">// &#123; name: &#x27;me&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>第 8 行，<code>fn</code> 中的两个 <code>this</code> 都指向全局对象 <code>window</code>，输出两次 <code>window</code> 对象。</li>
-<li>第 9 行，<code>fn</code>中的 <code>this</code> 被 <code>call</code> 改变指向，此时 <code>this</code> 指向 <code>obj</code>，调用一次 <code>fn</code> 函数，输出 <code>obj</code> 即 <code>{ name: &#39;me&#39; }</code></li>
-<li>第 10 行，<code>fn2</code> 是一个箭头函数，在第 9 行中，它的 <code>this</code> 被改变指向为 <code>obj</code>，因此此处输出 <code>obj</code> 即 <code>{ name: &#39;me&#39; }</code></li>
+<li>第 9 行，<code>fn</code>中的 <code>this</code> 被 <code>call</code> 改变指向，此时 <code>this</code> 指向 <code>obj</code>，调用一次 <code>fn</code> 函数，输出 <code>obj</code> 即 <code>&#123; name: &#39;me&#39; &#125;</code></li>
+<li>第 10 行，<code>fn2</code> 是一个箭头函数，在第 9 行中，它的 <code>this</code> 被改变指向为 <code>obj</code>，因此此处输出 <code>obj</code> 即 <code>&#123; name: &#39;me&#39; &#125;</code></li>
 </ul>
 <p><em>为什么第 10 行不是输出 <code>window</code> 对象？执行第 10 行时，定义箭头函数的 <code>fn</code> 作用域中的 <code>this</code> 应该指向 <code>window</code> 对象啊。</em></p>
 <p>箭头函数只看它定义时，当前作用域的 <code>this</code> 指向什么。第 6 行，箭头函数是在 <code>fn</code> 函数体内被定义的，因此第 9 行执行后，在定义箭头函数时，先是把内部的 <code>this</code> 更改为 <code>obj</code>，再返回给 <code>fn2</code>。这样 <code>fn2</code> 调用时（无论如何调用），都输出 <code>obj</code> 对象。</p>
